@@ -1,0 +1,214 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@media screen and (width:1920px) {
+    header{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom:1px solid black;
+        box-shadow: 0 0px 10px 5px #000000;
+    }
+    
+    a{
+        position: relative;
+        width: 150px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 25px;
+        text-decoration: none;
+        color: black;
+        margin: 50px;
+        transition: background-color 0.5s;;
+    }
+    
+    a:hover{
+        background-color: #823eff;
+        color: white;
+    }
+    
+    .btn-base{
+        left: 150px;
+    }
+    
+    .btn-login{
+        left:450px;
+    }   
+}
+
+/*Laptos*/
+
+@media screen and (width:1280px) {
+    header{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom:1px solid black;
+        box-shadow: 0 0px 10px 5px #000000;
+    }
+    
+    a{
+        position: relative;
+        width: 150px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 25px;
+        text-decoration: none;
+        color: black;
+        margin: 20px;
+        transition: background-color 0.5s;;
+    }
+    
+    a:hover{
+        background-color: #823eff;
+        color: white;
+    }
+    
+    .btn-base{
+        left: 110px;
+    }
+    
+    .btn-login{
+        left:250px;
+    }   
+}
+
+/*Celulares*/
+
+@media screen and (max-width:428px) {
+    header{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom:1px solid black;
+        box-shadow: 0 0px 10px 5px #000000;
+    }
+    
+    a{
+        position: relative;
+        width: 100px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 25px;
+        text-decoration: none;
+        color: black;
+        margin: 0px;
+        transition: background-color 0.5s;;
+    }
+    
+    a:hover{
+        background-color: #823eff;
+        color: white;
+    }
+    
+    .btn-base{
+        left: 0px;
+    }
+    
+    .btn-login{
+        left:0px;
+    }   
+}
+
+@media screen and (max-width:884px) {
+    header{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom:1px solid black;
+        box-shadow: 0 0px 10px 5px #000000;
+    }
+    
+    a{
+        position: relative;
+        width: 150px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 25px;
+        text-decoration: none;
+        color: black;
+        margin: 20px;
+        transition: background-color 0.5s;;
+    }
+    
+    a:hover{
+        background-color: #823eff;
+        color: white;
+    }
+    
+    .btn-base{
+        left: 110px;
+    }
+    
+    .btn-login{
+        left:250px;
+    }   
+}
+
+
+@media screen and (max-width:1080px) {
+    header{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom:1px solid black;
+        box-shadow: 0 0px 10px 5px #000000;
+    }
+    
+    a{
+        position: relative;
+        width: 150px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 25px;
+        text-decoration: none;
+        color: black;
+        margin: 20px;
+        transition: background-color 0.5s;;
+    }
+    
+    a:hover{
+        background-color: #823eff;
+        color: white;
+    }
+    
+    .btn-base{
+        left: 110px;
+    }
+    
+    .btn-login{
+        left:250px;
+    }   
+}
