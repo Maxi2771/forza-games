@@ -164,14 +164,13 @@
     }
     
     .btn-base{
-        left: 110px;
+        left: 0px;
     }
     
     .btn-login{
-        left:250px;
+        left:0px;
     }   
 }
-
 
 @media screen and (max-width:1080px) {
     header{
@@ -205,10 +204,10 @@
     }
     
     .btn-base{
-        left: 110px;
+        left: 0px;
     }
     
     .btn-login{
-        left:250px;
+        left:0px;
     }   
 }
