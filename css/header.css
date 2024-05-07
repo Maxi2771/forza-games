@@ -8,7 +8,7 @@
     font-style: normal;
 }
 
-@media screen and (width:1920px) {
+@media screen and (max-width:1920px) {
     header{
         width: 100%;
         height: 80px;
@@ -45,12 +45,36 @@
     
     .btn-login{
         left:450px;
-    }   
+    }
+    
+    .menu{
+        display: none;
+    }
+
+    .logo{
+        width: 80px;
+        height: 80px;
+        position: relative;
+        left: -250px;
+    }
+
+    .juego{
+        position: relative;
+        left: -200px;
+    }
+
+    .menu_desplegado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: -100px;
+    }
 }
 
 /*Laptos*/
 
-@media screen and (width:1280px) {
+@media screen and (max-width:1280px) {
     header{
         width: 100%;
         height: 80px;
@@ -90,7 +114,7 @@
     }   
 }
 
-/*Celulares*/
+/*Celulares y Tablets*/
 
 @media screen and (max-width:428px) {
     header{
@@ -129,7 +153,58 @@
     
     .btn-login{
         left:0px;
-    }   
+    }
+    
+    .logo{
+        width: 60px;
+        height: 60px;
+        font-size: 1.9em;
+        position: relative;
+        left: -30px;
+        text-shadow: 1px 1px 10px black;
+    }
+
+    .juego{
+        width: 165px;
+        height: 60px;
+        font-size: 1.9em;
+        position: relative;
+        top: 10px;
+        left: 25px;
+        text-shadow: 1px 1px 10px black;
+    }
+
+    .menu{
+        width: 60px;
+        height: 60px;
+        display: flex;
+        border: 1px solid black;
+        border-radius: 50px;
+        position: relative;
+        left: 45px;
+    }
+
+    .menu img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu_desplegado{
+        position: fixed;
+        left: 0;
+        top: 80px;
+        bottom: 0;
+        right: 0;
+        display: grid;
+        place-items: center;
+        border: 1px solid black;
+        clip-path: circle(0% at top left);
+        transition: clip-path .4s;
+    }
+
+    .menu_desplegado:target{
+        clip-path: circle(150% at top left);
+    }
 }
 
 @media screen and (max-width:884px) {
@@ -143,33 +218,64 @@
         box-shadow: 0 0px 10px 5px #000000;
     }
     
-    a{
-        position: relative;
-        width: 150px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 2px solid black;
-        border-radius: 25px;
-        text-decoration: none;
-        color: black;
-        margin: 20px;
-        transition: background-color 0.5s;;
-    }
-    
-    a:hover{
-        background-color: #823eff;
-        color: white;
-    }
-    
     .btn-base{
         left: 0px;
     }
     
     .btn-login{
         left:0px;
-    }   
+    }
+
+    .logo{
+        width: 60px;
+        height: 60px;
+        font-size: 1.9em;
+        position: relative;
+        left: -30px;
+        text-shadow: 1px 1px 10px black;
+    }
+
+    .juego{
+        width: 165px;
+        height: 60px;
+        font-size: 1.9em;
+        position: relative;
+        top: 10px;
+        left: 25px;
+        text-shadow: 1px 1px 10px black;
+    }
+
+    .menu{
+        width: 60px;
+        height: 60px;
+        display: flex;
+        border: 1px solid black;
+        border-radius: 50px;
+        position: relative;
+        left: 45px;
+    }
+
+    .menu img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu_desplegado{
+        position: fixed;
+        left: 0;
+        top: 80px;
+        bottom: 0;
+        right: 0;
+        display: grid;
+        place-items: center;
+        border: 1px solid black;
+        clip-path: circle(0% at top left);
+        transition: clip-path .4s;
+    }
+
+    .menu_desplegado:target{
+        clip-path: circle(150% at top left);
+    }
 }
 
 @media screen and (max-width:1080px) {
