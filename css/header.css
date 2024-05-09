@@ -19,32 +19,45 @@
         box-shadow: 0 0px 10px 5px #000000;
     }
     
-    a{
+    .contenedor-btn{
+        position: relative;
+        width: 160px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        text-decoration: none;
+        margin: 50px;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
+    }
+
+    .btn{
         position: relative;
         width: 150px;
         height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 2px solid black;
-        border-radius: 25px;
-        text-decoration: none;
+        background-color: white;
         color: black;
-        margin: 50px;
+        text-decoration: none;
+        margin: 10px;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
         transition: background-color 0.5s;;
     }
     
-    a:hover{
+    .btn:hover{
         background-color: #823eff;
         color: white;
     }
-    
-    .btn-base{
-        left: 150px;
+
+    .btnL-mover{
+        left: 420px;
     }
-    
-    .btn-login{
-        left:450px;
+
+    .btnR-mover{
+        left: 150px;
     }
     
     .menu{
@@ -85,33 +98,71 @@
         box-shadow: 0 0px 10px 5px #000000;
     }
     
-    a{
+    .contenedor-btn{
         position: relative;
         width: 150px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        text-decoration: none;
+        margin: 10px;
+        left: 0;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
+    }
+
+    .btn{
+        position: relative;
+        width: 140px;
         height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 2px solid black;
-        border-radius: 25px;
-        text-decoration: none;
+        background-color: white;
         color: black;
-        margin: 20px;
+        margin: 10px;
+        left: 0;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
         transition: background-color 0.5s;;
     }
     
-    a:hover{
+    .btn:hover{
         background-color: #823eff;
         color: white;
     }
-    
-    .btn-base{
-        left: 110px;
+
+    .btnL-mover{
+        left: 260px;
     }
-    
-    .btn-login{
-        left:250px;
-    }   
+
+    .btnR-mover{
+        left: 95px;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .logo{
+        width: 80px;
+        height: 80px;
+        position: relative;
+        left: -160px;
+    }
+
+    .juego{
+        position: relative;
+        left: -140px;
+    }
+
+    .menu_desplegado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: -100px;
+    }
 }
 
 /*Celulares y Tablets*/
@@ -126,35 +177,41 @@
         border-bottom:1px solid black;
         box-shadow: 0 0px 10px 5px #000000;
     }
-    
-    a{
+
+    .contenedor-btn{
         position: relative;
-        width: 100px;
+        width: 150px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        text-decoration: none;
+        margin: 0;
+        left: 0;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
+    }
+
+    .btn{
+        position: relative;
+        width: 140px;
         height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 2px solid black;
-        border-radius: 25px;
-        text-decoration: none;
+        background-color: white;
         color: black;
-        margin: 0px;
+        margin: 0;
+        left: 0;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
         transition: background-color 0.5s;;
     }
     
-    a:hover{
+    .btn:hover{
         background-color: #823eff;
         color: white;
     }
-    
-    .btn-base{
-        left: 0px;
-    }
-    
-    .btn-login{
-        left:0px;
-    }
-    
+
     .logo{
         width: 60px;
         height: 60px;
@@ -218,12 +275,38 @@
         box-shadow: 0 0px 10px 5px #000000;
     }
     
-    .btn-base{
-        left: 0px;
+    .contenedor-btn{
+        position: relative;
+        width: 150px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        text-decoration: none;
+        margin: 50;
+        left: 0;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
+    }
+
+    .btn{
+        position: relative;
+        width: 140px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        color: black;
+        margin: 10;
+        left: 0;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
+        transition: background-color 0.5s;;
     }
     
-    .btn-login{
-        left:0px;
+    .btn:hover{
+        background-color: #823eff;
+        color: white;
     }
 
     .logo{
@@ -289,31 +372,88 @@
         box-shadow: 0 0px 10px 5px #000000;
     }
     
-    a{
+    .contenedor-btn{
         position: relative;
         width: 150px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        text-decoration: none;
+        margin: 0;
+        left: 0;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
+    }
+
+    .btn{
+        position: relative;
+        width: 140px;
         height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 2px solid black;
-        border-radius: 25px;
-        text-decoration: none;
+        background-color: white;
         color: black;
-        margin: 20px;
+        margin: 10;
+        left: 0;
+        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
         transition: background-color 0.5s;;
     }
     
-    a:hover{
+    .btn:hover{
         background-color: #823eff;
         color: white;
     }
     
-    .btn-base{
-        left: 0px;
+    .logo{
+        width: 60px;
+        height: 60px;
+        font-size: 1.9em;
+        position: relative;
+        left: -30px;
+        text-shadow: 1px 1px 10px black;
     }
-    
-    .btn-login{
-        left:0px;
-    }   
+
+    .juego{
+        width: 165px;
+        height: 60px;
+        font-size: 1.9em;
+        position: relative;
+        top: 10px;
+        left: 25px;
+        text-shadow: 1px 1px 10px black;
+    }
+
+    .menu{
+        width: 60px;
+        height: 60px;
+        display: flex;
+        border: 1px solid black;
+        border-radius: 50px;
+        position: relative;
+        left: 45px;
+    }
+
+    .menu img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu_desplegado{
+        position: fixed;
+        left: 0;
+        top: 80px;
+        bottom: 0;
+        right: 0;
+        display: grid;
+        place-items: center;
+        border: 1px solid black;
+        clip-path: circle(0% at top left);
+        transition: clip-path .4s;
+    }
+
+    .menu_desplegado:target{
+        clip-path: circle(150% at top left);
+    }
 }
