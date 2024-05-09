@@ -74,6 +74,7 @@
     .juego{
         position: relative;
         left: -200px;
+        text-shadow: 1px 1px 10px #823eff;
     }
 
     .menu_desplegado{
@@ -154,6 +155,7 @@
     .juego{
         position: relative;
         left: -140px;
+        text-shadow: 1px 1px 10px #823eff;
     }
 
     .menu_desplegado{
@@ -218,7 +220,6 @@
         font-size: 1.9em;
         position: relative;
         left: -30px;
-        text-shadow: 1px 1px 10px black;
     }
 
     .juego{
@@ -228,7 +229,7 @@
         position: relative;
         top: 10px;
         left: 25px;
-        text-shadow: 1px 1px 10px black;
+        text-shadow: 1px 1px 10px #823eff;
     }
 
     .menu{
@@ -315,7 +316,6 @@
         font-size: 1.9em;
         position: relative;
         left: -30px;
-        text-shadow: 1px 1px 10px black;
     }
 
     .juego{
@@ -325,7 +325,7 @@
         position: relative;
         top: 10px;
         left: 25px;
-        text-shadow: 1px 1px 10px black;
+        text-shadow: 1px 1px 10px #823eff;
     }
 
     .menu{
@@ -412,7 +412,6 @@
         font-size: 1.9em;
         position: relative;
         left: -30px;
-        text-shadow: 1px 1px 10px black;
     }
 
     .juego{
@@ -422,7 +421,7 @@
         position: relative;
         top: 10px;
         left: 25px;
-        text-shadow: 1px 1px 10px black;
+        text-shadow: 1px 1px 10px #823eff;
     }
 
     .menu{
