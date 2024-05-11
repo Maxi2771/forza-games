@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/register.css">
     <link rel="stylesheet" href="../css/login.css">
     <title>Ingresar</title>
 </head>
@@ -35,25 +36,23 @@
     <main>
         <form action="../index.html" method="post" class="login-contenedor">
             <h1>Login</h1>
-            <div class="contenedor-btn-login">
                 <input class="btn-login" type="text"  name="" id="" placeholder="Correo Electronico">
-            </div>
-            <div class="contenedor-btn-login">
                 <input class="btn-login" type="password" name="" id="" placeholder="Contraseña">
-            </div>
-            <div class="contenedor-btn-login">
                 <input class="btn-login ingresar" type="button" name="" id="" value="Ingresar">
-            </div>
-            <h4 class="texto2" onclick="mostrar_register()">Registrarse</h4>
+            <h4 class="mostrar_register" onclick="mostrar_register()">Registrarse</h4>
         </form>
         <form action="" method="post" class="register-contenedor">
-            <input type="text" placeholder="Nombre">
-            <input type="text" placeholder="Apellido">
-            <input type="text" placeholder="Correo Electronico">
-            <input type="text" placeholder="Usuario">
-            <input type="password" name="" id="" placeholder="Contraseña">
-            <h4 class="texto1" onclick="mostrarlogin()">Login</h4>
+            <h1>Register</h1>
+            <input class="btn-register" type="text" placeholder="Nombre">
+            <input class="btn-register" type="text" placeholder="Apellido">
+            <input class="btn-register" type="text" placeholder="Correo Electronico">
+            <input class="btn-register" type="text" placeholder="Usuario">
+            <input class="btn-register" type="password" name="" id="" placeholder="Contraseña">
+            <input class="btn-register ingresar" type="button" name="" id="" value="Registrarse">
+            <h4 class="mostrar_login" onclick="mostrar_login()">Login</h4>
         </form>
     </main>
 </body>
 </html>
+
+<script src="../js/login-register.js"></script>

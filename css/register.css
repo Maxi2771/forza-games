@@ -1,3 +1,43 @@
 @media screen and (max-width:1920px) {
-    
+    .register-contenedor{
+        display: none;
+        width: 300px;
+        height: 550px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid black;
+        border-radius: 25px;
+        box-shadow: 0 0px 10px 5px black;
+    }
+
+    .register-contenedor h1{
+        font-size: 2.2em;
+        text-shadow: 1px 1px 10px #823eff;
+    }
+
+    .mostrar_login{
+        color: #823eff;
+        font-size: 1.0em;
+        text-shadow: 1px 1px 10px black;
+        cursor: pointer;
+    }
+
+    .btn-register{
+        font-size: 1.0em;
+        position: relative;
+        width: 180px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        color: black;
+        margin: 10px;
+        border: 2px solid black;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background-color 0.5s;;
+    }
 }

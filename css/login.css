@@ -26,17 +26,11 @@
         text-shadow: 1px 1px 10px #823eff;
     }
 
-    .contenedor-btn-login{
-        position: relative;
-        width: 200px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        text-decoration: none;
-        margin: 20px;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
+    .mostrar_register{
+        color: #823eff;
+        font-size: 1.0em;
+        text-shadow: 1px 1px 10px black;
+        cursor: pointer;
     }
 
     .btn-login{
@@ -51,13 +45,15 @@
         background-color: white;
         color: black;
         margin: 10px;
+        border: 2px solid black;
+        border-radius: 25px;
         text-decoration: none;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
         transition: background-color 0.5s;;
     }
 
     .ingresar:hover{
         background-color: #823eff;
+        color: white;
         cursor: pointer;
     }
 }
