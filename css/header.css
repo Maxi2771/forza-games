@@ -236,8 +236,8 @@
         width: 60px;
         height: 60px;
         display: flex;
-        border: 1px solid black;
-        border-radius: 50px;
+        clip-path: polygon(50% 0, 100% 20%, 100% 75%, 50% 100%, 0 75%, 0 20%);
+        
         position: relative;
         left: 45px;
     }
@@ -332,8 +332,8 @@
         width: 60px;
         height: 60px;
         display: flex;
-        border: 1px solid black;
-        border-radius: 50px;
+        clip-path: polygon(50% 0, 100% 20%, 100% 75%, 50% 100%, 0 75%, 0 20%);
+
         position: relative;
         left: 45px;
     }
@@ -425,18 +425,24 @@
     }
 
     .menu{
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         display: flex;
-        border: 1px solid black;
-        border-radius: 50px;
+        justify-content: center;
+        align-items: center;
+        clip-path: polygon(50% 0, 100% 20%, 100% 75%, 50% 100%, 0 75%, 0 20%);
         position: relative;
+        background-color: black;
         left: 45px;
     }
 
     .menu img{
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .ocultar{
+        display: none;
     }
 
     .menu_desplegado{
@@ -447,12 +453,6 @@
         right: 0;
         display: grid;
         place-items: center;
-        border: 1px solid black;
-        clip-path: circle(0% at top left);
-        transition: clip-path .4s;
-    }
-
-    .menu_desplegado:target{
-        clip-path: circle(150% at top left);
+        background-color: white;
     }
 }

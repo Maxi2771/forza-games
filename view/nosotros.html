@@ -34,10 +34,33 @@
     </header>
     <main>
         <section class="selector_miembros">
-            <div class="miembros fabri"><p>Fabrizio Amado</p><img class="downarrow" src="../img/DownArrowR.svg" alt=""></div>
-            <div class="miembros facu"> <p>Facundo Godoy </p><img class="downarrow" src="../img/DownArrowV.svg" alt=""></div>
-            <div class="miembros maxi"> <p>Máximo Godoy  </p><img class="downarrow" src="../img/DownArrowB.svg" alt=""></div>
+            <div class="miembros border-fabri color-fabri "><p>Fabrizio Amado</p>   <img id="downarrow1" class="border-fabri arrow" src="../img/DownArrowR.svg" onclick="desplegar('content1')" alt=""> </div>
+            <div id="content1" class="desplegable border-fabri">
+                <div class="contenedor_info">
+                    <img class="border-fabri" src="" alt="">
+                    <p>Hola soy Fabri</p>
+                </div>
+                <img class="border-fabri arrow" src="../img/UpArrowR.svg" onclick="desplegar('content1')" alt="">
+            </div>
+            <div class="miembros border-facu  color-facu  "> <p>Facundo Godoy </p>  <img id="downarrow2" class="border-facu arrow" src="../img/DownArrowV.svg" onclick="desplegar('content2')" alt="">  </div>
+            <div id="content2" class="desplegable border-facu">
+                <div class="contenedor_info">
+                    <img class="border-facu" src="" alt="">
+                    <p>Hola soy Facu</p>
+                </div>
+                <img class="border-facu arrow" src="../img/UpArrowV.svg" onclick="desplegar('content2')" alt="">
+            </div>
+            <div class="miembros border-maxi  color-maxi  "> <p>Máximo Godoy  </p>  <img id="downarrow3" class="border-maxi arrow" src="../img/DownArrowB.svg" onclick="desplegar('content3')" alt="">  </div>
+            <div id="content3" class="desplegable border-maxi">
+                <div class="contenedor_info">
+                    <img class="border-maxi" src="" alt="">
+                    <p>Hola soy Maxi</p>
+                </div>
+                <img class="border-maxi arrow" src="../img/UpArrowB.svg" onclick="desplegar('content3')" alt="">
+            </div>
         </section>
     </main>
 </body>
 </html>
+
+<script src="../js/desplegar.js"></script>
