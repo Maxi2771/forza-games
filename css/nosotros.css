@@ -334,14 +334,14 @@
 
 @media screen and (max-width:428px) {
     main{
-        width: 100%;
+        width: 428px;
         height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .selector_miembros{
-        width: 850px;
+        width: 350px;
         height: 600px;
         display: flex;
         flex-direction: column;
