@@ -1,45 +1,178 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Desplegable con Imagen</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
 <body>
-
-<img id="toggleImage" src="menu_icon.png" alt="Menú">
-
-<ul id="menu" class="hidden">
-    <li><a href="#">Inicio</a></li>
-    <li><a href="#">Acerca de</a></li>
-    <li><a href="#">Contacto</a></li>
-</ul>
-
-<script src="script.js"></script>
-
+    <header>
+        <img class="logo" src="../img/logo.png" alt="">
+        <h1 class="juego">Parabellum</h1>
+        <a href="#menu" class="menu" id="hamburger">
+            <img src="../img/menu.svg" alt="" class="nav_icon">
+        </a>
+        <div class="menu_desplegado" id="menu">
+            <div class="contenedor-btn btnR-mover">
+                <a class="btn"  href="../index.html">Inicio</a>
+            </div>
+            <div class="contenedor-btn btnR-mover">
+                <a class="btn"  href="wiki.html">Wiki</a>
+            </div>
+            <div class="contenedor-btn btnR-mover">
+                <a class="btn"  href="nosotros.html">Nosotros</a>
+            </div>
+            <div class="contenedor-btn btnL-mover">
+                <a class="btn" href="ingresar.html">Ingresar</a>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
 
 <style>
-    .hidden {
+    *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid black;
+    box-shadow: 0 0px 10px 5px #000000;
+    color: white;
+}
+
+.logo {
+    position: relative;
+    width: 50px;
+}
+
+.juego {
+    font-size: 1.6em;
+    color: black;
+    text-shadow: 1px 1px 10px #823eff;
+}
+
+.menu {
     display: none;
+}
+
+.menu_desplegado {
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-btn {
+    margin-left: 20px;
+}
+
+.btn {
+    color: #823eff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #823eff;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #e6e4e4;
+}
+
+@media (max-width: 884px) {
+    .menu {
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        clip-path: polygon(50% 0, 100% 20%, 100% 75%, 50% 100%, 0 75%, 0 20%);
+        position: relative;
+        cursor: pointer;
+    }
+
+    .menu_desplegado {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: white;
+        border: 2px solid #823eff;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .contenedor-btn {
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .menu_desplegado.active {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 40px;
+    }
+
+    .juego {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 428px) {
+    .logo {
+        width: 30px;
+    }
+
+    .juego {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    .contenedor-btn {
+        margin: 15px 0;
+    }
+
+    .btn {
+        padding: 8px;
+    }
 }
 
 </style>
 
 <script>
-    const toggleImage = document.getElementById('toggleImage');
-const menu = document.getElementById('menu');
+    document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('menu');
 
-toggleImage.addEventListener('click', function() {
-    if (menu.classList.contains('hidden')) {
-        menu.classList.remove('hidden');
-        toggleImage.src = 'close_icon.png'; // Cambia la imagen del icono a "close_icon.png"
-    } else {
-        menu.classList.add('hidden');
-        toggleImage.src = 'menu_icon.png'; // Cambia la imagen del icono a "menu_icon.png"
-    }
+    hamburger.addEventListener('click', (e) => {
+        e.preventDefault();
+        navMenu.classList.toggle('active');
+    });
 });
 
 </script>

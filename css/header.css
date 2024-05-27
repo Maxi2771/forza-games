@@ -8,451 +8,125 @@
     font-style: normal;
 }
 
-@media screen and (max-width:1920px) {
-    header{
-        width: 100%;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom:1px solid black;
-        box-shadow: 0 0px 10px 5px #000000;
-    }
-    
-    .contenedor-btn{
-        position: relative;
-        width: 145px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        text-decoration: none;
-        margin: 50px;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-    }
-
-    .btn{
-        position: relative;
-        width: 140px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        color: black;
-        text-decoration: none;
-        margin: 10px;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-        transition: background-color 0.5s;;
-    }
-    
-    .btn:hover{
-        background-color: #823eff;
-        color: white;
-    }
-
-    .btnL-mover{
-        left: 420px;
-    }
-
-    .btnR-mover{
-        left: 150px;
-    }
-    
-    .menu{
-        display: none;
-    }
-
-    .logo{
-        width: 80px;
-        height: 80px;
-        position: relative;
-        left: -250px;
-    }
-
-    .juego{
-        position: relative;
-        left: -200px;
-        text-shadow: 1px 1px 10px #823eff;
-    }
-
-    .menu_desplegado{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        left: -100px;
-    }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid black;
+    box-shadow: 0 0px 10px 5px #000000;
+    color: white;
 }
 
-/*Laptos*/
-
-@media screen and (max-width:1280px) {
-    header{
-        width: 100%;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom:1px solid black;
-        box-shadow: 0 0px 10px 5px #000000;
-    }
-    
-    .contenedor-btn{
-        position: relative;
-        width: 145px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        text-decoration: none;
-        margin: 10px;
-        left: 0;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-    }
-
-    .btn{
-        position: relative;
-        width: 140px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        color: black;
-        margin: 10px;
-        left: 0;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-        transition: background-color 0.5s;;
-    }
-    
-    .btn:hover{
-        background-color: #823eff;
-        color: white;
-    }
-
-    .btnL-mover{
-        left: 260px;
-    }
-
-    .btnR-mover{
-        left: 95px;
-    }
-
-    .menu{
-        display: none;
-    }
-
-    .logo{
-        width: 80px;
-        height: 80px;
-        position: relative;
-        left: -160px;
-    }
-
-    .juego{
-        position: relative;
-        left: -140px;
-        text-shadow: 1px 1px 10px #823eff;
-    }
-
-    .menu_desplegado{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        left: -100px;
-    }
+.logo {
+    position: relative;
+    width: 50px;
 }
 
-/*Celulares y Tablets*/
-
-@media screen and (max-width:428px) {
-    header{
-        width: 100%;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom:1px solid black;
-        box-shadow: 0 0px 10px 5px #000000;
-    }
-
-    .contenedor-btn{
-        position: relative;
-        width: 145px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        text-decoration: none;
-        margin: 0;
-        left: 0;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-    }
-
-    .btn{
-        position: relative;
-        width: 140px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        color: black;
-        margin: 0;
-        left: 0;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-        transition: background-color 0.5s;;
-    }
-    
-    .btn:hover{
-        background-color: #823eff;
-        color: white;
-    }
-
-    .logo{
-        width: 60px;
-        height: 60px;
-        font-size: 1.9em;
-        position: relative;
-        left: -30px;
-    }
-
-    .juego{
-        width: 165px;
-        height: 60px;
-        font-size: 1.9em;
-        position: relative;
-        top: 10px;
-        left: 25px;
-        text-shadow: 1px 1px 10px #823eff;
-    }
-
-    .menu{
-        width: 60px;
-        height: 60px;
-        display: flex;
-        clip-path: polygon(50% 0, 100% 20%, 100% 75%, 50% 100%, 0 75%, 0 20%);
-        
-        position: relative;
-        left: 45px;
-    }
-
-    .menu img{
-        width: 50px;
-        height: 50px;
-    }
-
-    .menu_desplegado{
-        position: fixed;
-        left: 0;
-        top: 80px;
-        bottom: 0;
-        right: 0;
-        display: grid;
-        place-items: center;
-        border: 1px solid black;
-        clip-path: circle(0% at top left);
-        transition: clip-path .4s;
-    }
-
-    .menu_desplegado:target{
-        clip-path: circle(150% at top left);
-    }
+.juego {
+    font-size: 1.6em;
+    color: black;
+    text-shadow: 1px 1px 10px #823eff;
 }
 
-@media screen and (max-width:884px) {
-    header{
-        width: 100%;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom:1px solid black;
-        box-shadow: 0 0px 10px 5px #000000;
-    }
-    
-    .contenedor-btn{
-        position: relative;
-        width: 145px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-        text-decoration: none;
-        margin: 50;
-        left: 0;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-    }
-
-    .btn{
-        position: relative;
-        width: 140px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        color: black;
-        margin: 10;
-        left: 0;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-        transition: background-color 0.5s;;
-    }
-    
-    .btn:hover{
-        background-color: #823eff;
-        color: white;
-    }
-
-    .logo{
-        width: 60px;
-        height: 60px;
-        font-size: 1.9em;
-        position: relative;
-        left: -30px;
-    }
-
-    .juego{
-        width: 165px;
-        height: 60px;
-        font-size: 1.9em;
-        position: relative;
-        top: 10px;
-        left: 25px;
-        text-shadow: 1px 1px 10px #823eff;
-    }
-
-    .menu{
-        width: 60px;
-        height: 60px;
-        display: flex;
-        clip-path: polygon(50% 0, 100% 20%, 100% 75%, 50% 100%, 0 75%, 0 20%);
-
-        position: relative;
-        left: 45px;
-    }
-
-    .menu img{
-        width: 50px;
-        height: 50px;
-    }
-
-    .menu_desplegado{
-        position: fixed;
-        left: 0;
-        top: 80px;
-        bottom: 0;
-        right: 0;
-        display: grid;
-        place-items: center;
-        border: 1px solid black;
-        clip-path: circle(0% at top left);
-        transition: clip-path .4s;
-    }
-
-    .menu_desplegado:target{
-        clip-path: circle(150% at top left);
-    }
+.menu {
+    display: none;
 }
 
-@media screen and (max-width:1080px) {
-    header{
-        width: 100%;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-bottom:1px solid black;
-        box-shadow: 0 0px 10px 5px #000000;
-    }
-    
-    .contenedor-btn{
-        position: relative;
-        width: 145px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+.menu_desplegado {
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-btn {
+    margin-left: 20px;
+}
+
+.btn {
+    color: #823eff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #823eff;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #e6e4e4;
+}
+
+@media (max-width: 884px) {
+    .menu {
+        width: 40px;
+        height: 40px;
         background-color: black;
-        text-decoration: none;
-        margin: 0;
-        left: 0;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-    }
-
-    .btn{
-        position: relative;
-        width: 140px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        color: black;
-        margin: 10;
-        left: 0;
-        clip-path: polygon(30% 15%, 70% 15%, 100% 40%, 100% 60%, 70% 85%, 30% 85%, 0 60%, 0 40%);
-        transition: background-color 0.5s;;
-    }
-    
-    .btn:hover{
-        background-color: #823eff;
-        color: white;
-    }
-    
-    .logo{
-        width: 60px;
-        height: 60px;
-        font-size: 1.9em;
-        position: relative;
-        left: -30px;
-    }
-
-    .juego{
-        width: 165px;
-        height: 60px;
-        font-size: 1.9em;
-        position: relative;
-        top: 10px;
-        left: 25px;
-        text-shadow: 1px 1px 10px #823eff;
-    }
-
-    .menu{
-        width: 50px;
-        height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
         clip-path: polygon(50% 0, 100% 20%, 100% 75%, 50% 100%, 0 75%, 0 20%);
         position: relative;
-        background-color: black;
-        left: 45px;
+        cursor: pointer;
     }
 
-    .menu img{
-        width: 45px;
-        height: 45px;
-    }
-
-    .ocultar{
+    .menu_desplegado {
         display: none;
+        flex-direction: row;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: white;
+        border: 2px solid #823eff;
+        border-radius: 0 0 10px 10px;
     }
 
-    .menu_desplegado{
-        position: fixed;
-        left: 0;
-        top: 80px;
-        bottom: 0;
-        right: 0;
-        display: grid;
-        place-items: center;
-        background-color: white;
+    .contenedor-btn {
+        text-align: center;
+    }
+
+    .menu_desplegado.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        width: 40px;
+    }
+
+    .juego {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 428px) {
+    .logo {
+        width: 30px;
+    }
+
+    .juego {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    .contenedor-btn {
+        margin: 15px 0;
+    }
+
+    .btn {
+        margin: 5px;
+        padding: 8px;
     }
 }
