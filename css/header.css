@@ -25,6 +25,8 @@ header {
 }
 
 .juego {
+    position: relative;
+    left: 185px;
     font-size: 1.6em;
     color: black;
     text-shadow: 1px 1px 10px #823eff;
