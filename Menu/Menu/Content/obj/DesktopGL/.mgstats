@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/xampp/htdocs/forza-games/Menu/Menu/Content/Controls/button.png","C:/xampp/htdocs/forza-games/Menu/Menu/Content/bin/DesktopGL/Controls/button.xnb","TextureProcessor","Texture2DContent",88354,6397525,0,2445103
+"C:/xampp/htdocs/forza-games/Menu/Menu/Content/Fonts/Fonts.spritefont","C:/xampp/htdocs/forza-games/Menu/Menu/Content/bin/DesktopGL/Fonts/Fonts.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0,081077

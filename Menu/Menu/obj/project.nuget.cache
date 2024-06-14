@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "iEF+vb/QJurUCZy5l/z6kk7RROslVqy/gDJDdxcXXla5epHHhjPtFQaYbJtU6tcv/W32u8+G+VQoHqUYauuyDA==",
+  "success": true,
+  "projectFilePath": "C:\\xampp\\htdocs\\forza-games\\Menu\\Menu\\Menu.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alumno\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Alumno\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+  ],
+  "logs": []
+}
