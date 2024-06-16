@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pu6BQ0cMD2x7q1btsu8Tiz4d2PnU37s5Up260iXJuH8guZ6mPMe4cALEMIAp8MaJpoMsBS8WFdsXmr5Nt3p3gw==",
+  "dgSpecHash": "jH1qvGphuO0NL9vAkyFxjtxlXpU7IA+3LFC2QeUjh8gmBeNKib8hOTXHOLKsi7CtxhzYjb3QYWoQ69yNW/JLEw==",
   "success": true,
-  "projectFilePath": "C:\\xampp\\htdocs\\forza-games\\Player\\Player\\Player.csproj",
+  "projectFilePath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Player.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Alumno\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\Alumno\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\Fabrizio\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Fabrizio\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }

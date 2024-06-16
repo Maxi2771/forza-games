@@ -1,0 +1,129 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\player\\player\\models\\input.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|solutionrelative:player\\models\\input.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\player\\player\\managers\\animationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|solutionrelative:player\\managers\\animationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\player\\player\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|solutionrelative:player\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\player\\player\\models\\animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|solutionrelative:player\\models\\animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\player\\player\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90C36322-D0FB-4D36-A3FF-BF102A8B8489}|Player\\Player.csproj|solutionrelative:player\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Game1.cs",
+              "RelativeDocumentMoniker": "Player\\Game1.cs",
+              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Game1.cs",
+              "RelativeToolTip": "Player\\Game1.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAkwBwAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T21:33:25.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Sprite.cs",
+              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Sprites\\Sprite.cs",
+              "RelativeDocumentMoniker": "Player\\Sprites\\Sprite.cs",
+              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Sprites\\Sprite.cs",
+              "RelativeToolTip": "Player\\Sprites\\Sprite.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAIAwwFAAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T19:58:04.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Input.cs",
+              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Models\\Input.cs",
+              "RelativeDocumentMoniker": "Player\\Models\\Input.cs",
+              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Models\\Input.cs",
+              "RelativeToolTip": "Player\\Models\\Input.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T19:57:49.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Animation.cs",
+              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Models\\Animation.cs",
+              "RelativeDocumentMoniker": "Player\\Models\\Animation.cs",
+              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Models\\Animation.cs",
+              "RelativeToolTip": "Player\\Models\\Animation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T20:01:03.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AnimationManager.cs",
+              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Managers\\AnimationManager.cs",
+              "RelativeDocumentMoniker": "Player\\Managers\\AnimationManager.cs",
+              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Player\\Player\\Managers\\AnimationManager.cs",
+              "RelativeToolTip": "Player\\Managers\\AnimationManager.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAswB0AAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T19:57:21.652Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

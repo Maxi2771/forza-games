@@ -4,9 +4,17 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/xampp/htdocs/forza-games/Player/Player/Content/ball.png</File>
+    <File>C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/ball.png</File>
+    <File>C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/Player/WalkingDown.png</File>
+    <File>C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/Player/WalkingLeft.png</File>
+    <File>C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/Player/WalkingRight.png</File>
+    <File>C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/Player/WalkingUp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

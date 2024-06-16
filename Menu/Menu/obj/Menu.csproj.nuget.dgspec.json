@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\forza-games\\Menu\\Menu\\Menu.csproj": {}
+    "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Menu\\Menu\\Menu.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\forza-games\\Menu\\Menu\\Menu.csproj": {
+    "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Menu\\Menu\\Menu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\forza-games\\Menu\\Menu\\Menu.csproj",
+        "projectUniqueName": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Menu\\Menu\\Menu.csproj",
         "projectName": "Menu",
-        "projectPath": "C:\\xampp\\htdocs\\forza-games\\Menu\\Menu\\Menu.csproj",
-        "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\forza-games\\Menu\\Menu\\obj\\",
+        "projectPath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Menu\\Menu\\Menu.csproj",
+        "packagesPath": "C:\\Users\\Fabrizio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Menu\\Menu\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Fabrizio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -69,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }
