@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Fabrizio/source/repos/forza-games/Parabellum/Parabellum/Content/Player/WalkingLeft.png","C:/Users/Fabrizio/source/repos/forza-games/Parabellum/Parabellum/Content/bin/DesktopGL/Player/WalkingLeft.xnb","TextureProcessor","Texture2DContent",706,7285,0,1779475
+"C:/Users/Fabrizio/source/repos/forza-games/Parabellum/Parabellum/Content/Player/WalkingRight.png","C:/Users/Fabrizio/source/repos/forza-games/Parabellum/Parabellum/Content/bin/DesktopGL/Player/WalkingRight.xnb","TextureProcessor","Texture2DContent",703,7285,0,0021841
