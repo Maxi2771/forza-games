@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\xampp\\htdocs\\forza-games\\Parabellum_Alpha_0.0.1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{003706FE-1C0E-4C7F-BC84-428F34A66428}|Parabellum_Alpha\\Parabellum_Alpha.csproj|c:\\xampp\\htdocs\\forza-games\\parabellum_alpha_0.0.1\\parabellum_alpha\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{003706FE-1C0E-4C7F-BC84-428F34A66428}|Parabellum_Alpha\\Parabellum_Alpha.csproj|solutionrelative:parabellum_alpha\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\forza-games\\Parabellum_Alpha_0.0.1\\Parabellum_Alpha\\Game1.cs",
+              "RelativeDocumentMoniker": "Parabellum_Alpha\\Game1.cs",
+              "ToolTip": "C:\\xampp\\htdocs\\forza-games\\Parabellum_Alpha_0.0.1\\Parabellum_Alpha\\Game1.cs",
+              "RelativeToolTip": "Parabellum_Alpha\\Game1.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAhwEkAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-28T20:18:03.092Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
