@@ -1,0 +1,36 @@
+@media screen and (max-width: 1920px) {
+    main {
+        width: 100%;
+    }
+
+    .presentar {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: auto auto; 
+        gap: 40px; 
+        width: 80%; 
+        margin: 20px auto;
+        padding: 10px; 
+    }
+
+    .modos{
+        background-color: #f0f0f0;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 0px 10px 5px #000000;
+    }
+
+    .modos h1{
+        font-size: 1.8em;
+    }
+
+    .negrita{
+        font-weight: bold;
+    }
+
+    .modos img{
+        width: 75%;
+        height: 400px;
+        border: 2px solid black;
+    }
+}
