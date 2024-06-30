@@ -1,0 +1,6 @@
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_0_1\obj\Debug\net6.0\alpha_0_0_1.csproj.AssemblyReference.cache
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_0_1\obj\Debug\net6.0\alpha_0_0_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_0_1\obj\Debug\net6.0\alpha_0_0_1.AssemblyInfoInputs.cache
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_0_1\obj\Debug\net6.0\alpha_0_0_1.AssemblyInfo.cs
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_0_1\obj\Debug\net6.0\alpha_0_0_1.csproj.CoreCompileInputs.cache
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_0_1\obj\Debug\net6.0\alpha_0_0_1.sourcelink.json
