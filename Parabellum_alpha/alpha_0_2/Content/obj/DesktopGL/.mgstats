@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Fabrizio/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/ball.png","C:/Users/Fabrizio/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0,1075158
+"C:/Users/Fabrizio/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/Controls/Button.png","C:/Users/Fabrizio/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Controls/Button.xnb","TextureProcessor","Texture2DContent",392,92545,0,0068623
+"C:/Users/Fabrizio/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/Fonts/Font.spritefont","C:/Users/Fabrizio/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Fonts/Font.xnb","FontDescriptionProcessor","SpriteFontContent",2068,21535,0,1372415
