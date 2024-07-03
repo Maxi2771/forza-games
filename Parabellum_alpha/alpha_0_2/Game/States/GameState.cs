@@ -11,11 +11,17 @@ namespace alpha_0_2.Game.States
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            // Cargar textura del jugador
-            var playerTexture = content.Load<Texture2D>("ball");
+            // Cargar spritesheets para cada dirección del jugador
+            Texture2D[] playerTextures = new Texture2D[]
+            {
+                content.Load<Texture2D>("man_back"),    // Texture for facing Up
+                content.Load<Texture2D>("man_front"),   // Texture for facing Down
+                content.Load<Texture2D>("man_left"),    // Texture for facing Left
+                content.Load<Texture2D>("man_right")    // Texture for facing Right
+            };
 
-            // Inicializar jugador en el centro de la pantalla con velocidad
-            _player = new Player(playerTexture, new Vector2(graphicsDevice.Viewport.Width / 2, graphicsDevice.Viewport.Height / 2), 200f);
+            // Inicializar jugador en el centro de la pantalla
+            _player = new Player(playerTextures, new Vector2(graphicsDevice.Viewport.Width / 2, graphicsDevice.Viewport.Height / 2));
         }
 
         public override void Update(GameTime gameTime)
@@ -27,18 +33,15 @@ namespace alpha_0_2.Game.States
         {
             // Limpiar la pantalla antes de dibujar
             _graphicsDevice.Clear(Color.CornflowerBlue);
-          
 
             // Dibujar al jugador
             _player.Draw(spriteBatch);
-
-            // Finalizar el dibujo
             spriteBatch.End();
         }
 
         public override void PostUpdate(GameTime gameTime)
         {
-            // Aquí podrías realizar lógica posterior a la actualización si es necesario
+            // Lógica posterior a la actualización si es necesaria
         }
     }
 }

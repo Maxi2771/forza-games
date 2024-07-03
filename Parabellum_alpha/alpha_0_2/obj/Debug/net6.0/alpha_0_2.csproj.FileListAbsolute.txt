@@ -27,3 +27,7 @@ C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\ball.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Controls\Button.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Fonts\Font.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_front.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_back.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_left.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_right.xnb

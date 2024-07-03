@@ -1,4 +1,5 @@
-﻿using alpha_0_2.Game.States;
+﻿using alpha_0_2.Game;
+using alpha_0_2.Game.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -11,6 +12,8 @@ namespace alpha_0_2
         private SpriteBatch _spriteBatch;
         private State _currentState;
         private State _nextState;
+
+        //Player player;
 
         public void ChangeState(State state)
         {
@@ -35,6 +38,8 @@ namespace alpha_0_2
 
             // Iniciar en el estado del menú
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
+
+            //player = new Player(Content.Load<Texture2D>("man_front"));
         }
 
         protected override void Update(GameTime gameTime)
@@ -48,6 +53,8 @@ namespace alpha_0_2
             _currentState.Update(gameTime);
             _currentState.PostUpdate(gameTime);
 
+            //player.Update();
+
             base.Update(gameTime);
         }
 
@@ -60,6 +67,7 @@ namespace alpha_0_2
             // Dibujar el estado actual
             _currentState.Draw(gameTime, _spriteBatch);
 
+            //player.Draw(_spriteBatch);
 
             base.Draw(gameTime);
         }
