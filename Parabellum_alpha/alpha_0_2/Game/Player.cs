@@ -27,12 +27,19 @@ namespace alpha_0_2.Game
         private float frameTimer;
         private float frameInterval = 0.1f; // Intervalo de tiempo entre frames (ajustable según la velocidad deseada)
 
+        // Salto
+        private bool isJumping;
+        private float jumpSpeed;
+        private float gravity;
+        private float initialJumpVelocity;
+        private bool isOnGround; // Nueva variable para verificar si el jugador está en el suelo
+
         public Player(Texture2D[] textures, Vector2 position)
         {
             this.textures = textures;
             this.position = position;
             speed = 4;
-            facingDirection = Direction.Down; // Dirección inicial por defecto
+            facingDirection = Direction.Right; // Dirección inicial por defecto
 
             // Inicializar frames de animación para cada dirección
             animationFrames = new Dictionary<Direction, List<Rectangle>>();
@@ -42,10 +49,10 @@ namespace alpha_0_2.Game
             animationFrames[Direction.Right] = new List<Rectangle>();
 
             // Añadir rectángulos de animación según las dimensiones de cada spritesheet
-            int frameWidth = textures[(int)Direction.Down].Width / 4; // Suponiendo que cada spritesheet tiene 4 frames en horizontal
-            int frameHeight = textures[(int)Direction.Down].Height / 4; // Suponiendo que cada spritesheet tiene 4 frames en vertical
+            int frameWidth = 60 / 3; // Ancho del frame del spritesheet
+            int frameHeight = 30; // Alto del frame del spritesheet
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
                 animationFrames[Direction.Up].Add(new Rectangle(i * frameWidth, 0, frameWidth, frameHeight));
                 animationFrames[Direction.Down].Add(new Rectangle(i * frameWidth, 0, frameWidth, frameHeight));
@@ -55,59 +62,88 @@ namespace alpha_0_2.Game
 
             currentFrame = 0;
             frameTimer = 0;
+
+            // Inicializar parámetros de salto
+            isJumping = false;
+            isOnGround = true;
+            jumpSpeed = -10f; // Velocidad inicial hacia arriba
+            gravity = 0.5f; // Gravedad
+            initialJumpVelocity = jumpSpeed;
         }
 
         public void Update(GameTime gameTime)
         {
             HandleInput(); // Manejar entrada para actualizar la dirección y la animación
-            UpdateAnimation(gameTime); // Actualizar la animación
             UpdateMovement(); // Actualizar la posición según la velocidad
+            UpdateAnimation(gameTime); // Actualizar la animación
         }
 
         private void HandleInput()
         {
-            velocity = Vector2.Zero;
+            velocity.X = 0;
 
-            // Manejar entrada del teclado para cambiar la dirección
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                facingDirection = Direction.Up;
-            else if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                facingDirection = Direction.Down;
-            else if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            // Manejar entrada del teclado para cambiar la dirección y establecer velocidad
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            {
                 facingDirection = Direction.Left;
+                velocity.X -= 1;
+            }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            {
                 facingDirection = Direction.Right;
+                velocity.X += 1;
+            }
+
+            // Manejar salto
+            if (Keyboard.GetState().IsKeyDown(Keys.Up) && isOnGround)
+            {
+                isJumping = true;
+                isOnGround = false;
+                velocity.Y = initialJumpVelocity;
+            }
+
+            if (velocity.X != 0)
+                velocity.Normalize();
         }
 
         private void UpdateAnimation(GameTime gameTime)
         {
-            // Actualizar la animación basada en la dirección actual
-            frameTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            if (frameTimer >= frameInterval)
+            // Solo actualizar la animación si el jugador se está moviendo
+            if (velocity.X != 0)
             {
-                currentFrame = (currentFrame + 1) % animationFrames[facingDirection].Count;
-                frameTimer = 0;
+                frameTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (frameTimer >= frameInterval)
+                {
+                    currentFrame = (currentFrame + 1) % animationFrames[facingDirection].Count;
+                    frameTimer = 0;
+                }
+            }
+            else
+            {
+                currentFrame = 0; // Mantener el primer frame si no se está moviendo
             }
         }
 
         private void UpdateMovement()
         {
+            // Aplicar gravedad si el jugador está saltando o en el aire
+            if (isJumping || !isOnGround)
+            {
+                velocity.Y += gravity;
+            }
+
             // Actualizar la posición del jugador basado en la velocidad
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                velocity.Y -= 1;
-            else if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                velocity.Y += 1;
-            else if (Keyboard.GetState().IsKeyDown(Keys.Left))
-                velocity.X -= 1;
-            else if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                velocity.X += 1;
-
-            if (velocity != Vector2.Zero)
-                velocity.Normalize();
-
             position += velocity * speed;
-            velocity = Vector2.Zero;
+
+            // Detener el salto si el jugador toca el suelo (supongamos que el suelo está en y = 400)
+            if (position.Y >= 400)
+            {
+                position.Y = 400;
+                isJumping = false;
+                isOnGround = true;
+                velocity.Y = 0;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
