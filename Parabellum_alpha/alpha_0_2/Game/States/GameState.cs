@@ -14,14 +14,14 @@ namespace alpha_0_2.Game.States
             // Cargar spritesheets para cada dirección del jugador
             Texture2D[] playerTextures = new Texture2D[]
             {
-                content.Load<Texture2D>("man_back"),    // Texture for facing Up
-                content.Load<Texture2D>("man_front"),   // Texture for facing Down
-                content.Load<Texture2D>("man_left"),    // Texture for facing Left
-                content.Load<Texture2D>("man_right")    // Texture for facing Right
+                content.Load<Texture2D>("man_back"),
+                content.Load<Texture2D>("man_front"),
+                content.Load<Texture2D>("man_left"),
+                content.Load<Texture2D>("man_right")
             };
 
             // Inicializar jugador en el centro de la pantalla
-            _player = new Player(playerTextures, new Vector2(graphicsDevice.Viewport.Width / 2, graphicsDevice.Viewport.Height / 2));
+            _player = new Player(playerTextures, new Vector2(400, 400));
         }
 
         public override void Update(GameTime gameTime)

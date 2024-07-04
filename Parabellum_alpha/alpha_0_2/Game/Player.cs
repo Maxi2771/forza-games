@@ -66,8 +66,8 @@ namespace alpha_0_2.Game
             // Inicializar parámetros de salto
             isJumping = false;
             isOnGround = true;
-            jumpSpeed = -10f; // Velocidad inicial hacia arriba
-            gravity = 0.5f; // Gravedad
+            jumpSpeed = -7f; // Velocidad inicial hacia arriba
+            gravity = 0.6f; // Gravedad
             initialJumpVelocity = jumpSpeed;
         }
 
@@ -102,6 +102,7 @@ namespace alpha_0_2.Game
                 velocity.Y = initialJumpVelocity;
             }
 
+            // Normalizar la velocidad solo si se está moviendo horizontalmente
             if (velocity.X != 0)
                 velocity.Normalize();
         }

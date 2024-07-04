@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj": {}
+    "C:\\Users\\Alumno\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj": {
+    "C:\\Users\\Alumno\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj",
+        "projectUniqueName": "C:\\Users\\Alumno\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj",
         "projectName": "alpha_0_2",
-        "projectPath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj",
-        "packagesPath": "C:\\Users\\Fabrizio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\obj\\",
+        "projectPath": "C:\\Users\\Alumno\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj",
+        "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alumno\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fabrizio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -70,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
