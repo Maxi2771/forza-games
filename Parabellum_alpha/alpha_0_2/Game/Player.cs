@@ -5,14 +5,6 @@ using System.Collections.Generic;
 
 namespace alpha_0_2.Game
 {
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-
     public class Player
     {
         private Texture2D[] textures; // Array de texturas para cada dirección
@@ -20,6 +12,18 @@ namespace alpha_0_2.Game
         private Vector2 velocity;
         private float speed;
         private Direction facingDirection; // Dirección actual del jugador
+
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+
+        public Direction FacingDirection
+        {
+            get { return facingDirection; }
+            set { facingDirection = value; }
+        }
 
         // Animación
         private Dictionary<Direction, List<Rectangle>> animationFrames; // Diccionario de rectángulos de animación por dirección
