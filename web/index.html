@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Scroll Reveal Example</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="content">
+        <div class="item">Contenido 1</div>
+        <div class="item">Contenido 2</div>
+        <div class="item">Contenido 3</div>
+        <div class="item">Contenido 4</div>
+        <div class="item">Contenido 5</div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
+<style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s, transform 0.6s;
+    margin: 20px 0;
+    width: 80%;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.item');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    });
+
+    items.forEach(item => {
+        observer.observe(item);
+    });
+});
+
+</script>
