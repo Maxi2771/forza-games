@@ -28,6 +28,16 @@
     box-shadow: 10px 5px 5px #151756;
 }
 
+.borderL-fabri{
+    border-left: 5px solid #ff9696;
+}
+.borderL-facu{
+    border-left: 5px solid #9974ff;
+}
+.borderL-maxi{
+    border-left: 5px solid #5680ff;
+}
+
 .scroll{
     opacity: 0;
     transform: translateY(50px);
@@ -60,7 +70,7 @@
     .integrante{
         position: relative;
         width: 1000px;
-        height: 500px;
+        height: 400px;
         border-radius: 25px;
         display: flex;
         align-items: center;
@@ -79,13 +89,14 @@
 
     .integrante-img img{
         width: 500px;
-        height: 490px;
+        height: 390px;
+        object-fit: cover;
         border-radius: 20px 0px 0px 20px;
     }
 
     .contenido-integrante{
         width: 500px;
-        height: 490px;
+        height: 400px;
         border-radius: 0px 20px 20px 0px;
     }
 
