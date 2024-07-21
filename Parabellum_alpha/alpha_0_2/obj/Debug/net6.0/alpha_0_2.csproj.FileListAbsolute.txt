@@ -68,3 +68,5 @@ C:\Users\Alumno\source\repos\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\ne
 C:\Users\Alumno\source\repos\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\net6.0\ref\alpha_0_2.dll
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\proyectil.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\projectile.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\derecha.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\izquierda.xnb

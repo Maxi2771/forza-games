@@ -19,8 +19,8 @@ namespace alpha_0_2.Game.States
             {
                 content.Load<Texture2D>("man_back"),
                 content.Load<Texture2D>("man_front"),
-                content.Load<Texture2D>("man_left"),
-                content.Load<Texture2D>("man_right")
+                content.Load<Texture2D>("izquierda"),
+                content.Load<Texture2D>("derecha")
             };
 
             // Cargar textura del arma y del proyectil
