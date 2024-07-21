@@ -92,6 +92,11 @@
         height: 390px;
         object-fit: cover;
         border-radius: 20px 0px 0px 20px;
+        transition: transform 2s;
+    }
+
+    .integrante-img img:hover{
+        transform: scale(1.2);
     }
 
     .contenido-integrante{
