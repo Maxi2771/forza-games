@@ -8,8 +8,8 @@ namespace alpha_0_2.Game
     public class Player
     {
         private Texture2D[] textures; // Array de texturas para cada dirección
-        private Vector2 position;
-        private Vector2 velocity;
+        private Vector2 position; // Posición en X e Y
+        private Vector2 velocity; // Velocidad en X e Y
         private float speed;
         private Direction facingDirection; // Dirección actual del jugador
 
@@ -32,10 +32,10 @@ namespace alpha_0_2.Game
         private float frameInterval = 0.1f; // Intervalo de tiempo entre frames (ajustable según la velocidad deseada)
 
         // Salto
-        private bool isJumping;
-        private float jumpSpeed;
-        private float gravity;
-        private float initialJumpVelocity;
+        private bool isJumping; // Booleano para saber si está saltando
+        private float jumpSpeed; // Velocidad del salto
+        private float gravity; // Gravedad que se le aplica al salto
+        private float initialJumpVelocity; // Velocidad inicial del salto (al despegarse del suelo)
         private bool isOnGround; // Nueva variable para verificar si el jugador está en el suelo
 
         public Player(Texture2D[] textures, Vector2 position)
@@ -150,7 +150,7 @@ namespace alpha_0_2.Game
                 velocity.Y = 0;
             }
         }
-
+        // Método para dibujar al jugador
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(textures[(int)facingDirection], position, animationFrames[facingDirection][currentFrame], Color.White);

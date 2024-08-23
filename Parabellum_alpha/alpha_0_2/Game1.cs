@@ -13,6 +13,9 @@ namespace alpha_0_2
         private State _currentState;
         private State _nextState;
 
+        public static int ScreenHeight;
+
+        public static int ScreenWidth;
         //Player player;
 
         public void ChangeState(State state)
@@ -30,6 +33,8 @@ namespace alpha_0_2
         protected override void Initialize()
         {
             base.Initialize();
+            ScreenHeight = _graphics.PreferredBackBufferHeight;
+            ScreenWidth = _graphics.PreferredBackBufferWidth;
         }
 
         protected override void LoadContent()

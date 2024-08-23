@@ -7,12 +7,12 @@ namespace alpha_0_2.Game
 {
     public class Weapon
     {
-        private Texture2D texture;
-        private Vector2 position;
-        private Direction facingDirection;
-        private List<Projectile> projectiles;
-        private float fireRate;
-        private float fireTimer;
+        private Texture2D texture; // Guarda textura del arma
+        private Vector2 position; // Posición del arma
+        private Direction facingDirection; // Direción a la que apunta
+        private List<Projectile> projectiles; // Lista de proyectiles
+        private float fireRate; // Tasa de disparo
+        private float fireTimer; // Temporizador del disparo
 
         public Weapon(Texture2D texture, Vector2 position)
         {
@@ -44,7 +44,7 @@ namespace alpha_0_2.Game
                 }
             }
         }
-
+        // Método de disparar
         private void Fire()
         {
             Vector2 projectilePosition = position;
@@ -63,7 +63,7 @@ namespace alpha_0_2.Game
                     projectilePosition.X += texture.Width;
                     break;
             }
-
+            // Se añaden proyectiles para que se produzca el disparo
             projectiles.Add(new Projectile(texture, projectilePosition, facingDirection));
         }
 
@@ -73,53 +73,6 @@ namespace alpha_0_2.Game
             {
                 projectile.Draw(spriteBatch);
             }
-        }
-    }
-
-    public class Projectile
-    {
-        private Texture2D texture;
-        private Vector2 position;
-        private Vector2 velocity;
-        private float speed = 10f;
-        public bool IsActive { get; private set; }
-
-        public Projectile(Texture2D texture, Vector2 position, Direction direction)
-        {
-            this.texture = texture;
-            this.position = position;
-            this.IsActive = true;
-
-            switch (direction)
-            {
-                case Direction.Up:
-                    velocity = new Vector2(0, -speed);
-                    break;
-                case Direction.Down:
-                    velocity = new Vector2(0, speed);
-                    break;
-                case Direction.Left:
-                    velocity = new Vector2(-speed, 0);
-                    break;
-                case Direction.Right:
-                    velocity = new Vector2(speed, 0);
-                    break;
-            }
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            position += velocity;
-
-            if (position.X < 0 || position.X > 800 || position.Y < 0 || position.Y > 600) // Suponiendo una pantalla de 800x600
-            {
-                IsActive = false;
-            }
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture, position, Color.White);
         }
     }
 }
