@@ -28,6 +28,11 @@ namespace alpha_0_2
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            
+            // Pantalla completa 1920x1080
+            _graphics.PreferredBackBufferWidth = 1920;
+            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.IsFullScreen = true;
         }
 
         protected override void Initialize()

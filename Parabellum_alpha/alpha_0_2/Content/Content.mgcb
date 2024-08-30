@@ -25,30 +25,6 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../../Downloads/derecha.png;derecha.png
 
-#begin ../../../../../../Downloads/derecha.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../../../../Downloads/derecha.png;derecha.png
-
-#begin ../../../../../../Downloads/izquierda.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../../../../Downloads/izquierda.png;izquierda.png
-
 #begin ../../../../../../Downloads/izquierda.png
 /importer:TextureImporter
 /processor:TextureProcessor

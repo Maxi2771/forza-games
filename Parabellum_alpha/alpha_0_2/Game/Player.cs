@@ -53,8 +53,8 @@ namespace alpha_0_2.Game
             animationFrames[Direction.Right] = new List<Rectangle>();
 
             // Añadir rectángulos de animación según las dimensiones de cada spritesheet
-            int frameWidth = 118 / 3; // Ancho del frame del spritesheet
-            int frameHeight = 64; // Alto del frame del spritesheet
+            int frameWidth = 180 / 4; // Ancho del frame del spritesheet
+            int frameHeight = 87; // Alto del frame del spritesheet
 
             for (int i = 0; i < 3; i++)
             {
