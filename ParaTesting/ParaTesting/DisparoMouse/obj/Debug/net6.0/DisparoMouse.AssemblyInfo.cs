@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DisparoMouse")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d93ec351980e21708ef3cf0f506e9eb45fc42a43")]
 [assembly: System.Reflection.AssemblyProductAttribute("DisparoMouse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DisparoMouse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

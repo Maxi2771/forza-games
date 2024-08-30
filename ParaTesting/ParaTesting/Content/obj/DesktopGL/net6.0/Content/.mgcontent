@@ -5,11 +5,9 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/Content/playerTexture.png</File>
-    <File>C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/Content/projectile.png</File>
     <File>C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/Content/weapon_texture.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

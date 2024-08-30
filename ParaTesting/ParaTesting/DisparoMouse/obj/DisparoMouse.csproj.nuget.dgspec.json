@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fabrizio\\source\\repos\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj": {}
+    "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fabrizio\\source\\repos\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj": {
+    "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fabrizio\\source\\repos\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj",
+        "projectUniqueName": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj",
         "projectName": "DisparoMouse",
-        "projectPath": "C:\\Users\\Fabrizio\\source\\repos\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj",
+        "projectPath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj",
         "packagesPath": "C:\\Users\\Fabrizio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fabrizio\\source\\repos\\ParaTesting\\ParaTesting\\DisparoMouse\\obj\\",
+        "outputPath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\DisparoMouse\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Fabrizio\\AppData\\Roaming\\NuGet\\NuGet.Config",
