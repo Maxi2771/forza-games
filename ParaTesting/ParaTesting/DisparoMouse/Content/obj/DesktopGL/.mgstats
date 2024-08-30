@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/DisparoMouse/Content/projectile.png","C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/DisparoMouse/Content/bin/DesktopGL/Bullet.xnb","TextureProcessor","Texture2DContent",180,2581,0,114135
+"C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/DisparoMouse/Content/weapon_texture.png","C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/DisparoMouse/Content/bin/DesktopGL/Weapon.xnb","TextureProcessor","Texture2DContent",1006,32853,0,0028788

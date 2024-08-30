@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParaTesting", "ParaTesting\ParaTesting.csproj", "{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisparoMouse", "DisparoMouse\DisparoMouse.csproj", "{B2739FA0-E383-4BAC-8C07-E719D393A0CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2739FA0-E383-4BAC-8C07-E719D393A0CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2739FA0-E383-4BAC-8C07-E719D393A0CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2739FA0-E383-4BAC-8C07-E719D393A0CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2739FA0-E383-4BAC-8C07-E719D393A0CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6FBD32B0-BCFA-4A3D-9DB7-EEDE2B5397C0}
+	EndGlobalSection
+EndGlobal
