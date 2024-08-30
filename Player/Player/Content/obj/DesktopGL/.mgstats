@@ -1,6 +1,0 @@
-Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/ball.png","C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/bin/DesktopGL/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0,1233182
-"C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/Player/WalkingDown.png","C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/bin/DesktopGL/Player/WalkingDown.xnb","TextureProcessor","Texture2DContent",866,7525,0,0030007
-"C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/Player/WalkingLeft.png","C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/bin/DesktopGL/Player/WalkingLeft.xnb","TextureProcessor","Texture2DContent",706,7285,0,0024432
-"C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/Player/WalkingRight.png","C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/bin/DesktopGL/Player/WalkingRight.xnb","TextureProcessor","Texture2DContent",703,7285,0,0032443
-"C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/Player/WalkingUp.png","C:/Users/Fabrizio/source/repos/forza-games/Player/Player/Content/bin/DesktopGL/Player/WalkingUp.xnb","TextureProcessor","Texture2DContent",702,7525,0,0018727
