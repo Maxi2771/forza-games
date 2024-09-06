@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\a-15\\source\\repos\\forza-games\\paratesting\\paratesting\\paratesting\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\a-15\\source\\repos\\forza-games\\paratesting\\paratesting\\paratesting\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Game1.cs",
+              "RelativeDocumentMoniker": "ParaTesting\\Game1.cs",
+              "ToolTip": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Game1.cs",
+              "RelativeToolTip": "ParaTesting\\Game1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T19:00:35.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Player.cs",
+              "RelativeDocumentMoniker": "ParaTesting\\Player.cs",
+              "ToolTip": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Player.cs",
+              "RelativeToolTip": "ParaTesting\\Player.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T19:00:13.936Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

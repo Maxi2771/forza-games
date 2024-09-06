@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ParaTesting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c44ae43951d3ab72614715dcd7f3bf45962e24ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5a2797404fae288d187a3d88d1232b407b8f2ee")]
 [assembly: System.Reflection.AssemblyProductAttribute("ParaTesting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ParaTesting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
