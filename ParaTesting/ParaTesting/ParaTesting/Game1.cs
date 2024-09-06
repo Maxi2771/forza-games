@@ -47,13 +47,13 @@ namespace ParaTesting
             var weaponTexture = Content.Load<Texture2D>("Weapon");
 
             _sprites = new List<Sprite>()
-      {
-        new Weapon(weaponTexture)
-        {
-          Position = new Vector2(100, 100),
-          Bullet = new Bullet(Content.Load<Texture2D>("Bullet")),
-        },
-      };
+            {
+                new Weapon(weaponTexture)
+                {
+                    Position = new Vector2(100, 100),
+                    Bullet = new Bullet(Content.Load<Texture2D>("Bullet")),
+                },
+            };
         }
 
         /// <summary>

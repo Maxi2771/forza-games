@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "J64F+k4qoHI=",
+  "dgSpecHash": "f/MCrN+6e98=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj",
+  "projectFilePath": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\DisparoMouse\\DisparoMouse.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Fabrizio\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\Fabrizio\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\A-15\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\A-15\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }
