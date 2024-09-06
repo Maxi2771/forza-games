@@ -4,8 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/A-15/source/repos/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/projectile.png</File>
-    <File>C:/Users/A-15/source/repos/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/weapon_texture.png</File>
+    <File>C:/Users/A-16/Documents/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/projectile.png</File>
+    <File>C:/Users/A-16/Documents/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/weapon_texture.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Bullet.png</File>

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\ParaTesting.csproj": {}
+    "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\ParaTesting.csproj": {}
   },
   "projects": {
-    "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\ParaTesting.csproj": {
+    "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\ParaTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\ParaTesting.csproj",
+        "projectUniqueName": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\ParaTesting.csproj",
         "projectName": "ParaTesting",
-        "projectPath": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\ParaTesting.csproj",
-        "packagesPath": "C:\\Users\\A-15\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A-15\\source\\repos\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\obj\\",
+        "projectPath": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\ParaTesting.csproj",
+        "packagesPath": "C:\\Users\\A-16\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\A-15\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\A-16\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

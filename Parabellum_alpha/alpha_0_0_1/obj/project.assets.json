@@ -102,23 +102,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\A-15\\.nuget\\packages\\": {},
+    "C:\\Users\\A-16\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A-15\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_0_1\\alpha_0_1.csproj",
+      "projectUniqueName": "C:\\Users\\A-16\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_0_1\\alpha_0_1.csproj",
       "projectName": "alpha_0_1",
-      "projectPath": "C:\\Users\\A-15\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_0_1\\alpha_0_1.csproj",
-      "packagesPath": "C:\\Users\\A-15\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\A-15\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_0_1\\obj\\",
+      "projectPath": "C:\\Users\\A-16\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_0_1\\alpha_0_1.csproj",
+      "packagesPath": "C:\\Users\\A-16\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\A-16\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_0_1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\A-15\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\A-16\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
