@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace alpha_0_2.Sprites
 {
-    public class Sprite : ICloneable
+    public class Sprite : Component, ICloneable 
     {
         protected Texture2D _texture;
 
@@ -19,7 +19,7 @@ namespace alpha_0_2.Sprites
 
         protected KeyboardState _previousKey;
 
-        public Vector2 Position;
+        public Vector2 Position { get; set; }
 
         public Vector2 Origin;
 
@@ -35,12 +35,22 @@ namespace alpha_0_2.Sprites
 
         public bool IsRemoved = false;
 
+        public Rectangle Rectangle
+        {
+            get { return new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height); }
+        }
+
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(_texture, Position, Color.White);
+        }
+
         public Sprite(Texture2D texture)
         {
             _texture = texture;
 
             // The default origin in the centre of the sprite
-            Origin = new Vector2(_texture.Width / 2, _texture.Height / 2);
+            Origin = new Vector2(128, 64 / 2);
         }
 
         public virtual void Update(GameTime gameTime, List<Sprite> sprites)
@@ -56,6 +66,11 @@ namespace alpha_0_2.Sprites
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+
         }
     }
 }

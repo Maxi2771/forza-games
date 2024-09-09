@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace alpha_0_2.Game
+namespace alpha_0_2.Sprites
 {
     public abstract class Component
     {

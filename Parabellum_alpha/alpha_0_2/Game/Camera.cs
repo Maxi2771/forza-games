@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using alpha_0_2.Sprites;
 
 namespace alpha_0_2.Game
 {

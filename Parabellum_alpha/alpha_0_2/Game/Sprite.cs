@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using alpha_0_2.Sprites;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace alpha_0_2.Game
 {
-    public class Sprite : Component
+    /*public class Sprite : Component
     {
         protected Texture2D _texture;
 
@@ -33,5 +34,5 @@ namespace alpha_0_2.Game
         {
             
         }
-    }
+    }*/
 }

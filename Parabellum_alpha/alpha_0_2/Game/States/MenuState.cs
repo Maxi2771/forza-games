@@ -1,4 +1,5 @@
 ﻿using alpha_0_2.Game.Controls;
+using alpha_0_2.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;

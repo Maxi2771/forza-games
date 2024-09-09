@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\",
+  "WorkspaceRootPath": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\a-16\\documents\\forza-games\\paratesting\\paratesting\\paratesting\\sprites\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\sprites\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\maxim\\documents\\forza-games\\paratesting\\paratesting\\paratesting\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\a-16\\documents\\forza-games\\paratesting\\paratesting\\paratesting\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\maxim\\documents\\forza-games\\paratesting\\paratesting\\paratesting\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\a-16\\documents\\forza-games\\paratesting\\paratesting\\paratesting\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\maxim\\documents\\forza-games\\paratesting\\paratesting\\paratesting\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\a-16\\documents\\forza-games\\paratesting\\paratesting\\paratesting\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\maxim\\documents\\forza-games\\paratesting\\paratesting\\paratesting\\sprites\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\sprites\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,47 +26,66 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Bullet.cs",
-              "DocumentMoniker": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Bullet.cs",
-              "RelativeDocumentMoniker": "ParaTesting\\Sprites\\Bullet.cs",
-              "ToolTip": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Bullet.cs",
-              "RelativeToolTip": "ParaTesting\\Sprites\\Bullet.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB0AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T20:25:41.466Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Sprite.cs",
-              "DocumentMoniker": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Sprite.cs",
-              "RelativeDocumentMoniker": "ParaTesting\\Sprites\\Sprite.cs",
-              "ToolTip": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Sprite.cs",
-              "RelativeToolTip": "ParaTesting\\Sprites\\Sprite.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAQwDsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T20:24:52.304Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Bullet.cs",
+              "RelativeDocumentMoniker": "ParaTesting\\Sprites\\Bullet.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Bullet.cs",
+              "RelativeToolTip": "ParaTesting\\Sprites\\Bullet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T20:25:41.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Sprite.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Sprite.cs",
+              "RelativeDocumentMoniker": "ParaTesting\\Sprites\\Sprite.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Sprite.cs",
+              "RelativeToolTip": "ParaTesting\\Sprites\\Sprite.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-06T20:24:52.304Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Game1.cs",
-              "DocumentMoniker": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Game1.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Game1.cs",
               "RelativeDocumentMoniker": "ParaTesting\\Game1.cs",
-              "ToolTip": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Game1.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Game1.cs",
               "RelativeToolTip": "ParaTesting\\Game1.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAA5wBAAAAAIAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAgwDIAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-06T20:18:26.402Z",
               "EditorCaption": ""
@@ -75,14 +94,13 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Weapon.cs",
-              "DocumentMoniker": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Weapon.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Weapon.cs",
               "RelativeDocumentMoniker": "ParaTesting\\Sprites\\Weapon.cs",
-              "ToolTip": "C:\\Users\\A-16\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Weapon.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Weapon.cs",
               "RelativeToolTip": "ParaTesting\\Sprites\\Weapon.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAZAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAYwAwAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-06T20:18:14.97Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-06T20:18:14.97Z"
             }
           ]
         }

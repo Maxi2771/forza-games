@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using alpha_0_2.Sprites;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using alpha_0_2.Sprites;
 
 namespace alpha_0_2
 {
@@ -14,7 +15,7 @@ namespace alpha_0_2
         private State _currentState;
         private State _nextState;
 
-        private List<Sprite> _sprites;
+        
 
         public static int ScreenHeight;
 
@@ -35,7 +36,7 @@ namespace alpha_0_2
             // Pantalla completa 1920x1080
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
-            _graphics.IsFullScreen = true;
+            _graphics.IsFullScreen = false;
         }
 
         protected override void Initialize()
@@ -49,16 +50,6 @@ namespace alpha_0_2
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            var weaponTexture = Content.Load<Texture2D>("Weapon");
-
-            _sprites = new List<Sprite>()
-            {
-                new Weapon(weaponTexture)
-                {
-                    Position = new Vector2(100, 100),
-                    Bullet = new Bullet(Content.Load<Texture2D>("Bullet")),
-                },
-            };
 
             // Iniciar en el estado del menú
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);

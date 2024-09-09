@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uro6sX+55u4=",
+  "dgSpecHash": "CwP/y4LrE7oRkazO40dGvGS7tSd5sYe5USeeYQofF0H3h4oI6m+PWcST0hQXnrcD0/tIvVkLRb/xd+KEQC2Nnw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\A-16\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj",
+  "projectFilePath": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\alpha_0_2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\A-16\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\A-16\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\maxim\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\maxim\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }

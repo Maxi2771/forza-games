@@ -14,11 +14,13 @@ namespace alpha_0_2.Sprites
     {
         public Bullet Bullet;
 
-        public Weapon(Texture2D texture)
+
+        public Weapon(Texture2D texture, Vector2 position)
           : base(texture)
         {
             // Establecemos una dirección predeterminada (ejemplo: hacia la derecha)
             Direction = new Vector2(1, 0); // Cambia esto según la dirección que quieras
+            Position = new Vector2(2, 0);
         }
 
         public override void Update(GameTime gameTime, List<Sprite> sprites)
