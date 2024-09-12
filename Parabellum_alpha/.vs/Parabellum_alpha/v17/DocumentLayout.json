@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\sprites\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\sprites\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\sprites\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,58 +62,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\Player.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Game\\Player.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\Player.cs",
+              "RelativeToolTip": "alpha_0_2\\Game\\Player.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFwAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T22:36:11.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "GameState.cs",
               "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
               "RelativeDocumentMoniker": "alpha_0_2\\Game\\States\\GameState.cs",
               "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
               "RelativeToolTip": "alpha_0_2\\Game\\States\\GameState.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAMwCwAAABcAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAQwCYAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "OverriddenGroupName": "alpha_0_2\\Game\\States",
-              "WhenOpened": "2024-09-09T19:28:31Z",
+              "WhenOpened": "2024-09-12T22:49:46.673Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Sprite.cs",
-              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Sprite.cs",
-              "RelativeDocumentMoniker": "alpha_0_2\\Sprites\\Sprite.cs",
-              "ToolTip": "alpha_0_2/Sprites/Sprite.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAiwDQAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "OverriddenGroupName": "alpha_0_2\\Sprites",
-              "OverriddenToolTip": "alpha_0_2/Sprites/Sprite.cs",
-              "WhenOpened": "2024-09-09T19:16:22.908Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Game1.cs",
               "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game1.cs",
               "RelativeDocumentMoniker": "alpha_0_2\\Game1.cs",
               "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game1.cs",
               "RelativeToolTip": "alpha_0_2\\Game1.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAqwCYAAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE8AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "OverriddenGroupName": "alpha_0_2",
-              "WhenOpened": "2024-09-09T19:10:13.102Z",
+              "WhenOpened": "2024-09-12T22:34:05.082Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Bullet.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Sprites\\Bullet.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Bullet.cs",
+              "RelativeToolTip": "alpha_0_2\\Sprites\\Bullet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T22:33:56.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Weapon.cs",
               "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Weapon.cs",
               "RelativeDocumentMoniker": "alpha_0_2\\Sprites\\Weapon.cs",
-              "ToolTip": "alpha_0_2/Sprites/Weapon.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAADgvxYAAAApAAAA",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Weapon.cs",
+              "RelativeToolTip": "alpha_0_2\\Sprites\\Weapon.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAADgvygAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "OverriddenGroupName": "alpha_0_2\\Sprites",
-              "OverriddenToolTip": "alpha_0_2/Sprites/Weapon.cs",
-              "WhenOpened": "2024-09-09T19:13:28.611Z",
+              "WhenOpened": "2024-09-12T22:31:02.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Sprite.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Sprite.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Sprites\\Sprite.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Sprite.cs",
+              "RelativeToolTip": "alpha_0_2\\Sprites\\Sprite.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAqwCUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T22:30:31.829Z",
               "EditorCaption": ""
             }
           ]

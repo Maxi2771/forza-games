@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using alpha_0_2.Sprites;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -38,7 +39,10 @@ namespace alpha_0_2.Game
         private float initialJumpVelocity; // Velocidad inicial del salto (al despegarse del suelo)
         private bool isOnGround; // Nueva variable para verificar si el jugador está en el suelo
 
-        public Player(Texture2D[] textures, Vector2 position)
+        // Arma del jugador
+        private Weapon weapon;
+
+        public Player(Texture2D[] textures, Vector2 position, Texture2D weaponTexture)
         {
             this.textures = textures;
             this.position = position;
@@ -73,13 +77,23 @@ namespace alpha_0_2.Game
             jumpSpeed = -7f; // Velocidad inicial hacia arriba
             gravity = 0.6f; // Gravedad
             initialJumpVelocity = jumpSpeed;
+
+            // Crear el arma del jugador
+            weapon = new Weapon(weaponTexture, position); // Posición inicial del arma
         }
 
-        public void Update(GameTime gameTime)
+        // Actualizar el jugador y su arma
+        public void Update(GameTime gameTime, List<Sprite> sprites)
         {
             HandleInput(); // Manejar entrada para actualizar la dirección y la animación
             UpdateMovement(); // Actualizar la posición según la velocidad
             UpdateAnimation(gameTime); // Actualizar la animación
+
+            // Actualizar la posición del arma para que siga al jugador
+            weapon.Position = this.Position + new Vector2(100, 50); // Ajustar la posición según sea necesario
+
+            // Actualizar el arma (disparos)
+            weapon.Update(gameTime, sprites); // Le pasamos los sprites (balas, enemigos, etc.)
         }
 
         private void HandleInput()
@@ -150,10 +164,15 @@ namespace alpha_0_2.Game
                 velocity.Y = 0;
             }
         }
+
         // Método para dibujar al jugador
         public void Draw(SpriteBatch spriteBatch)
         {
+            // Dibujar el jugador
             spriteBatch.Draw(textures[(int)facingDirection], position, animationFrames[facingDirection][currentFrame], Color.White);
+
+            // Dibujar el arma
+            weapon.Draw(spriteBatch);
         }
     }
 }

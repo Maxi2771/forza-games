@@ -1,1 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/maxim/Documents/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/projectile.png","C:/Users/maxim/Documents/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/bin/DesktopGL/Content/Bullet.xnb","TextureProcessor","Texture2DContent",180,2581,0,188397
+"C:/Users/maxim/Documents/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/weapon_texture.png","C:/Users/maxim/Documents/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/bin/DesktopGL/Content/Weapon.xnb","TextureProcessor","Texture2DContent",1006,32853,0,0048859

@@ -18,6 +18,8 @@ namespace alpha_0_2.Sprites
 
         }
 
+
+
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
             _timer += (float)gameTime.ElapsedGameTime.TotalSeconds;

@@ -34,36 +34,44 @@ namespace alpha_0_2.Game.States
                 content.Load<Texture2D>("weapon_texture"),
             };*/
 
+            // Cargar la textura del arma y del proyectil (bala)
             var weaponTexture = content.Load<Texture2D>("weapon_texture");
-            _player = new Player(playerTextures, new Vector2(400, 400));
+            var bulletTexture = content.Load<Texture2D>("proyectil");
+            // Crear el jugador y asignarle el arma
+            _player = new Player(playerTextures, new Vector2(400, 400), weaponTexture);
 
-            _sprites = new List<Sprite>()
-            {
+            _sprites = new List<Sprite>();
+            /*{
                 new Weapon(weaponTexture, Position)
                 {
                     //Origin = new Vector2(200, 200),
                     Position = new Vector2 (_player.Position.X + 100, _player.Position.Y + 50),
                     Bullet = new Bullet(content.Load<Texture2D>("Bullet")),
                 },
-            };
+            };*/
         }
 
         public override void Update(GameTime gameTime)
         {
-            _player.Update(gameTime);
-            //_weapon.Update(gameTime);
+            // Actualizar al jugador
+            _player.Update(gameTime, _sprites);
 
-            // Actualizar los sprites
+            // Actualizar los sprites (balas y otros)
             foreach (var sprite in _sprites)
             {
-                sprite.Update(gameTime);
+                sprite.Update(gameTime, _sprites);
             }
+
+            // Limpiar balas eliminadas (IsRemoved = true)
+            _sprites.RemoveAll(s => s.IsRemoved);
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            // Limpiar la pantalla antes de dibujar
             _graphicsDevice.Clear(Color.CornflowerBlue);
+
+            // Llamar a Begin una sola vez
+            
 
             // Dibujar al jugador
             _player.Draw(spriteBatch);
@@ -74,8 +82,10 @@ namespace alpha_0_2.Game.States
                 sprite.Draw(spriteBatch);
             }
 
+            // Terminar el spriteBatch después de dibujar todo
             spriteBatch.End();
         }
+
 
 
         public override void PostUpdate(GameTime gameTime)

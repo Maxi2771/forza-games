@@ -35,6 +35,8 @@ namespace alpha_0_2.Sprites
 
         public bool IsRemoved = false;
 
+
+
         public Rectangle Rectangle
         {
             get { return new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height); }
