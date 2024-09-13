@@ -5,12 +5,10 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/Bullet.png</File>
-    <File>C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/projectile.png</File>
     <File>C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/weapon_texture.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
-    <File>Bullet.png</File>
     <File>Weapon.png</File>
   </DestFiles>
 </SourceFileCollection>

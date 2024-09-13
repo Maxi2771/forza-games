@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\a-15\\source\\forza-games\\paratesting\\paratesting\\paratesting\\content\\content.mgcb||{3EC6CBD1-65BD-4B26-A758-3B207D048872}",
+      "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\content\\content.mgcb||{3EC6CBD1-65BD-4B26-A758-3B207D048872}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|c:\\users\\a-15\\source\\forza-games\\paratesting\\paratesting\\paratesting\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40ADA82C-A6F5-4B71-AF47-051EF16E22D8}|ParaTesting\\ParaTesting.csproj|solutionrelative:paratesting\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -22,8 +26,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Content.mgcb",
+              "DocumentMoniker": "C:\\Users\\A-15\\source\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Content\\Content.mgcb",
+              "RelativeDocumentMoniker": "ParaTesting\\Content\\Content.mgcb",
+              "ToolTip": "C:\\Users\\A-15\\source\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Content\\Content.mgcb",
+              "RelativeToolTip": "ParaTesting\\Content\\Content.mgcb",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-09-13T20:38:04.88Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,14 +47,14 @@
               "RelativeDocumentMoniker": "ParaTesting\\Game1.cs",
               "ToolTip": "C:\\Users\\A-15\\source\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Game1.cs",
               "RelativeToolTip": "ParaTesting\\Game1.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAowCwAAAAAAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDUAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-13T20:07:04.534Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Bullet.cs",
               "DocumentMoniker": "C:\\Users\\A-15\\source\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Bullet.cs",
               "RelativeDocumentMoniker": "ParaTesting\\Sprites\\Bullet.cs",
@@ -47,12 +62,11 @@
               "RelativeToolTip": "ParaTesting\\Sprites\\Bullet.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T20:06:56.346Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T20:06:56.346Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Weapon.cs",
               "DocumentMoniker": "C:\\Users\\A-15\\source\\forza-games\\ParaTesting\\ParaTesting\\ParaTesting\\Sprites\\Weapon.cs",
               "RelativeDocumentMoniker": "ParaTesting\\Sprites\\Weapon.cs",
@@ -60,8 +74,7 @@
               "RelativeToolTip": "ParaTesting\\Sprites\\Weapon.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T20:06:55.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-13T20:06:55.285Z"
             }
           ]
         }
