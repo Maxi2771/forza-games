@@ -4,21 +4,19 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/../../../../../Downloads/weapon_texture.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/ball.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Bullet.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Controls/Button.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Fonts/Font.spritefont</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/man_back.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/man_front.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/man_left.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/man_right.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/pj_der.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/pj_izq.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/proyectil.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/ball.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Bullet.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Controls/Button.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Fonts/Font.spritefont</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/man_back.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/man_front.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/man_left.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/man_right.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/pj_der.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/pj_izq.png</File>
+    <File>C:/Users/A-15/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Weapon.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>weapon_texture.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
@@ -29,6 +27,6 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File>projectile.png</File>
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

@@ -79,7 +79,7 @@ namespace alpha_0_2.Game
             initialJumpVelocity = jumpSpeed;
 
             // Crear el arma del jugador
-            weapon = new Weapon(weaponTexture, position); // Posición inicial del arma
+            weapon = new Weapon(weaponTexture); // Posición inicial del arma
         }
 
         // Actualizar el jugador y su arma

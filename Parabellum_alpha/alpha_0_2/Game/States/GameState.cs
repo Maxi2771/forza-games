@@ -12,6 +12,7 @@ namespace alpha_0_2.Game.States
     {
         private Player _player;
         private Weapon _weapon;
+        private Bullet _bullet;
         private Texture2D weaponTexture;
         private Texture2D _projectileTexture;
         private List<Sprite> _sprites;
@@ -29,26 +30,18 @@ namespace alpha_0_2.Game.States
                 content.Load<Texture2D>("pj_der"),
             };
 
-            /*Texture2D[] weaponTexture = new Texture2D[]
-            {
-                content.Load<Texture2D>("weapon_texture"),
-            };*/
-
             // Cargar la textura del arma y del proyectil (bala)
-            var weaponTexture = content.Load<Texture2D>("weapon_texture");
-            var bulletTexture = content.Load<Texture2D>("proyectil");
+            var weaponTexture = content.Load<Texture2D>("Weapon");
             // Crear el jugador y asignarle el arma
             _player = new Player(playerTextures, new Vector2(400, 400), weaponTexture);
 
             _sprites = new List<Sprite>();
-            /*{
-                new Weapon(weaponTexture, Position)
+            {
+                new Weapon(weaponTexture)
                 {
-                    //Origin = new Vector2(200, 200),
-                    Position = new Vector2 (_player.Position.X + 100, _player.Position.Y + 50),
                     Bullet = new Bullet(content.Load<Texture2D>("Bullet")),
-                },
-            };*/
+                };
+            };
         }
 
         public override void Update(GameTime gameTime)
@@ -75,6 +68,8 @@ namespace alpha_0_2.Game.States
 
             // Dibujar al jugador
             _player.Draw(spriteBatch);
+
+            //_bullet.Draw(spriteBatch);
 
             // Dibujar los sprites (incluyendo el arma)
             foreach (var sprite in _sprites)

@@ -1,3 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/ParaTesting/Content/projectile.png","C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/ParaTesting/Content/bin/DesktopGL/Bullet.xnb","TextureProcessor","Texture2DContent",180,2581,0,3267984
-"C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/ParaTesting/Content/weapon_texture.png","C:/Users/Fabrizio/source/repos/ParaTesting/ParaTesting/ParaTesting/Content/bin/DesktopGL/Weapon.xnb","TextureProcessor","Texture2DContent",1006,32853,0,0064796
+"C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/Bullet.png","C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/bin/DesktopGL/Bullet.xnb","TextureProcessor","Texture2DContent",7496,28981,0,1099588
+"C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/projectile.png","C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/bin/DesktopGL/Bullet.xnb","TextureProcessor","Texture2DContent",180,2581,0,0011872
+"C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/weapon_texture.png","C:/Users/A-15/source/forza-games/ParaTesting/ParaTesting/ParaTesting/Content/bin/DesktopGL/Weapon.xnb","TextureProcessor","Texture2DContent",1006,32853,0,0017977

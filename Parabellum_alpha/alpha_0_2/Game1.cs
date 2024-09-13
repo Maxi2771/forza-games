@@ -15,12 +15,9 @@ namespace alpha_0_2
         private State _currentState;
         private State _nextState;
 
-        
-
         public static int ScreenHeight;
 
         public static int ScreenWidth;
-        //Player player;
 
         public void ChangeState(State state)
         {
@@ -53,8 +50,6 @@ namespace alpha_0_2
 
             // Iniciar en el estado del menú
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
-
-            //player = new Player(Content.Load<Texture2D>("man_front"));
         }
 
         protected override void Update(GameTime gameTime)
@@ -81,8 +76,6 @@ namespace alpha_0_2
 
             // Dibujar el estado actual
             _currentState.Draw(gameTime, _spriteBatch);
-
-            //player.Draw(_spriteBatch);
 
             base.Draw(gameTime);
         }
