@@ -29,7 +29,6 @@ C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Fonts\Font.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_left.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_right.xnb
-C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\weapon_texture.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_back.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_front.xnb
 C:\Users\Alumno\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\ball.xnb
@@ -67,9 +66,6 @@ C:\Users\Alumno\source\repos\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\ne
 C:\Users\Alumno\source\repos\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\net6.0\alpha_0_2.genruntimeconfig.cache
 C:\Users\Alumno\source\repos\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\net6.0\ref\alpha_0_2.dll
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\proyectil.xnb
-C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\projectile.xnb
-C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\derecha.xnb
-C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\izquierda.xnb
 C:\Users\A-15\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\proyectil.xnb
 C:\Users\A-15\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\ball.xnb
 C:\Users\A-15\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Controls\Button.xnb
@@ -185,3 +181,7 @@ C:\Users\A-15\source\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\net6.0\ref
 C:\Users\A-15\source\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\net6.0\alpha_0_2.pdb
 C:\Users\A-15\source\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\net6.0\alpha_0_2.genruntimeconfig.cache
 C:\Users\A-15\source\forza-games\Parabellum_alpha\alpha_0_2\obj\Debug\net6.0\ref\alpha_0_2.dll
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Bullet.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\pj_der.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\pj_izq.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Weapon.xnb

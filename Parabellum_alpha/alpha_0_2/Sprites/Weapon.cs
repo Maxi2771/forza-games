@@ -40,12 +40,12 @@ namespace alpha_0_2.Sprites
             var bullet = Bullet.Clone() as Bullet;
 
             // Calculamos la posición de la punta del arma
-            Vector2 bulletStartPosition = Position + Direction * (_texture.Width / 2);
+            //Vector2 bulletStartPosition = Position + Direction * (_texture.Width / 2);
 
             // Configuramos la dirección y posición inicial de la bala
             bullet.Direction = this.Direction; // Usamos la dirección del arma
-            bullet.Position = bulletStartPosition; // Posición inicial desde la punta del arma
-            bullet.LinearVelocity = 8f; // Velocidad de la bala (ajusta según sea necesario)
+            bullet.Position = this.Position; // Posición inicial desde la punta del arma
+            bullet.LinearVelocity = this.LinearVelocity * 2; // Velocidad de la bala (ajusta según sea necesario)
             bullet.LifeSpan = 2f; // Tiempo de vida de la bala
             bullet.Parent = this;
 

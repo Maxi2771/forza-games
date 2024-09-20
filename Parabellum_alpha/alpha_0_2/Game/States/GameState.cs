@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using alpha_0_2.Sprites;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace alpha_0_2.Game.States
 {
@@ -39,6 +40,7 @@ namespace alpha_0_2.Game.States
             {
                 new Weapon(weaponTexture)
                 {
+                    Position = new Vector2(100, 100),
                     Bullet = new Bullet(content.Load<Texture2D>("Bullet")),
                 };
             };
@@ -50,13 +52,22 @@ namespace alpha_0_2.Game.States
             _player.Update(gameTime, _sprites);
 
             // Actualizar los sprites (balas y otros)
-            foreach (var sprite in _sprites)
-            {
+            foreach (var sprite in _sprites.ToArray())
                 sprite.Update(gameTime, _sprites);
-            }
 
-            // Limpiar balas eliminadas (IsRemoved = true)
-            _sprites.RemoveAll(s => s.IsRemoved);
+            PostUpdate(gameTime);
+        }
+
+        public override void PostUpdate(GameTime gameTime)
+        {
+            for (int i = 0; i < _sprites.Count; i++)
+            {
+                if (_sprites[i].IsRemoved)
+                {
+                    _sprites.RemoveAt(i);
+                    i--;
+                }
+            }
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -72,20 +83,10 @@ namespace alpha_0_2.Game.States
             //_bullet.Draw(spriteBatch);
 
             // Dibujar los sprites (incluyendo el arma)
-            foreach (var sprite in _sprites)
-            {
-                sprite.Draw(spriteBatch);
-            }
+            
 
             // Terminar el spriteBatch después de dibujar todo
             spriteBatch.End();
-        }
-
-
-
-        public override void PostUpdate(GameTime gameTime)
-        {
-            // Lógica posterior a la actualización si es necesaria
         }
     }
 }

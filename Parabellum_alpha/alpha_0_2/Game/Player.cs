@@ -13,7 +13,7 @@ namespace alpha_0_2.Game
         private Vector2 velocity; // Velocidad en X e Y
         private float speed;
         private Direction facingDirection; // Dirección actual del jugador
-
+        private Bullet _bullet;
         public Vector2 Position
         {
             get { return position; }
