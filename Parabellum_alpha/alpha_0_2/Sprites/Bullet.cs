@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace alpha_0_2.Sprites
 {
@@ -13,12 +9,10 @@ namespace alpha_0_2.Sprites
         private float _timer;
 
         public Bullet(Texture2D texture)
-          : base(texture)
+            : base(texture)
         {
 
         }
-
-
 
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
@@ -28,6 +22,12 @@ namespace alpha_0_2.Sprites
                 IsRemoved = true;
 
             Position += Direction * LinearVelocity;
+        }
+
+        // Método Clone específico para Bullet, no es override
+        public Bullet CloneBullet()
+        {
+            return (Bullet)this.MemberwiseClone();
         }
     }
 }

@@ -42,7 +42,7 @@ namespace alpha_0_2.Game
         // Arma del jugador
         private Weapon weapon;
 
-        public Player(Texture2D[] textures, Vector2 position, Texture2D weaponTexture)
+        public Player(Texture2D[] textures, Vector2 position, Texture2D weaponTexture, Texture2D bulletTexture)
         {
             this.textures = textures;
             this.position = position;
@@ -78,8 +78,11 @@ namespace alpha_0_2.Game
             gravity = 0.6f; // Gravedad
             initialJumpVelocity = jumpSpeed;
 
-            // Crear el arma del jugador
-            weapon = new Weapon(weaponTexture); // Posición inicial del arma
+            // Crear el arma del jugador con la textura de la bala
+            weapon = new Weapon(weaponTexture)
+            {
+                Bullet = new Bullet(bulletTexture) // Asignar la textura de la bala
+            };
         }
 
         // Actualizar el jugador y su arma
