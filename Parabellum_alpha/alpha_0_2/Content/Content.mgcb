@@ -128,6 +128,18 @@
 /processorParam:TextureFormat=Color
 /build:pj_izq.png
 
+#begin weapon_texture_atras.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:weapon_texture_atras.png;weaponLeft.png
+
 #begin Weapon.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -138,5 +150,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Weapon.png
+/build:Weapon.png;weaponRight.png
 

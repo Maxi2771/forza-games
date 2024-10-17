@@ -42,7 +42,7 @@ namespace alpha_0_2.Game
         // Arma del jugador
         private Weapon weapon;
 
-        public Player(Texture2D[] textures, Vector2 position, Texture2D weaponTexture, Texture2D bulletTexture)
+        public Player(Texture2D[] textures, Vector2 position, Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture)
         {
             this.textures = textures;
             this.position = position;
@@ -79,7 +79,7 @@ namespace alpha_0_2.Game
             initialJumpVelocity = jumpSpeed;
 
             // Crear el arma del jugador con la textura de la bala
-            weapon = new Weapon(weaponTexture)
+            weapon = new Weapon(textureRight, textureLeft)
             {
                 Bullet = new Bullet(bulletTexture) // Asignar la textura de la bala
             };
@@ -93,7 +93,16 @@ namespace alpha_0_2.Game
             UpdateAnimation(gameTime); // Actualizar la animación
 
             // Actualizar la posición del arma para que siga al jugador
-            weapon.Position = this.Position + new Vector2(100, 50); // Ajustar la posición según sea necesario
+            // Actualizar la posición del arma dependiendo de la dirección del jugador
+            if (facingDirection == Direction.Right)
+            {
+                weapon.Position = this.Position + new Vector2(100, 50); // Arma en la derecha
+            }
+            else if (facingDirection == Direction.Left)
+            {
+                weapon.Position = this.Position + new Vector2(60, 50); // Arma en la izquierda (ajusta -100 según el tamaño)
+            }
+
 
             // Actualizar el arma (disparos)
             weapon.Update(gameTime, sprites); // Le pasamos los sprites (balas, enemigos, etc.)

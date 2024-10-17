@@ -123,8 +123,6 @@ C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0
 C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\man_right.xnb
 C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\pj_der.xnb
 C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\pj_izq.xnb
-C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\projectile.xnb
-C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\weapon_texture.xnb
 C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\alpha_0_2.exe
 C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\alpha_0_2.deps.json
 C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\alpha_0_2.runtimeconfig.json
@@ -185,3 +183,6 @@ C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\pj_der.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\pj_izq.xnb
 C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Weapon.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Weapon.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\weaponLeft.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\weaponRight.xnb

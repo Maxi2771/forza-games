@@ -3,24 +3,42 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using System;
 
 namespace alpha_0_2.Sprites
 {
     public class Weapon : Sprite
     {
         public Bullet Bullet;
+        private Texture2D _textureRight;
+        private Texture2D _textureLeft;
 
-        public Weapon(Texture2D texture)
-            : base(texture)
+        public Weapon(Texture2D textureRight, Texture2D textureLeft)
+            : base(textureRight) // Comenzamos con la textura de la derecha por defecto
         {
-            // Establecemos una dirección predeterminada (ejemplo: hacia la derecha)
-            Direction = new Vector2(1, 0); // Cambia esto según la dirección que quieras
+            _textureRight = textureRight;
+            _textureLeft = textureLeft;
+
+            // Dirección predeterminada (hacia la derecha)
+            Direction = new Vector2(1, 0);
         }
 
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
             _previousKey = _currentKey;
             _currentKey = Keyboard.GetState();
+
+            // Cambiar la textura según la dirección del jugador
+            if (_currentKey.IsKeyDown(Keys.Right)) // Derecha
+            {
+                _texture = _textureRight;
+                Direction = new Vector2(1, 0);
+            }
+            else if (_currentKey.IsKeyDown(Keys.Left)) // Izquierda
+            {
+                _texture = _textureLeft;
+                Direction = new Vector2(-1, 0);
+            }
 
             // Solo disparamos al presionar la tecla Espacio
             if (_currentKey.IsKeyDown(Keys.Space) &&
@@ -52,7 +70,7 @@ namespace alpha_0_2.Sprites
             }
             else if (Direction == new Vector2(-1, 0)) // Izquierda
             {
-                weaponTipPosition.X -= _texture.Width; // Resta el ancho del arma
+                weaponTipPosition.X -= 1; // Resta el ancho del arma
             }
             else if (Direction == new Vector2(0, -1)) // Arriba
             {
@@ -63,6 +81,7 @@ namespace alpha_0_2.Sprites
                 weaponTipPosition.Y += _texture.Height; // Suma el alto del arma
             }
 
+
             // Configuramos la dirección y posición inicial de la bala
             bullet.Direction = this.Direction; // Usamos la dirección del arma
             bullet.Position = weaponTipPosition; // Posición inicial desde la punta del arma
@@ -72,6 +91,5 @@ namespace alpha_0_2.Sprites
 
             sprites.Add(bullet);
         }
-
     }
 }
