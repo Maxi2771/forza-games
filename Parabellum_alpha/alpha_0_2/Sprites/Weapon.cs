@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
-using System;
 
 namespace alpha_0_2.Sprites
 {
@@ -12,6 +11,7 @@ namespace alpha_0_2.Sprites
         public Bullet Bullet;
         private Texture2D _textureRight;
         private Texture2D _textureLeft;
+        private int ammo = 15; // Munición inicial
 
         public Weapon(Texture2D textureRight, Texture2D textureLeft)
             : base(textureRight) // Comenzamos con la textura de la derecha por defecto
@@ -40,9 +40,10 @@ namespace alpha_0_2.Sprites
                 Direction = new Vector2(-1, 0);
             }
 
-            // Solo disparamos al presionar la tecla Espacio
+            // Solo disparamos al presionar la tecla Espacio y si hay munición
             if (_currentKey.IsKeyDown(Keys.Space) &&
-                _previousKey.IsKeyUp(Keys.Space))
+                _previousKey.IsKeyUp(Keys.Space) &&
+                ammo > 0) // Verificar que haya munición
             {
                 // Verificamos que el objeto Bullet no sea null antes de disparar
                 if (Bullet != null)
@@ -54,6 +55,9 @@ namespace alpha_0_2.Sprites
 
         private void AddBullet(List<Sprite> sprites)
         {
+            if (ammo <= 0) // Si no hay munición, no hacemos nada
+                return;
+
             var bullet = Bullet.Clone() as Bullet;
 
             // Verificar si el clon de bullet no es null
@@ -81,7 +85,6 @@ namespace alpha_0_2.Sprites
                 weaponTipPosition.Y += _texture.Height; // Suma el alto del arma
             }
 
-
             // Configuramos la dirección y posición inicial de la bala
             bullet.Direction = this.Direction; // Usamos la dirección del arma
             bullet.Position = weaponTipPosition; // Posición inicial desde la punta del arma
@@ -90,6 +93,7 @@ namespace alpha_0_2.Sprites
             bullet.Parent = this;
 
             sprites.Add(bullet);
+            ammo--; // Resta la munición
         }
     }
 }
