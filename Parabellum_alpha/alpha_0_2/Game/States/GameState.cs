@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using alpha_0_2.Sprites;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Input;
 
 namespace alpha_0_2.Game.States
 {
@@ -11,6 +12,8 @@ namespace alpha_0_2.Game.States
     {
         private Player _player;
         private List<Sprite> _sprites;
+        private int _lives = 3;
+        private bool _keyPreviouslyPressed = false;
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -44,6 +47,8 @@ namespace alpha_0_2.Game.States
             foreach (var sprite in _sprites.ToArray())
                 sprite.Update(gameTime, _sprites);
 
+            Lives();
+
             PostUpdate(gameTime);
         }
 
@@ -73,6 +78,29 @@ namespace alpha_0_2.Game.States
             }
 
             spriteBatch.End();
+        }
+
+        public void Lives()
+        {
+            var state = Keyboard.GetState();
+
+            if (state.IsKeyDown(Keys.K))
+            {
+                if (!_keyPreviouslyPressed && _lives > 0)
+                {
+                    _lives--;
+                }
+                _keyPreviouslyPressed = true;
+            }
+            else
+            {
+                _keyPreviouslyPressed = false;
+            }
+
+            if (_lives <= 0)
+            {
+                _game.Exit();
+            }
         }
     }
 }
