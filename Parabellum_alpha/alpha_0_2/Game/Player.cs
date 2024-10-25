@@ -14,6 +14,7 @@ namespace alpha_0_2.Game
         private float speed;
         private Direction facingDirection; // Dirección actual del jugador
         private Bullet _bullet;
+
         public Vector2 Position
         {
             get { return position; }
@@ -25,6 +26,9 @@ namespace alpha_0_2.Game
             get { return facingDirection; }
             set { facingDirection = value; }
         }
+
+        // Nueva propiedad para obtener el ancho de la textura del jugador
+        public int Width => textures[(int)facingDirection].Width;
 
         // Animación
         private Dictionary<Direction, List<Rectangle>> animationFrames; // Diccionario de rectángulos de animación por dirección
@@ -92,8 +96,7 @@ namespace alpha_0_2.Game
             UpdateMovement(); // Actualizar la posición según la velocidad
             UpdateAnimation(gameTime); // Actualizar la animación
 
-            // Actualizar la posición del arma para que siga al jugador
-            // Actualizar la posición del arma dependiendo de la dirección del jugador
+            // Actualizar la posición del arma para que siga al jugador // Actualizar la posición del arma dependiendo de la dirección del jugador
             if (facingDirection == Direction.Right)
             {
                 weapon.Position = this.Position + new Vector2(100, 50); // Arma en la derecha
@@ -102,7 +105,6 @@ namespace alpha_0_2.Game
             {
                 weapon.Position = this.Position + new Vector2(60, 50); // Arma en la izquierda (ajusta -100 según el tamaño)
             }
-
 
             // Actualizar el arma (disparos)
             weapon.Update(gameTime, sprites); // Le pasamos los sprites (balas, enemigos, etc.)

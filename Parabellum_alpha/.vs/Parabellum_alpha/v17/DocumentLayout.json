@@ -9,6 +9,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\a-15\\source\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\a-15\\source\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\states\\menustate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\states\\menustate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\a-15\\source\\forza-games\\parabellum_alpha\\alpha_0_2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MenuState.cs",
+              "DocumentMoniker": "C:\\Users\\A-15\\source\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\MenuState.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Game\\States\\MenuState.cs",
+              "ToolTip": "C:\\Users\\A-15\\source\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\MenuState.cs",
+              "RelativeToolTip": "alpha_0_2\\Game\\States\\MenuState.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAIwFEAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T20:09:58.397Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -28,9 +49,9 @@
               "RelativeDocumentMoniker": "alpha_0_2\\Game\\Player.cs",
               "ToolTip": "C:\\Users\\A-15\\source\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\Player.cs",
               "RelativeToolTip": "alpha_0_2\\Game\\Player.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAAYAAAA",
+              "ViewState": "AQIAAKIAAAAAAAAAAAAuwL8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T18:59:43.006Z",
+              "WhenOpened": "2024-10-25T20:09:27.753Z",
               "EditorCaption": ""
             },
             {
@@ -41,9 +62,22 @@
               "RelativeDocumentMoniker": "alpha_0_2\\Game\\States\\GameState.cs",
               "ToolTip": "C:\\Users\\A-15\\source\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
               "RelativeToolTip": "alpha_0_2\\Game\\States\\GameState.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAwwI8AAAAtAAAA",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAhwIoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T18:37:46.764Z",
+              "WhenOpened": "2024-10-25T20:02:41.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\A-15\\source\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game1.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Game1.cs",
+              "ToolTip": "C:\\Users\\A-15\\source\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game1.cs",
+              "RelativeToolTip": "alpha_0_2\\Game1.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAA8wFMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T20:01:42.777Z",
               "EditorCaption": ""
             }
           ]
