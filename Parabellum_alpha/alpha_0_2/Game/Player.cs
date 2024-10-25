@@ -46,7 +46,7 @@ namespace alpha_0_2.Game
         {
             this.textures = textures;
             this.position = position;
-            speed = 4;
+            speed = 1.2f;
             facingDirection = Direction.Right; // Dirección inicial por defecto
 
             // Inicializar frames de animación para cada dirección
