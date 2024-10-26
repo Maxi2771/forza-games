@@ -170,9 +170,9 @@ namespace alpha_0_2.Game
             position += velocity * speed;
 
             // Detener el salto si el jugador toca el suelo (supongamos que el suelo está en y = 400)
-            if (position.Y >= 400)
+            if (position.Y >= 875)
             {
-                position.Y = 400;
+                position.Y = 875;
                 isJumping = false;
                 isOnGround = true;
                 velocity.Y = 0;

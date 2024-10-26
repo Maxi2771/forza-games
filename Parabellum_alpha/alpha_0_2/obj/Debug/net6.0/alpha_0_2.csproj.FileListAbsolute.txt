@@ -195,3 +195,6 @@ C:\Users\Alumno\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\ne
 C:\Users\A-15\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\weaponLeft.xnb
 C:\Users\A-15\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\weaponRight.xnb
 C:\Users\A-15\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\fondo.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\fondo.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\weaponLeft.xnb
+C:\Users\Fabrizio\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\weaponRight.xnb

@@ -40,7 +40,7 @@ namespace alpha_0_2.Game.States
             var bulletTexture = content.Load<Texture2D>("Bullet");
 
             // Crear el jugador y asignarle el arma y la textura de la bala
-            _player = new Player(playerTextures, new Vector2(400, 400), textureRight, textureLeft, bulletTexture);
+            _player = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture);
 
             // Inicializar la lista de sprites (solo contendrá las balas y otros elementos del juego)
             _sprites = new List<Sprite>();
