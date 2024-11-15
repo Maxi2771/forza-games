@@ -28,10 +28,10 @@ namespace alpha_0_2.Game.States
             // Cargar spritesheets para cada dirección del jugador
             Texture2D[] playerTextures = new Texture2D[]
             {
-                content.Load<Texture2D>("man_back"),
-                content.Load<Texture2D>("man_front"),
-                content.Load<Texture2D>("pj_izq"),
-                content.Load<Texture2D>("pj_der"),
+                content.Load<Texture2D>("back"),
+                content.Load<Texture2D>("front"),
+                content.Load<Texture2D>("Left"),
+                content.Load<Texture2D>("Right"),
             };
 
             // Cargar la textura del arma y del proyectil (bala)
