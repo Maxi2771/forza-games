@@ -5,12 +5,33 @@ using Microsoft.Xna.Framework.Graphics;
 using alpha_0_2.Sprites;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace alpha_0_2.Game.States
 {
     public class GameState : State
     {
+        public int screenWidth = 1920;
+        List<Enemy> enemigos = new List<Enemy>();
+        public int ScreenWidth
+        {
+            get { return screenWidth = 1920; }
+            set { screenWidth = value; }
+        }
+
+        public int screenHeight = 1080;
+
+        public int ScreenHeight
+        {
+            get { return screenHeight = 1080; }
+            set { screenHeight = value; }
+        }
+
+
+
         private Player _player;
+        private Enemy _enemy;
+        private Bullet _bullet;
         private List<Sprite> _sprites;
         private int _lives = 3;
         private bool _keyPreviouslyPressed = false;
@@ -23,6 +44,23 @@ namespace alpha_0_2.Game.States
         private const float _limiteIzquierdo = 0; // Límite izquierdo para el fondo
         private const float _limiteDerecho = 800; // Límite derecho para el fondo (ajusta según el ancho de tu pantalla)
 
+        public ContentManager Content
+        {
+            get
+            {
+                return _content;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException();
+                }
+
+                _content = value;
+            }
+        }
+
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             // Cargar spritesheets para cada dirección del jugador
@@ -33,6 +71,9 @@ namespace alpha_0_2.Game.States
                 content.Load<Texture2D>("Left"),
                 content.Load<Texture2D>("Right"),
             };
+
+            _enemy = new Enemy(this, new Vector2(ScreenWidth, 0));
+            enemigos.Add(_enemy);
 
             // Cargar la textura del arma y del proyectil (bala)
             var textureRight = content.Load<Texture2D>("weaponRight");
@@ -55,6 +96,7 @@ namespace alpha_0_2.Game.States
         {
             // Actualizar al jugador
             _player.Update(gameTime, _sprites);
+            _enemy.Update(gameTime);
 
             // Limitar la posición del jugador para que no salga de la pantalla
             LimitPlayerPosition();
@@ -146,6 +188,7 @@ namespace alpha_0_2.Game.States
 
             // Dibujar al jugador
             _player.Draw(spriteBatch);
+            _enemy.Draw(gameTime, spriteBatch);
 
             // Dibujar los sprites (incluyendo balas)
             foreach (var sprite in _sprites)
