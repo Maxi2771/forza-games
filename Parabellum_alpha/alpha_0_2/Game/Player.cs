@@ -137,30 +137,6 @@ namespace alpha_0_2.Game
             // Normalizar la velocidad solo si se está moviendo horizontalmente
             if (velocity.X != 0)
                 velocity.Normalize();
-
-            if (Keyboard.GetState().IsKeyDown(Keys.LeftShift) && isOnGround == true)
-            {
-                speed = 5f;
-            }
-            else
-            {
-                speed = 1.2f;
-            }
-        }
-
-        public void AtacarEnemigos()
-        {
-            List<Enemy> enemigos = new List<Enemy>();
-            foreach (Enemy enemigo in enemigos)
-            {
-                if (enemigo.PositionRectangle.Intersects(_bullet.Rectangle))
-                {
-                    if (enemigo.Health == 0)
-                    {
-                        enemigos.Remove(enemigo);
-                    }
-                }
-            }
         }
 
         private void UpdateAnimation(GameTime gameTime)
