@@ -1,5 +1,5 @@
 .color-fabri{
-    color: #ff9696;
+    color: #fd6c6c;
 }
 .color-facu{
     color: #9974ff;
@@ -8,14 +8,21 @@
     color: #5680ff;
 }
 
+.color-agus{
+    color:  black;
+}
+
 .border-fabri{
-    border: 5px solid #ff9696;
+    border: 5px solid #fd6c6c;
 }
 .border-facu{
     border: 5px solid #9974ff;
 }
 .border-maxi{
     border: 5px solid #5680ff;
+}
+.border-agus{
+    border: 5px solid black;
 }
 
 .BS-fabri{
@@ -29,13 +36,16 @@
 }
 
 .borderL-fabri{
-    border-left: 5px solid #ff9696;
+    border-left: 5px solid #fd6c6c;
 }
 .borderL-facu{
     border-left: 5px solid #9974ff;
 }
 .borderL-maxi{
     border-left: 5px solid #5680ff;
+}
+.borderL-agus{
+    border-left: 5px solid black;
 }
 
 .scroll{
@@ -92,11 +102,6 @@
         height: 390px;
         object-fit: cover;
         border-radius: 20px 0px 0px 20px;
-        transition: transform 2s;
-    }
-
-    .integrante-img img:hover{
-        transform: scale(1.2);
     }
 
     .contenido-integrante{
@@ -113,6 +118,7 @@
 
     .contenido-integrante h3{
         text-align: center;
+        justify-content: center;
         
     }
 

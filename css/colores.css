@@ -7,3 +7,43 @@
 .shadow-maxi{
     box-shadow: 0 0px 10px 5px #000000;
 }
+
+.color-fabri{
+    color: #fd6c6c;
+}
+.color-facu{
+    color: #9974ff;
+}
+.color-maxi{
+    color: #5680ff;
+}
+
+.border-fabri{
+    border: 5px solid #fd6c6c;
+}
+.border-facu{
+    border: 5px solid #9974ff;
+}
+.border-maxi{
+    border: 5px solid #5680ff;
+}
+
+.BS-fabri{
+    box-shadow: 10px 5px 5px #470808;
+}
+.BS-facu{
+    box-shadow: 10px 5px 5px #2e0c69;
+}
+.BS-maxi{
+    box-shadow: 10px 5px 5px #151756;
+}
+
+.borderL-fabri{
+    border-left: 5px solid #fd6c6c;
+}
+.borderL-facu{
+    border-left: 5px solid #9974ff;
+}
+.borderL-maxi{
+    border-left: 5px solid #5680ff;
+}
