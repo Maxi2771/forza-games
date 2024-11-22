@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/A-16/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/../../../../../../Downloads/fondo.png</SourceFile>
-  <SourceTime>2024-11-15T15:28:52.2863504-03:00</SourceTime>
-  <DestFile>C:/Users/A-16/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/fondo.xnb</DestFile>
-  <DestTime>2024-11-15T15:30:31.0879241-03:00</DestTime>
+  <SourceFile>C:/Users/A-15/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/fondo.png</SourceFile>
+  <SourceTime>2024-11-22T13:23:02.4921537-03:00</SourceTime>
+  <DestFile>C:/Users/A-15/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/fondo.xnb</DestFile>
+  <DestTime>2024-11-22T13:24:07.9122342-03:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T08:44:56-03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

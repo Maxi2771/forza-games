@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\A-16\\source\\repos\\forza-games\\Parabellum_alpha\\",
+  "WorkspaceRootPath": "C:\\Users\\A-15\\Documents\\forza-games\\Parabellum_alpha\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\a-16\\source\\repos\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\a-15\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,9 +24,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "GameState.cs",
-              "DocumentMoniker": "C:\\Users\\A-16\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
+              "DocumentMoniker": "C:\\Users\\A-15\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
               "RelativeDocumentMoniker": "alpha_0_2\\Game\\States\\GameState.cs",
-              "ToolTip": "C:\\Users\\A-16\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
+              "ToolTip": "C:\\Users\\A-15\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
               "RelativeToolTip": "alpha_0_2\\Game\\States\\GameState.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAoAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
