@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/A-16/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/Bullet.png</SourceFile>
   <SourceTime>2024-11-15T13:10:55.2159541-03:00</SourceTime>
   <DestFile>C:/Users/A-16/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Bullet.xnb</DestFile>
-  <DestTime>2024-11-15T15:30:31.1058471-03:00</DestTime>
+  <DestTime>2024-11-15T17:14:22.7876209-03:00</DestTime>
+=======
+  <SourceFile>C:/Users/A-15/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Bullet.png</SourceFile>
+  <SourceTime>2024-11-22T13:19:00.3988729-03:00</SourceTime>
+  <DestFile>C:/Users/A-15/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Bullet.xnb</DestFile>
+  <DestTime>2024-11-22T13:24:07.8512484-03:00</DestTime>
+>>>>>>> 2b091594479c7b39c3c27c6b8d025ddd61bca673
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T08:44:56-03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

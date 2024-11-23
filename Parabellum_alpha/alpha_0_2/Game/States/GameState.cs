@@ -12,6 +12,7 @@ namespace alpha_0_2.Game.States
     {
         private Player _player;
         private List<Sprite> _sprites;
+        private List<Enemy> _enemies; // Lista de enemigos
         private int _lives = 3;
         private bool _keyPreviouslyPressed = false;
 
@@ -19,10 +20,13 @@ namespace alpha_0_2.Game.States
         private Texture2D _fondoTexture;
         private float _fondoPosX1;
         private float _fondoPosX2;
-        private float _velocidad = 2.4f; // Ajusta la velocidad de desplazamiento
-        private const float _limiteIzquierdo = 0; // Límite izquierdo para el fondo
-        private const float _limiteDerecho = 800; // Límite derecho para el fondo (ajusta según el ancho de tu pantalla)
-
+        private float _velocidad = 2.4f;
+        private const float _limiteIzquierdo = 0;
+        private const float _limiteDerecho = 1920;
+        Texture2D textureRight;
+        Texture2D textureLeft;
+        Texture2D enemyTextureRight;
+        Texture2D enemyTextureLeft;
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             // Cargar spritesheets para cada dirección del jugador
@@ -34,21 +38,37 @@ namespace alpha_0_2.Game.States
                 content.Load<Texture2D>("Right"),
             };
 
+            /*Texture2D[] enemyTextures = new Texture2D[]
+            {
+                content.Load<Texture2D>("EnemyLeft"),
+                content.Load<Texture2D>("EnemyRight"),
+            };*/
+
             // Cargar la textura del arma y del proyectil (bala)
-            var textureRight = content.Load<Texture2D>("weaponRight");
-            var textureLeft = content.Load<Texture2D>("weaponLeft");
+            textureRight = content.Load<Texture2D>("weaponRight");
+            textureLeft = content.Load<Texture2D>("weaponLeft");
             var bulletTexture = content.Load<Texture2D>("Bullet");
 
             // Crear el jugador y asignarle el arma y la textura de la bala
-            _player = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture);
+            _player = new Player(playerTextures, new Vector2(800, 875), textureRight, textureLeft, bulletTexture);
 
             // Inicializar la lista de sprites (solo contendrá las balas y otros elementos del juego)
             _sprites = new List<Sprite>();
 
             // Cargar la textura del fondo
-            _fondoTexture = content.Load<Texture2D>("fondo"); // Cambia por el nombre de tu imagen
+            _fondoTexture = content.Load<Texture2D>("fondo");
             _fondoPosX1 = 0;
             _fondoPosX2 = _fondoTexture.Width; // Comienza el segundo fondo justo a la derecha del primero
+
+            // Cargar las texturas de los enemigos
+            enemyTextureLeft = content.Load<Texture2D>("EnemyLeft"); // Enemigo que se mueve a la izquierda
+            enemyTextureRight = content.Load<Texture2D>("EnemyRight"); // Enemigo que se mueve a la derecha
+
+            // Crear enemigos y agregar a la lista
+            /*_enemies = new List<Enemy>
+            {
+                new Enemy(enemyTextures, new Vector2(1200, 875), bulletTexture, textureRight, textureLeft, bulletTexture)
+            };*/
         }
 
         public override void Update(GameTime gameTime)
@@ -62,6 +82,24 @@ namespace alpha_0_2.Game.States
             // Actualizar los sprites (balas y otros)
             foreach (var sprite in _sprites.ToArray())
                 sprite.Update(gameTime, _sprites);
+
+            // Actualizar enemigos
+            /*foreach (var enemy in _enemies.ToArray())
+            {
+                enemy.Update(gameTime, _sprites);
+                if (!enemy.IsRemoved)
+                {
+                    // Verificar colisiones con balas del jugador
+                    foreach (var bullet in _sprites.ToArray())
+                    {
+                        if (bullet is Bullet && bullet.Rectangle.Intersects(enemy.Rectangle))
+                        {
+                            enemy.Hit(); // El enemigo recibe daño
+                            bullet.IsRemoved = true; // Elimina la bala
+                        }
+                    }
+                }
+            }*/
 
             // Actualizar la posición del fondo
             UpdateBackground();
@@ -136,22 +174,27 @@ namespace alpha_0_2.Game.States
         {
             // Limpiar el fondo con el color azul solo al principio
             _graphicsDevice.Clear(Color.CornflowerBlue);
-
+            spriteBatch.End();
+            spriteBatch.Begin();
             spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX1, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
             spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX2, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
-            spriteBatch.End();
 
             // Comienza un nuevo spriteBatch para dibujar al jugador y otros sprites
-            spriteBatch.Begin();
-
             // Dibujar al jugador
             _player.Draw(spriteBatch);
 
             // Dibujar los sprites (incluyendo balas)
             foreach (var sprite in _sprites)
             {
-                sprite.Draw(spriteBatch);
+            //    sprite.Draw(spriteBatch);
             }
+
+            // Dibujar enemigos
+            /*foreach (var enemy in _enemies)
+            {
+                spriteBatch.Draw(enemyTextureRight, enemy.Position, Color.White);
+                //enemy.Draw(spriteBatch);
+            }*/
 
             spriteBatch.End();
         }

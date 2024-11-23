@@ -1,3 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/A-16/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/../../../../../../Downloads/Left.png","C:/Users/A-16/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Content/Left.xnb","TextureProcessor","Texture2DContent",2226,60629,0,1067078
-"C:/Users/A-16/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/Right.png","C:/Users/A-16/source/repos/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Content/Left.xnb","TextureProcessor","Texture2DContent",2226,60629,0,0022636
+<<<<<<< HEAD
+=======
+"C:/Users/A-15/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Left.png","C:/Users/A-15/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Content/Left.xnb","TextureProcessor","Texture2DContent",2076,60629,0,1134829
+"C:/Users/A-15/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Right.png","C:/Users/A-15/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Content/Left.xnb","TextureProcessor","Texture2DContent",2226,60629,0,0024601
+>>>>>>> 2b091594479c7b39c3c27c6b8d025ddd61bca673

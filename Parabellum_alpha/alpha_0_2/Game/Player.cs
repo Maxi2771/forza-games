@@ -83,10 +83,7 @@ namespace alpha_0_2.Game
             initialJumpVelocity = jumpSpeed;
 
             // Crear el arma del jugador con la textura de la bala
-            weapon = new Weapon(textureRight, textureLeft)
-            {
-                Bullet = new Bullet(bulletTexture) // Asignar la textura de la bala
-            };
+            weapon = new Weapon(textureRight, textureLeft, bulletTexture);
         }
 
         // Actualizar el jugador y su arma

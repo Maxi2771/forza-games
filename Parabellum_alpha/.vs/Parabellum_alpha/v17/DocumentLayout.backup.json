@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\",
+  "WorkspaceRootPath": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\sprites\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\sprites\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\sprites\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\maxim\\documents\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\states\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\parabellum_alpha\\alpha_0_2\\game\\states\\menustate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game\\states\\menustate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|c:\\users\\fabrizio\\source\\repos\\forza-games\\parabellum_alpha\\alpha_0_2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D2F56DE3-3AE7-435E-8E31-DBACE0DA9B23}|alpha_0_2\\alpha_0_2.csproj|solutionrelative:alpha_0_2\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +26,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -42,65 +50,67 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MenuState.cs",
-              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\MenuState.cs",
-              "RelativeDocumentMoniker": "alpha_0_2\\Game\\States\\MenuState.cs",
-              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\MenuState.cs",
-              "RelativeToolTip": "alpha_0_2\\Game\\States\\MenuState.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAIwFEAAAAzAAAA",
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\Player.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Game\\Player.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\Player.cs",
+              "RelativeToolTip": "alpha_0_2\\Game\\Player.cs",
+              "ViewState": "AQIAAKMAAAAAAAAAAAAIwLkAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T20:09:58.397Z"
+              "WhenOpened": "2024-11-23T18:07:46.173Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\Player.cs",
-              "RelativeDocumentMoniker": "alpha_0_2\\Game\\Player.cs",
-              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\Player.cs",
-              "RelativeToolTip": "alpha_0_2\\Game\\Player.cs",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAMwKwAAAAhAAAAAAAAAA==",
+              "Title": "Weapon.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Weapon.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Sprites\\Weapon.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Weapon.cs",
+              "RelativeToolTip": "alpha_0_2\\Sprites\\Weapon.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAqwCUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T20:09:27.753Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameState.cs",
-              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
-              "RelativeDocumentMoniker": "alpha_0_2\\Game\\States\\GameState.cs",
-              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
-              "RelativeToolTip": "alpha_0_2\\Game\\States\\GameState.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAswCoAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T20:02:41.161Z",
+              "WhenOpened": "2024-11-23T18:07:46.412Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Game1.cs",
-              "DocumentMoniker": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game1.cs",
-              "RelativeDocumentMoniker": "alpha_0_2\\Game1.cs",
-              "ToolTip": "C:\\Users\\Fabrizio\\source\\repos\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game1.cs",
-              "RelativeToolTip": "alpha_0_2\\Game1.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAA8wFMAAAAAAAAA",
+              "Title": "GameState.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Game\\States\\GameState.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Game\\States\\GameState.cs",
+              "RelativeToolTip": "alpha_0_2\\Game\\States\\GameState.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T20:01:42.777Z"
+              "WhenOpened": "2024-11-23T18:07:46.419Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Bullet.cs",
+              "RelativeDocumentMoniker": "alpha_0_2\\Sprites\\Bullet.cs",
+              "ToolTip": "C:\\Users\\maxim\\Documents\\forza-games\\Parabellum_alpha\\alpha_0_2\\Sprites\\Bullet.cs",
+              "RelativeToolTip": "alpha_0_2\\Sprites\\Bullet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T18:07:46.432Z",
+              "EditorCaption": ""
             }
           ]
         }
