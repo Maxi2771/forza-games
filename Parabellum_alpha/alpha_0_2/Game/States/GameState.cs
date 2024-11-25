@@ -14,56 +14,47 @@ namespace alpha_0_2.Game.States
         private List<Sprite> _sprites;
         private int _lives = 3;
         private bool _keyPreviouslyPressed = false;
+        private List<Bullet> Cargador = new List<Bullet>();
 
         // Variables para el fondo
         private Texture2D _fondoTexture;
         private float _fondoPosX1;
         private float _fondoPosX2;
-        private float _velocidad = 2.4f; // Ajusta la velocidad de desplazamiento
-        private const float _limiteIzquierdo = 0; // Límite izquierdo para el fondo
-        private const float _limiteDerecho = 800; // Límite derecho para el fondo (ajusta según el ancho de tu pantalla)
+        private float _velocidad = 2.4f;
+        private const float _limiteIzquierdo = 0;
+        private const float _limiteDerecho = 800;
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            // Cargar spritesheets para cada dirección del jugador
             Texture2D[] playerTextures = new Texture2D[]
             {
-                content.Load<Texture2D>("back"),
-                content.Load<Texture2D>("front"),
-                content.Load<Texture2D>("Left"),
                 content.Load<Texture2D>("Right"),
+                content.Load<Texture2D>("Left"),
             };
 
-            // Cargar la textura del arma y del proyectil (bala)
             var textureRight = content.Load<Texture2D>("weaponRight");
             var textureLeft = content.Load<Texture2D>("weaponLeft");
             var bulletTexture = content.Load<Texture2D>("Bullet");
 
-            // Crear el jugador y asignarle el arma y la textura de la bala
-            _player = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture);
+            _player = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture, Cargador);
 
-            // Inicializar la lista de sprites (solo contendrá las balas y otros elementos del juego)
             _sprites = new List<Sprite>();
 
             // Cargar la textura del fondo
-            _fondoTexture = content.Load<Texture2D>("fondo"); // Cambia por el nombre de tu imagen
+            _fondoTexture = content.Load<Texture2D>("fondo");
             _fondoPosX1 = 0;
-            _fondoPosX2 = _fondoTexture.Width; // Comienza el segundo fondo justo a la derecha del primero
+            _fondoPosX2 = _fondoTexture.Width;
         }
 
         public override void Update(GameTime gameTime)
         {
-            // Actualizar al jugador
             _player.Update(gameTime, _sprites);
 
-            // Limitar la posición del jugador para que no salga de la pantalla
             LimitPlayerPosition();
 
-            // Actualizar los sprites (balas y otros)
             foreach (var sprite in _sprites.ToArray())
                 sprite.Update(gameTime, _sprites);
 
-            // Actualizar la posición del fondo
             UpdateBackground();
 
             Lives();
@@ -73,51 +64,44 @@ namespace alpha_0_2.Game.States
 
         private void LimitPlayerPosition()
         {
-            // Obtener el tamaño del jugador
             var playerPosition = _player.Position;
-            var playerWidth = _player.Width; // Utilizar la propiedad Width para obtener el ancho de la textura del jugador
+            var playerWidth = _player.Width;
 
-            // Limitar la posición del jugador en el eje X
             if (playerPosition.X < 0)
             {
-                playerPosition.X = 0; // No permitir que el jugador se salga por la izquierda
+                playerPosition.X = 0;
             }
             else if (playerPosition.X > _limiteDerecho - playerWidth)
             {
-                playerPosition.X = _limiteDerecho - playerWidth; // No permitir que el jugador se salga por la derecha
+                playerPosition.X = _limiteDerecho - playerWidth;
             }
 
-            _player.Position = playerPosition; // Actualiza la posición del jugador
+            _player.Position = playerPosition;
         }
 
         private void UpdateBackground()
         {
             var state = Keyboard.GetState();
 
-            // Mueve el fondo hacia la izquierda si se presiona la tecla izquierda
             if (state.IsKeyDown(Keys.Left))
             {
-                // Solo mueve el fondo si no se ha alcanzado el límite izquierdo
                 if (_fondoPosX1 < _limiteIzquierdo)
                 {
-                    _fondoPosX1 += _velocidad; // Mueve el fondo a la izquierda
-                    _fondoPosX2 += _velocidad; // Mueve el segundo fondo a la izquierda
+                    _fondoPosX1 += _velocidad;
+                    _fondoPosX2 += _velocidad;
                 }
             }
-            // Mueve el fondo hacia la derecha si se presiona la tecla derecha
             else if (state.IsKeyDown(Keys.Right))
             {
-                _fondoPosX1 -= _velocidad; // Mueve el fondo a la derecha
-                _fondoPosX2 -= _velocidad; // Mueve el segundo fondo a la derecha
+                _fondoPosX1 -= _velocidad;
+                _fondoPosX2 -= _velocidad;
             }
 
-            // Verifica si el primer fondo salió completamente de la pantalla
             if (_fondoPosX1 <= -_fondoTexture.Width)
-                _fondoPosX1 = _fondoPosX2 + _fondoTexture.Width; // Reposiciona el fondo
+                _fondoPosX1 = _fondoPosX2 + _fondoTexture.Width;
 
-            // Verifica si el segundo fondo salió completamente de la pantalla
             if (_fondoPosX2 <= -_fondoTexture.Width)
-                _fondoPosX2 = _fondoPosX1 + _fondoTexture.Width; // Reposiciona el fondo
+                _fondoPosX2 = _fondoPosX1 + _fondoTexture.Width;
         }
 
         public override void PostUpdate(GameTime gameTime)
@@ -134,20 +118,16 @@ namespace alpha_0_2.Game.States
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            // Limpiar el fondo con el color azul solo al principio
             _graphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX1, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
             spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX2, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
             spriteBatch.End();
 
-            // Comienza un nuevo spriteBatch para dibujar al jugador y otros sprites
             spriteBatch.Begin();
 
-            // Dibujar al jugador
             _player.Draw(spriteBatch);
 
-            // Dibujar los sprites (incluyendo balas)
             foreach (var sprite in _sprites)
             {
                 sprite.Draw(spriteBatch);

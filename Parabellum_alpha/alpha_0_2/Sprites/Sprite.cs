@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 
 namespace alpha_0_2.Sprites
 {
-    public class Sprite : Component, ICloneable 
+    public class Sprite : Component, ICloneable
     {
         protected Texture2D _texture;
+
+        protected Texture2D[] _textureArr;
 
         protected float _rotation;
 
@@ -50,6 +52,14 @@ namespace alpha_0_2.Sprites
         public Sprite(Texture2D texture)
         {
             _texture = texture;
+
+            // The default origin in the centre of the sprite
+            Origin = new Vector2(128, 64 / 2);
+        }
+
+        public Sprite(Texture2D[] texture)
+        {
+            _textureArr = texture;
 
             // The default origin in the centre of the sprite
             Origin = new Vector2(128, 64 / 2);

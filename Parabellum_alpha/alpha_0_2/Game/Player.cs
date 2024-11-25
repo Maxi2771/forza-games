@@ -12,8 +12,7 @@ namespace alpha_0_2.Game
         private Vector2 position; // Posición en X e Y
         private Vector2 velocity; // Velocidad en X e Y
         private float speed;
-        private Direction facingDirection; // Dirección actual del jugador
-        private Bullet _bullet;
+        private Direction facingDirection;
 
         public Vector2 Position
         {
@@ -27,103 +26,86 @@ namespace alpha_0_2.Game
             set { facingDirection = value; }
         }
 
-        // Nueva propiedad para obtener el ancho de la textura del jugador
         public int Width => textures[(int)facingDirection].Width;
 
-        // Animación
-        private Dictionary<Direction, List<Rectangle>> animationFrames; // Diccionario de rectángulos de animación por dirección
-        private int currentFrame;
+        Dictionary<Direction, List<Rectangle>> animationFrames = new Dictionary<Direction, List<Rectangle>>
+        {
+            { Direction.Right, new List<Rectangle>() },
+            { Direction.Left, new List<Rectangle>() },
+        };
+        private int currentFrame = 0;
         private float frameTimer;
-        private float frameInterval = 0.1f; // Intervalo de tiempo entre frames (ajustable según la velocidad deseada)
+        private float frameInterval = 0.1f;
 
         // Salto
-        private bool isJumping; // Booleano para saber si está saltando
-        private float jumpSpeed; // Velocidad del salto
-        private float gravity; // Gravedad que se le aplica al salto
-        private float initialJumpVelocity; // Velocidad inicial del salto (al despegarse del suelo)
-        private bool isOnGround; // Nueva variable para verificar si el jugador está en el suelo
+        private bool isJumping;
+        private float jumpSpeed;
+        private float gravity;
+        private float initialJumpVelocity;
+        private bool isOnGround;
 
-        // Arma del jugador
         private Weapon weapon;
 
-        public Player(Texture2D[] textures, Vector2 position, Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture)
+        public Weapon Weapon
+        {
+            get { return weapon; }
+            set { weapon = value; }
+        }
+
+        public Player(Texture2D[] textures, Vector2 position, Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador)
         {
             this.textures = textures;
             this.position = position;
             speed = 1.2f;
-            facingDirection = Direction.Right; // Dirección inicial por defecto
+            facingDirection = Direction.Right;
 
-            // Inicializar frames de animación para cada dirección
-            animationFrames = new Dictionary<Direction, List<Rectangle>>();
-            animationFrames[Direction.Up] = new List<Rectangle>();
-            animationFrames[Direction.Down] = new List<Rectangle>();
-            animationFrames[Direction.Left] = new List<Rectangle>();
             animationFrames[Direction.Right] = new List<Rectangle>();
+            animationFrames[Direction.Left] = new List<Rectangle>();
 
-            // Añadir rectángulos de animación según las dimensiones de cada spritesheet
-            int frameWidth = 180 / 4; // Ancho del frame del spritesheet
-            int frameHeight = 87; // Alto del frame del spritesheet
+            int frameWidth = 180 / 4;
+            int frameHeight = 87;
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
-                animationFrames[Direction.Up].Add(new Rectangle(i * frameWidth, 0, frameWidth, frameHeight));
-                animationFrames[Direction.Down].Add(new Rectangle(i * frameWidth, 0, frameWidth, frameHeight));
-                animationFrames[Direction.Left].Add(new Rectangle(i * frameWidth, 0, frameWidth, frameHeight));
                 animationFrames[Direction.Right].Add(new Rectangle(i * frameWidth, 0, frameWidth, frameHeight));
+                animationFrames[Direction.Left].Add(new Rectangle(i * frameWidth, 0, frameWidth, frameHeight));
             }
 
             currentFrame = 0;
             frameTimer = 0;
 
-            // Inicializar parámetros de salto
             isJumping = false;
             isOnGround = true;
-            jumpSpeed = -7f; // Velocidad inicial hacia arriba
-            gravity = 0.6f; // Gravedad
+            jumpSpeed = -7f;
+            gravity = 0.6f;
             initialJumpVelocity = jumpSpeed;
 
-            // Crear el arma del jugador con la textura de la bala
-            weapon = new Weapon(textureRight, textureLeft)
-            {
-                Bullet = new Bullet(bulletTexture) // Asignar la textura de la bala
-            };
+            weapon = new Weapon(textureRight, textureLeft, bulletTexture, Cargador, position);
         }
 
-        // Actualizar el jugador y su arma
         public void Update(GameTime gameTime, List<Sprite> sprites)
         {
-            HandleInput(); // Manejar entrada para actualizar la dirección y la animación
-            UpdateMovement(); // Actualizar la posición según la velocidad
-            UpdateAnimation(gameTime); // Actualizar la animación
-
-            // Actualizar la posición del arma para que siga al jugador // Actualizar la posición del arma dependiendo de la dirección del jugador
-            if (facingDirection == Direction.Right)
-            {
-                weapon.Position = this.Position + new Vector2(100, 50); // Arma en la derecha
-            }
-            else if (facingDirection == Direction.Left)
-            {
-                weapon.Position = this.Position + new Vector2(60, 50); // Arma en la izquierda (ajusta -100 según el tamaño)
-            }
-
-            // Actualizar el arma (disparos)
-            weapon.Update(gameTime, sprites); // Le pasamos los sprites (balas, enemigos, etc.)
+            HandleInput(gameTime);
+            UpdateMovement();
+            weapon.Update(gameTime);
+            weapon.PlayerPosition = position;
         }
 
-        private void HandleInput()
+        private void HandleInput(GameTime gameTime)
         {
             velocity.X = 0;
 
-            // Manejar entrada del teclado para cambiar la dirección y establecer velocidad
             if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 facingDirection = Direction.Left;
                 velocity.X -= 1;
+                UpdateAnimation(gameTime);
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 facingDirection = Direction.Right;
                 velocity.X += 1;
+                UpdateAnimation(gameTime);
             }
 
             // Manejar salto
@@ -134,14 +116,12 @@ namespace alpha_0_2.Game
                 velocity.Y = initialJumpVelocity;
             }
 
-            // Normalizar la velocidad solo si se está moviendo horizontalmente
             if (velocity.X != 0)
                 velocity.Normalize();
         }
 
         private void UpdateAnimation(GameTime gameTime)
         {
-            // Solo actualizar la animación si el jugador se está moviendo
             if (velocity.X != 0)
             {
                 frameTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -154,22 +134,19 @@ namespace alpha_0_2.Game
             }
             else
             {
-                currentFrame = 0; // Mantener el primer frame si no se está moviendo
+                currentFrame = 0;
             }
         }
 
         private void UpdateMovement()
         {
-            // Aplicar gravedad si el jugador está saltando o en el aire
             if (isJumping || !isOnGround)
             {
                 velocity.Y += gravity;
             }
 
-            // Actualizar la posición del jugador basado en la velocidad
             position += velocity * speed;
 
-            // Detener el salto si el jugador toca el suelo (supongamos que el suelo está en y = 400)
             if (position.Y >= 875)
             {
                 position.Y = 875;
@@ -179,13 +156,9 @@ namespace alpha_0_2.Game
             }
         }
 
-        // Método para dibujar al jugador
         public void Draw(SpriteBatch spriteBatch)
         {
-            // Dibujar el jugador
             spriteBatch.Draw(textures[(int)facingDirection], position, animationFrames[facingDirection][currentFrame], Color.White);
-
-            // Dibujar el arma
             weapon.Draw(spriteBatch);
         }
     }

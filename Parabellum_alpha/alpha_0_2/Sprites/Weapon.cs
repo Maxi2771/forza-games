@@ -8,92 +8,110 @@ namespace alpha_0_2.Sprites
 {
     public class Weapon : Sprite
     {
-        public Bullet Bullet;
-        private Texture2D _textureRight;
-        private Texture2D _textureLeft;
-        private int ammo = 15; // Munición inicial
+        private List<Bullet> Cargador = new List<Bullet>();
+        private List<Bullet> disparadas = new List<Bullet>();
+        private Texture2D texture;
+        private Texture2D textureRight;
+        private Texture2D textureLeft;
+        private Texture2D bulletTexture;
+        private Vector2 playerPosition;
+        private int ammo = 15;
 
-        public Weapon(Texture2D textureRight, Texture2D textureLeft)
+        public List<Bullet> Disparadas
+        {
+            get { return disparadas; }
+            set { disparadas = value; }
+        }
+
+        public Vector2 PlayerPosition
+        {
+            get { return playerPosition; }
+            set { playerPosition = value; }
+        }
+
+        public Weapon(Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador, Vector2 playerPosition)
             : base(textureRight) // Comenzamos con la textura de la derecha por defecto
         {
-            _textureRight = textureRight;
-            _textureLeft = textureLeft;
+            this.textureRight = textureRight;
+            this.textureLeft = textureLeft;
+            texture = textureRight;
+            Position = new Vector2(-22, 14);
+            this.Cargador = Cargador;
+            this.bulletTexture = bulletTexture;
+            this.playerPosition = playerPosition;
 
             // Dirección predeterminada (hacia la derecha)
             Direction = new Vector2(1, 0);
+            for (int i = 0; i < ammo; i++)
+            {
+                Cargador.Add(new Bullet(bulletTexture, Position, playerPosition));
+            }
         }
 
-        public override void Update(GameTime gameTime, List<Sprite> sprites)
+        public override void Update(GameTime gameTime)
         {
             _previousKey = _currentKey;
             _currentKey = Keyboard.GetState();
-
-            // Cambiar la textura según la dirección del jugador
-            if (_currentKey.IsKeyDown(Keys.Right)) // Derecha
+            WeaponDirection();
+            if (_currentKey.IsKeyDown(Keys.Space) && _previousKey.IsKeyUp(Keys.Space) && Cargador.Count > 0)
             {
-                _texture = _textureRight;
-                Direction = new Vector2(1, 0);
+                ShootBullet();
             }
-            else if (_currentKey.IsKeyDown(Keys.Left)) // Izquierda
+            foreach (Bullet b in disparadas)
             {
-                _texture = _textureLeft;
-                Direction = new Vector2(-1, 0);
-            }
-
-            // Solo disparamos al presionar la tecla Espacio y si hay munición
-            if (_currentKey.IsKeyDown(Keys.Space) &&
-                _previousKey.IsKeyUp(Keys.Space) &&
-                ammo > 0) // Verificar que haya munición
-            {
-                // Verificamos que el objeto Bullet no sea null antes de disparar
-                if (Bullet != null)
-                {
-                    AddBullet(sprites);
-                }
+                b.Update(gameTime);
             }
         }
 
-        private void AddBullet(List<Sprite> sprites)
+        public void ShootBullet()
         {
-            if (ammo <= 0) // Si no hay munición, no hacemos nada
-                return;
+            var bullet = new Bullet(bulletTexture, Position, playerPosition);
 
-            var bullet = Bullet.Clone() as Bullet;
-
-            // Verificar si el clon de bullet no es null
-            if (bullet == null)
-                return;
-
-            // Calcular la posición de la punta del arma
             Vector2 weaponTipPosition = this.Position;
+            int offset = 160;
 
-            // Ajustar la posición de la punta del arma según la dirección en la que está mirando
             if (Direction == new Vector2(1, 0)) // Derecha
             {
                 weaponTipPosition.X += _texture.Width; // Suma el ancho del arma
             }
             else if (Direction == new Vector2(-1, 0)) // Izquierda
             {
-                weaponTipPosition.X -= 1; // Resta el ancho del arma
-            }
-            else if (Direction == new Vector2(0, -1)) // Arriba
-            {
-                weaponTipPosition.Y -= _texture.Height; // Resta el alto del arma
-            }
-            else if (Direction == new Vector2(0, 1)) // Abajo
-            {
-                weaponTipPosition.Y += _texture.Height; // Suma el alto del arma
+                weaponTipPosition.X -= _texture.Width - offset; // Resta el ancho del arma
             }
 
-            // Configuramos la dirección y posición inicial de la bala
-            bullet.Direction = this.Direction; // Usamos la dirección del arma
-            bullet.Position = weaponTipPosition; // Posición inicial desde la punta del arma
-            bullet.LinearVelocity = this.LinearVelocity * 2; // Velocidad de la bala (ajusta según sea necesario)
-            bullet.LifeSpan = 2f; // Tiempo de vida de la bala
+            bullet.Direction = this.Direction;
+            bullet.Position = weaponTipPosition;
+            bullet.LinearVelocity = this.LinearVelocity * 2;
+            bullet.LifeSpan = 2f;
             bullet.Parent = this;
 
-            sprites.Add(bullet);
-            ammo--; // Resta la munición
+            disparadas.Add(bullet);
+            Cargador.RemoveAt(Cargador.Count - 1);
+        }
+
+        public void WeaponDirection()
+        {
+            if (_currentKey.IsKeyDown(Keys.Right)) // Derecha
+            {
+                texture = textureRight;
+                Direction = new Vector2(1, 0);
+                Position = new Vector2(-22, 14);
+            }
+            else if (_currentKey.IsKeyDown(Keys.Left)) // Izquierda
+            {
+                texture = textureLeft;
+                Direction = new Vector2(-1, 0);
+                Position = new Vector2(-60, 14);
+            }
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, playerPosition + Position, Color.White);
+            foreach (Bullet bullet in disparadas)
+            {
+                bullet.Draw(spriteBatch);
+            }
         }
     }
 }
