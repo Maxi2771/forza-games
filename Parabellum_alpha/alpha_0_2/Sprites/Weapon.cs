@@ -17,6 +17,24 @@ namespace alpha_0_2.Sprites
         private Vector2 playerPosition;
         private int ammo = 15;
 
+
+        public Texture2D Texture
+        {
+            get { return texture; }
+            set { texture = value; }
+        }
+
+        public Texture2D TextureRight
+        {
+            get { return textureRight; }
+            set { textureRight = value; }
+        }
+        public Texture2D TextureLeft
+        {
+            get { return textureLeft; }
+            set { textureLeft = value; }
+        }
+
         public List<Bullet> Disparadas
         {
             get { return disparadas; }
@@ -52,7 +70,6 @@ namespace alpha_0_2.Sprites
         {
             _previousKey = _currentKey;
             _currentKey = Keyboard.GetState();
-            WeaponDirection();
             if (_currentKey.IsKeyDown(Keys.Space) && _previousKey.IsKeyUp(Keys.Space) && Cargador.Count > 0)
             {
                 ShootBullet();
@@ -87,22 +104,6 @@ namespace alpha_0_2.Sprites
 
             disparadas.Add(bullet);
             Cargador.RemoveAt(Cargador.Count - 1);
-        }
-
-        public void WeaponDirection()
-        {
-            if (_currentKey.IsKeyDown(Keys.Right)) // Derecha
-            {
-                texture = textureRight;
-                Direction = new Vector2(1, 0);
-                Position = new Vector2(-22, 14);
-            }
-            else if (_currentKey.IsKeyDown(Keys.Left)) // Izquierda
-            {
-                texture = textureLeft;
-                Direction = new Vector2(-1, 0);
-                Position = new Vector2(-60, 14);
-            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)

@@ -5,12 +5,14 @@ using Microsoft.Xna.Framework.Graphics;
 using alpha_0_2.Sprites;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace alpha_0_2.Game.States
 {
     public class GameState : State
     {
         private Player _player;
+        private Enemy _enemy;
         private List<Sprite> _sprites;
         private int _lives = 3;
         private bool _keyPreviouslyPressed = false;
@@ -32,11 +34,18 @@ namespace alpha_0_2.Game.States
                 content.Load<Texture2D>("Left"),
             };
 
+            Texture2D[] enemyTextures = new Texture2D[]
+            {
+                content.Load<Texture2D>("enemyRight"),
+                content.Load<Texture2D>("enemyLeft"),
+            };
+
             var textureRight = content.Load<Texture2D>("weaponRight");
             var textureLeft = content.Load<Texture2D>("weaponLeft");
             var bulletTexture = content.Load<Texture2D>("Bullet");
 
             _player = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture, Cargador);
+            _enemy = new Enemy(enemyTextures, new Vector2(600, 875), textureRight, textureLeft, bulletTexture);
 
             _sprites = new List<Sprite>();
 
@@ -49,6 +58,7 @@ namespace alpha_0_2.Game.States
         public override void Update(GameTime gameTime)
         {
             _player.Update(gameTime, _sprites);
+            _enemy.Update(gameTime, _player.Position);
 
             LimitPlayerPosition();
 
@@ -58,7 +68,6 @@ namespace alpha_0_2.Game.States
             UpdateBackground();
 
             Lives();
-
             PostUpdate(gameTime);
         }
 
@@ -127,6 +136,7 @@ namespace alpha_0_2.Game.States
             spriteBatch.Begin();
 
             _player.Draw(spriteBatch);
+            _enemy.Draw(spriteBatch);
 
             foreach (var sprite in _sprites)
             {

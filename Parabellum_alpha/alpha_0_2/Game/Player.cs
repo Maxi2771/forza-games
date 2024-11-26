@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace alpha_0_2.Game
@@ -13,6 +14,9 @@ namespace alpha_0_2.Game
         private Vector2 velocity; // Velocidad en X e Y
         private float speed;
         private Direction facingDirection;
+
+        private KeyboardState _currentKey;
+        private KeyboardState _previousKey;
 
         public Vector2 Position
         {
@@ -99,12 +103,18 @@ namespace alpha_0_2.Game
             {
                 facingDirection = Direction.Left;
                 velocity.X -= 1;
+                weapon.Texture = weapon.TextureLeft;
+                weapon.Direction = new Vector2(-1, 0);
+                weapon.Position = new Vector2(-60, 14);
                 UpdateAnimation(gameTime);
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 facingDirection = Direction.Right;
                 velocity.X += 1;
+                weapon.Texture = weapon.TextureRight;
+                weapon.Direction = new Vector2(1, 0);
+                weapon.Position = new Vector2(-22, 14);
                 UpdateAnimation(gameTime);
             }
 

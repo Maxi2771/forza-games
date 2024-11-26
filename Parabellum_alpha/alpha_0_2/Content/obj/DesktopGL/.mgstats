@@ -1,3 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Left.png","C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Left.xnb","TextureProcessor","Texture2DContent",2226,60629,0,1147382
-"C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Right.png","C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/Right.xnb","TextureProcessor","Texture2DContent",2076,60629,0,0055293
+"C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/enemyLeft.png","C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/enemyLeft.xnb","TextureProcessor","Texture2DContent",2190,60629,0,2754996
+"C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/enemyRight.png","C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/bin/DesktopGL/enemyRight.xnb","TextureProcessor","Texture2DContent",2071,60629,0,0079385
