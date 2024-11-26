@@ -9,11 +9,7 @@ namespace alpha_0_2.Sprites
 {
     public class Enemy
     {
-        private Vector2 velocity;
         private Direction facingDirection;
-        private float _shootTimer;
-        private float _shootInterval = 1.5f; // Intervalo de tiempo entre disparos
-        private Bullet _bullet;
         private Texture2D[] textures;
         private bool _isAlive = true;
         private Vector2 _direction; // Dirección del enemigo
@@ -25,13 +21,17 @@ namespace alpha_0_2.Sprites
         private List<Bullet> Cargador = new List<Bullet>();
         private List<Bullet> disparadas = new List<Bullet>();
         private Vector2 position;
-        private bool IsRemoved = false;
         private float frameInterval = 0.1f;
+        private float _shootTimer;
+        private float _nextShootInterval;
+        private Random _random;
+        private Texture2D bulletTexture;
 
         public Enemy(Texture2D[] textures, Vector2 position, Texture2D weaponRight, Texture2D weaponLeft, Texture2D bulletTexture)
         {
             this.textures = textures;
             this.position = position;
+            this.bulletTexture = bulletTexture;
             _direction = new Vector2(-1, 0);
             int frameWidth = 176 / 4; // Ancho del frame del spritesheet
             int frameHeight = 87; // Alto del frame del spritesheet
@@ -40,6 +40,7 @@ namespace alpha_0_2.Sprites
             animationFrames[Direction.Left] = new List<Rectangle>();
             animationFrames[Direction.Right] = new List<Rectangle>();
 
+            _random = new Random();
 
             for (int i = 0; i < 3; i++)
             {
@@ -47,8 +48,26 @@ namespace alpha_0_2.Sprites
                 animationFrames[Direction.Right].Add(new Rectangle(i * frameWidth, 0, frameWidth, frameHeight));
             }
 
-            //weapon = new Weapon(weaponRight, weaponLeft, bulletTexture, Cargador, position);
+            weapon = new Weapon(weaponRight, weaponLeft, bulletTexture, Cargador, position);
+            RandomInterval();
         }
+
+        private void RandomInterval()
+        {
+            _nextShootInterval = (float)_random.NextDouble() * 2;
+        }
+
+        private void Shoot(Vector2 playerPosition, GameTime gameTime)
+        {
+            if (_shootTimer >= _nextShootInterval)
+            {
+                _shootTimer = 0;
+                RandomInterval();
+
+                weapon.ShootBullet(gameTime);
+            }
+        }
+
 
         private void FollowPlayer(Vector2 playerPosition, GameTime gameTime)
         {
@@ -62,10 +81,16 @@ namespace alpha_0_2.Sprites
             if(_direction.X < 0)
             {
                 facingDirection = Direction.Left;
+                weapon.Texture = weapon.TextureLeft;
+                weapon.Direction = new Vector2(-1, 0);
+                weapon.Position = new Vector2(-65, 14);
             }
             else
             {
                 facingDirection = Direction.Right;
+                weapon.Texture = weapon.TextureRight;
+                weapon.Direction = new Vector2(1, 0);
+                weapon.Position = new Vector2(-15, 14);
             }
 
             UpdateAnimation(gameTime);
@@ -95,10 +120,19 @@ namespace alpha_0_2.Sprites
             if (!_isAlive) return;
 
             FollowPlayer(playerPosition, gameTime);
+            weapon.Update(gameTime);
+            weapon.PlayerPosition = position;
+            _shootTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            if ((_direction.X < 0 && facingDirection == Direction.Left) ||
+            (_direction.X > 0 && facingDirection == Direction.Right))
+            {
+                Shoot(playerPosition, gameTime);
+            }
         }
 
 
-        public void Hit()
+        private void Hit()
         {
             /*if ()
             {
@@ -112,6 +146,7 @@ namespace alpha_0_2.Sprites
             {
                 var frame = animationFrames[facingDirection][currentFrame];
                 spriteBatch.Draw(textures[(int)facingDirection], position, frame, Color.White);
+                weapon.Draw(spriteBatch);
             }
         }
     }

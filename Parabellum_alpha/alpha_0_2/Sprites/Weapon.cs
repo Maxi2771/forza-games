@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using System;
 
 namespace alpha_0_2.Sprites
 {
@@ -16,6 +17,8 @@ namespace alpha_0_2.Sprites
         private Texture2D bulletTexture;
         private Vector2 playerPosition;
         private int ammo = 15;
+        private float timer;
+        private bool isReloading = false;
 
 
         public Texture2D Texture
@@ -47,6 +50,12 @@ namespace alpha_0_2.Sprites
             set { playerPosition = value; }
         }
 
+        public List<Bullet> _Cargador
+        {
+            get { return Cargador; }
+            set { Cargador = value; }
+        }
+
         public Weapon(Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador, Vector2 playerPosition)
             : base(textureRight) // Comenzamos con la textura de la derecha por defecto
         {
@@ -60,6 +69,11 @@ namespace alpha_0_2.Sprites
 
             // Dirección predeterminada (hacia la derecha)
             Direction = new Vector2(1, 0);
+            FillBullets();
+        }
+
+        public void FillBullets()
+        {
             for (int i = 0; i < ammo; i++)
             {
                 Cargador.Add(new Bullet(bulletTexture, Position, playerPosition));
@@ -68,42 +82,59 @@ namespace alpha_0_2.Sprites
 
         public override void Update(GameTime gameTime)
         {
-            _previousKey = _currentKey;
-            _currentKey = Keyboard.GetState();
-            if (_currentKey.IsKeyDown(Keys.Space) && _previousKey.IsKeyUp(Keys.Space) && Cargador.Count > 0)
-            {
-                ShootBullet();
-            }
             foreach (Bullet b in disparadas)
             {
                 b.Update(gameTime);
             }
+
+            if (isReloading)
+            {
+                timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                ShootBullet(gameTime);
+            }
         }
 
-        public void ShootBullet()
+        public void ShootBullet(GameTime gameTime)
         {
-            var bullet = new Bullet(bulletTexture, Position, playerPosition);
-
-            Vector2 weaponTipPosition = this.Position;
-            int offset = 160;
-
-            if (Direction == new Vector2(1, 0)) // Derecha
+            if (Cargador.Count > 0)
             {
-                weaponTipPosition.X += _texture.Width; // Suma el ancho del arma
+                var bullet = new Bullet(bulletTexture, Position, playerPosition);
+
+                Vector2 weaponTipPosition = this.Position;
+                int offset = 160;
+
+                if (Direction == new Vector2(1, 0)) // Derecha
+                {
+                    weaponTipPosition.X += _texture.Width; // Suma el ancho del arma
+                }
+                else if (Direction == new Vector2(-1, 0)) // Izquierda
+                {
+                    weaponTipPosition.X -= _texture.Width - offset; // Resta el ancho del arma
+                }
+
+                bullet.Direction = this.Direction;
+                bullet.Position = weaponTipPosition;
+                bullet.LinearVelocity = this.LinearVelocity * 2;
+                bullet.LifeSpan = 2f;
+                bullet.Parent = this;
+
+                disparadas.Add(bullet);
+
+                Cargador.RemoveAt(Cargador.Count - 1);
             }
-            else if (Direction == new Vector2(-1, 0)) // Izquierda
+            else if (Cargador.Count == 0)
             {
-                weaponTipPosition.X -= _texture.Width - offset; // Resta el ancho del arma
+                if (timer < 5)
+                {
+                    isReloading = true;
+                }
+                else
+                {
+                    isReloading = false;
+                    timer = 0f;
+                    FillBullets();
+                }
             }
-
-            bullet.Direction = this.Direction;
-            bullet.Position = weaponTipPosition;
-            bullet.LinearVelocity = this.LinearVelocity * 2;
-            bullet.LifeSpan = 2f;
-            bullet.Parent = this;
-
-            disparadas.Add(bullet);
-            Cargador.RemoveAt(Cargador.Count - 1);
         }
 
         public override void Draw(SpriteBatch spriteBatch)

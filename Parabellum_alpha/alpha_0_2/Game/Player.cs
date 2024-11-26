@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace alpha_0_2.Game
 {
@@ -14,7 +15,6 @@ namespace alpha_0_2.Game
         private Vector2 velocity; // Velocidad en X e Y
         private float speed;
         private Direction facingDirection;
-
         private KeyboardState _currentKey;
         private KeyboardState _previousKey;
 
@@ -89,10 +89,18 @@ namespace alpha_0_2.Game
 
         public void Update(GameTime gameTime, List<Sprite> sprites)
         {
+            _previousKey = _currentKey;
+            _currentKey = Keyboard.GetState();
+
             HandleInput(gameTime);
             UpdateMovement();
             weapon.Update(gameTime);
             weapon.PlayerPosition = position;
+
+            if (_currentKey.IsKeyDown(Keys.Space) && _previousKey.IsKeyUp(Keys.Space))
+            {
+                weapon.ShootBullet(gameTime);
+            }
         }
 
         private void HandleInput(GameTime gameTime)
@@ -106,7 +114,6 @@ namespace alpha_0_2.Game
                 weapon.Texture = weapon.TextureLeft;
                 weapon.Direction = new Vector2(-1, 0);
                 weapon.Position = new Vector2(-60, 14);
-                UpdateAnimation(gameTime);
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
@@ -115,7 +122,6 @@ namespace alpha_0_2.Game
                 weapon.Texture = weapon.TextureRight;
                 weapon.Direction = new Vector2(1, 0);
                 weapon.Position = new Vector2(-22, 14);
-                UpdateAnimation(gameTime);
             }
 
             // Manejar salto
@@ -128,6 +134,8 @@ namespace alpha_0_2.Game
 
             if (velocity.X != 0)
                 velocity.Normalize();
+
+            UpdateAnimation(gameTime);
         }
 
         private void UpdateAnimation(GameTime gameTime)
