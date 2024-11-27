@@ -20,6 +20,11 @@ namespace alpha_0_2.Sprites
         private float timer;
         private bool isReloading = false;
 
+        public List<Bullet> Disparadas
+        {
+            get { return disparadas; }
+            set { disparadas = value; }
+        }
 
         public Texture2D Texture
         {
@@ -36,12 +41,6 @@ namespace alpha_0_2.Sprites
         {
             get { return textureLeft; }
             set { textureLeft = value; }
-        }
-
-        public List<Bullet> Disparadas
-        {
-            get { return disparadas; }
-            set { disparadas = value; }
         }
 
         public Vector2 PlayerPosition
@@ -93,6 +92,7 @@ namespace alpha_0_2.Sprites
                 ShootBullet(gameTime);
             }
         }
+
 
         public void ShootBullet(GameTime gameTime)
         {

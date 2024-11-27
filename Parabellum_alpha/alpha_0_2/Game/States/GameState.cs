@@ -17,6 +17,7 @@ namespace alpha_0_2.Game.States
         private int _lives = 3;
         private bool _keyPreviouslyPressed = false;
         private List<Bullet> Cargador = new List<Bullet>();
+        private bool gameOver = false;
 
         // Variables para el fondo
         private Texture2D _fondoTexture;
@@ -45,7 +46,7 @@ namespace alpha_0_2.Game.States
             var bulletTexture = content.Load<Texture2D>("Bullet");
 
             _player = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture, Cargador);
-            _enemy = new Enemy(enemyTextures, new Vector2(600, 875), textureRight, textureLeft, bulletTexture);
+            _enemy = new Enemy(enemyTextures, new Vector2(900, 875), textureRight, textureLeft, bulletTexture);
 
             _sprites = new List<Sprite>();
 
@@ -68,7 +69,37 @@ namespace alpha_0_2.Game.States
             UpdateBackground();
 
             Lives();
+
+            CheckCollisionPlayer();
+
             PostUpdate(gameTime);
+        }
+
+        public void CheckCollisionPlayer()
+        {
+            foreach (Bullet bullet in _enemy.Weapon.Disparadas)
+            {
+                if (!bullet.HasCollided && bullet.CollisionRectangle.Intersects(_player.CollisionRectangle))
+                {
+                    bullet.HasCollided = true;
+                    ReduceHealth();
+                }
+                /*if (bullet.CollisionRectangle.Intersects(enemyRectangle))
+                {
+                    // Lógica al colisionar con el enemigo
+                    Console.WriteLine("Impacto al enemigo");
+                    // Aquí puedes reducir vida al enemigo o realizar alguna acción
+                }*/
+            }
+        }
+
+        public void ReduceHealth()
+        {
+            _player.Health--;
+            if (_player.Health <= 0)
+            {
+                _game.ChangeState(new MenuState(_game, _game.GraphicsDevice, _game.Content));
+            }
         }
 
         private void LimitPlayerPosition()

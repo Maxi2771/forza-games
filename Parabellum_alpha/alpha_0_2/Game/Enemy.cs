@@ -27,6 +27,12 @@ namespace alpha_0_2.Sprites
         private Random _random;
         private Texture2D bulletTexture;
 
+        public Weapon Weapon
+        {
+            get { return weapon; }
+            set { weapon = value; }
+        }
+
         public Enemy(Texture2D[] textures, Vector2 position, Texture2D weaponRight, Texture2D weaponLeft, Texture2D bulletTexture)
         {
             this.textures = textures;

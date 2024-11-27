@@ -1,4 +1,5 @@
-﻿using alpha_0_2.Sprites;
+﻿using alpha_0_2.Game.States;
+using alpha_0_2.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,6 +18,13 @@ namespace alpha_0_2.Game
         private Direction facingDirection;
         private KeyboardState _currentKey;
         private KeyboardState _previousKey;
+        private int _health = 4;
+
+        public int Health
+        {
+            get { return _health; }
+            set { _health = value; }
+        }
 
         public Vector2 Position
         {
@@ -54,6 +62,19 @@ namespace alpha_0_2.Game
         {
             get { return weapon; }
             set { weapon = value; }
+        }
+        public Rectangle CollisionRectangle
+        {
+            get
+            {
+                var currentFrameRect = animationFrames[facingDirection][currentFrame];
+                return new Rectangle(
+                    (int)position.X,
+                    (int)position.Y,
+                    currentFrameRect.Width,
+                    currentFrameRect.Height
+                );
+            }
         }
 
         public Player(Texture2D[] textures, Vector2 position, Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador)
