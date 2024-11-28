@@ -12,12 +12,15 @@ namespace alpha_0_2.Game.States
     public class GameState : State
     {
         private Player _player;
-        private Enemy _enemy;
+        //private Enemy _enemy;
+        private List<Enemy> enemies = new List<Enemy>();
         private List<Sprite> _sprites;
         private int _lives = 3;
         private bool _keyPreviouslyPressed = false;
         private List<Bullet> Cargador = new List<Bullet>();
-        private bool gameOver = false;
+        private int points = 0;
+        private SpriteFont _scoreFont;
+        private Random random;
 
         // Variables para el fondo
         private Texture2D _fondoTexture;
@@ -46,9 +49,18 @@ namespace alpha_0_2.Game.States
             var bulletTexture = content.Load<Texture2D>("Bullet");
 
             _player = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture, Cargador);
-            _enemy = new Enemy(enemyTextures, new Vector2(900, 875), textureRight, textureLeft, bulletTexture);
+            //_enemy = new Enemy(enemyTextures, new Vector2(900, 875), textureRight, textureLeft, bulletTexture);
+            random = new Random();
+
+            for (int i = 0; i < 3; i++)
+            {
+                int X = random.Next(650, 1201);
+                enemies.Add(new Enemy(enemyTextures, new Vector2(X, 875), textureRight, textureLeft, bulletTexture));
+            }
 
             _sprites = new List<Sprite>();
+
+            _scoreFont = content.Load<SpriteFont>("Fonts/Font");
 
             // Cargar la textura del fondo
             _fondoTexture = content.Load<Texture2D>("fondo");
@@ -59,7 +71,11 @@ namespace alpha_0_2.Game.States
         public override void Update(GameTime gameTime)
         {
             _player.Update(gameTime, _sprites);
-            _enemy.Update(gameTime, _player.Position);
+
+            foreach (Enemy enemy in enemies)
+            {
+                enemy.Update(gameTime, _player.Position);
+            }
 
             LimitPlayerPosition();
 
@@ -68,28 +84,56 @@ namespace alpha_0_2.Game.States
 
             UpdateBackground();
 
-            Lives();
-
             CheckCollisionPlayer();
-
-            PostUpdate(gameTime);
+            CheckCollisionEnemy();
         }
 
         public void CheckCollisionPlayer()
         {
-            foreach (Bullet bullet in _enemy.Weapon.Disparadas)
+            for (int e = enemies.Count - 1; e >= 0; e--)
             {
-                if (!bullet.HasCollided && bullet.CollisionRectangle.Intersects(_player.CollisionRectangle))
+                var enemy = enemies[e];
+                for (int i = enemy.Weapon.Disparadas.Count - 1; i >= 0; i--)
                 {
-                    bullet.HasCollided = true;
-                    ReduceHealth();
+                    if (enemy.Weapon.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
+                    {
+                        enemy.Weapon.Disparadas.RemoveAt(i);
+                        ReduceHealth();
+                    }
                 }
-                /*if (bullet.CollisionRectangle.Intersects(enemyRectangle))
+            }
+        }
+
+        public void CheckCollisionEnemy()
+        {
+            for (int i = _player.Weapon.Disparadas.Count - 1; i >= 0; i--)
+            {
+                var bullet = _player.Weapon.Disparadas[i];
+                for (int e = enemies.Count - 1; e >= 0; e--)
                 {
-                    // Lógica al colisionar con el enemigo
-                    Console.WriteLine("Impacto al enemigo");
-                    // Aquí puedes reducir vida al enemigo o realizar alguna acción
-                }*/
+                    var enemy = enemies[e];
+                    if (bullet.CollisionRectangle.Intersects(enemy.CollisionRectangle) && enemy.IsAlive)
+                    {
+                        points += 100;
+                        _player.Weapon.Disparadas.RemoveAt(i);
+                        enemy.IsAlive = false;
+                        RemoveEnemies();
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        public void RemoveEnemies()
+        {
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (!enemies[i].IsAlive)
+                {
+                    enemies.RemoveAt(i);
+                    i--;
+                }
             }
         }
 
@@ -167,37 +211,20 @@ namespace alpha_0_2.Game.States
             spriteBatch.Begin();
 
             _player.Draw(spriteBatch);
-            _enemy.Draw(spriteBatch);
+
+            foreach (Enemy enemy in enemies)
+            {
+                enemy.Draw(spriteBatch);
+            }
 
             foreach (var sprite in _sprites)
             {
                 sprite.Draw(spriteBatch);
             }
 
+            spriteBatch.DrawString(_scoreFont, $"Score: {points}", new Vector2(10, 10), Color.Black);
+
             spriteBatch.End();
-        }
-
-        public void Lives()
-        {
-            var state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.K))
-            {
-                if (!_keyPreviouslyPressed && _lives > 0)
-                {
-                    _lives--;
-                }
-                _keyPreviouslyPressed = true;
-            }
-            else
-            {
-                _keyPreviouslyPressed = false;
-            }
-
-            if (_lives <= 0)
-            {
-                _game.Exit();
-            }
         }
     }
 }

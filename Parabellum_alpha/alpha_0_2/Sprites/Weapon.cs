@@ -15,7 +15,7 @@ namespace alpha_0_2.Sprites
         private Texture2D textureRight;
         private Texture2D textureLeft;
         private Texture2D bulletTexture;
-        private Vector2 playerPosition;
+        private Vector2 entityPosition;
         private int ammo = 15;
         private float timer;
         private bool isReloading = false;
@@ -43,10 +43,10 @@ namespace alpha_0_2.Sprites
             set { textureLeft = value; }
         }
 
-        public Vector2 PlayerPosition
+        public Vector2 EntityPosition
         {
-            get { return playerPosition; }
-            set { playerPosition = value; }
+            get { return entityPosition; }
+            set { entityPosition = value; }
         }
 
         public List<Bullet> _Cargador
@@ -55,8 +55,8 @@ namespace alpha_0_2.Sprites
             set { Cargador = value; }
         }
 
-        public Weapon(Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador, Vector2 playerPosition)
-            : base(textureRight) // Comenzamos con la textura de la derecha por defecto
+        public Weapon(Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador, Vector2 entityPosition)
+            : base(textureRight)
         {
             this.textureRight = textureRight;
             this.textureLeft = textureLeft;
@@ -64,9 +64,8 @@ namespace alpha_0_2.Sprites
             Position = new Vector2(-22, 14);
             this.Cargador = Cargador;
             this.bulletTexture = bulletTexture;
-            this.playerPosition = playerPosition;
+            this.entityPosition = entityPosition;
 
-            // Dirección predeterminada (hacia la derecha)
             Direction = new Vector2(1, 0);
             FillBullets();
         }
@@ -75,7 +74,7 @@ namespace alpha_0_2.Sprites
         {
             for (int i = 0; i < ammo; i++)
             {
-                Cargador.Add(new Bullet(bulletTexture, Position, playerPosition));
+                Cargador.Add(new Bullet(bulletTexture, Position, entityPosition));
             }
         }
 
@@ -98,7 +97,7 @@ namespace alpha_0_2.Sprites
         {
             if (Cargador.Count > 0)
             {
-                var bullet = new Bullet(bulletTexture, Position, playerPosition);
+                var bullet = new Bullet(bulletTexture, Position, entityPosition);
 
                 Vector2 weaponTipPosition = this.Position;
                 int offset = 160;
@@ -139,7 +138,7 @@ namespace alpha_0_2.Sprites
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, playerPosition + Position, Color.White);
+            spriteBatch.Draw(texture, entityPosition + Position, Color.White);
             foreach (Bullet bullet in disparadas)
             {
                 bullet.Draw(spriteBatch);

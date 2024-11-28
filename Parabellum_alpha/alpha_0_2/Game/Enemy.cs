@@ -13,7 +13,7 @@ namespace alpha_0_2.Sprites
         private Texture2D[] textures;
         private bool _isAlive = true;
         private Vector2 _direction; // Dirección del enemigo
-        private float _speed = 50.0f; // Velocidad del enemigo
+        private float _speed = 35.0f; // Velocidad del enemigo
         private Dictionary<Direction, List<Rectangle>> animationFrames;
         private int currentFrame;
         private float frameTimer;
@@ -27,10 +27,30 @@ namespace alpha_0_2.Sprites
         private Random _random;
         private Texture2D bulletTexture;
 
+        public bool IsAlive
+        {
+            get { return _isAlive; }
+            set { _isAlive = value; }
+        }
+
         public Weapon Weapon
         {
             get { return weapon; }
             set { weapon = value; }
+        }
+
+        public Rectangle CollisionRectangle
+        {
+            get
+            {
+                var currentFrameRect = animationFrames[facingDirection][currentFrame];
+                return new Rectangle(
+                    (int)position.X,
+                    (int)position.Y,
+                    currentFrameRect.Width,
+                    currentFrameRect.Height
+                );
+            }
         }
 
         public Enemy(Texture2D[] textures, Vector2 position, Texture2D weaponRight, Texture2D weaponLeft, Texture2D bulletTexture)
@@ -127,7 +147,7 @@ namespace alpha_0_2.Sprites
 
             FollowPlayer(playerPosition, gameTime);
             weapon.Update(gameTime);
-            weapon.PlayerPosition = position;
+            weapon.EntityPosition = position;
             _shootTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if ((_direction.X < 0 && facingDirection == Direction.Left) ||
@@ -135,15 +155,6 @@ namespace alpha_0_2.Sprites
             {
                 Shoot(playerPosition, gameTime);
             }
-        }
-
-
-        private void Hit()
-        {
-            /*if ()
-            {
-                _isAlive = false;
-            }*/
         }
 
         public void Draw(SpriteBatch spriteBatch)

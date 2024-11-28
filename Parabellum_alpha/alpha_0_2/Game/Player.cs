@@ -18,7 +18,7 @@ namespace alpha_0_2.Game
         private Direction facingDirection;
         private KeyboardState _currentKey;
         private KeyboardState _previousKey;
-        private int _health = 4;
+        private int _health = 6;
 
         public int Health
         {
@@ -101,7 +101,7 @@ namespace alpha_0_2.Game
 
             isJumping = false;
             isOnGround = true;
-            jumpSpeed = -7f;
+            jumpSpeed = -10f;
             gravity = 0.6f;
             initialJumpVelocity = jumpSpeed;
 
@@ -116,7 +116,7 @@ namespace alpha_0_2.Game
             HandleInput(gameTime);
             UpdateMovement();
             weapon.Update(gameTime);
-            weapon.PlayerPosition = position;
+            weapon.EntityPosition = position;
 
             if (_currentKey.IsKeyDown(Keys.Space) && _previousKey.IsKeyUp(Keys.Space))
             {
