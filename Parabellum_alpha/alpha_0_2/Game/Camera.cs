@@ -13,9 +13,9 @@ namespace alpha_0_2.Game
     {
         public Matrix Transform {  get; private set; }
 
-        public void Follow(Sprite target)
+        public void Follow(Rectangle target)
         {
-            Transform = Matrix.CreateTranslation(-target.Position.X -(target.Rectangle.Width / 2), -target.Position.Y -(target.Rectangle.Height/2), 0);
+            Transform = Matrix.CreateTranslation(-target.X -(target.Width / 2), -target.Y - (target.Height / 2), 0);
         }
     }
 }

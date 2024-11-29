@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Runtime.Serialization;
 
 namespace alpha_0_2.Game
@@ -18,7 +19,8 @@ namespace alpha_0_2.Game
         private Direction facingDirection;
         private KeyboardState _currentKey;
         private KeyboardState _previousKey;
-        private int _health = 6;
+        private int _health = 6000;
+        private float timer;
 
         public int Health
         {
@@ -50,12 +52,11 @@ namespace alpha_0_2.Game
         private float frameInterval = 0.1f;
 
         // Salto
-        private bool isJumping;
-        private float jumpSpeed;
+        private bool isOnGround;
         private float gravity;
         private float initialJumpVelocity;
-        private bool isOnGround;
 
+        private Camera camera;
         private Weapon weapon;
 
         public Weapon Weapon
@@ -99,12 +100,11 @@ namespace alpha_0_2.Game
             currentFrame = 0;
             frameTimer = 0;
 
-            isJumping = false;
             isOnGround = true;
-            jumpSpeed = -10f;
             gravity = 0.6f;
-            initialJumpVelocity = jumpSpeed;
+            initialJumpVelocity = -12f;
 
+            camera = new Camera();
             weapon = new Weapon(textureRight, textureLeft, bulletTexture, Cargador, position);
         }
 
@@ -114,10 +114,11 @@ namespace alpha_0_2.Game
             _currentKey = Keyboard.GetState();
 
             HandleInput(gameTime);
-            UpdateMovement();
             weapon.Update(gameTime);
             weapon.EntityPosition = position;
+            camera.Follow(animationFrames[facingDirection][currentFrame]);
 
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (_currentKey.IsKeyDown(Keys.Space) && _previousKey.IsKeyUp(Keys.Space))
             {
                 weapon.ShootBullet(gameTime);
@@ -126,9 +127,24 @@ namespace alpha_0_2.Game
 
         private void HandleInput(GameTime gameTime)
         {
+            bool bandera = false;
             velocity.X = 0;
+            if(_currentKey.IsKeyDown(Keys.Up) && _previousKey.IsKeyUp(Keys.Up))
+            {
+                bandera = true;
+            }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) && isOnGround && bandera)
+            {
+                isOnGround = false;
+                velocity.Y = initialJumpVelocity;
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Left) && isOnGround && bandera)
+            {
+                isOnGround = false;
+                velocity.Y = initialJumpVelocity;
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 facingDirection = Direction.Left;
                 velocity.X -= 1;
@@ -146,9 +162,8 @@ namespace alpha_0_2.Game
             }
 
             // Manejar salto
-            if (Keyboard.GetState().IsKeyDown(Keys.Up) && isOnGround)
+            else if (Keyboard.GetState().IsKeyDown(Keys.Up) && isOnGround)
             {
-                isJumping = true;
                 isOnGround = false;
                 velocity.Y = initialJumpVelocity;
             }
@@ -156,6 +171,7 @@ namespace alpha_0_2.Game
             if (velocity.X != 0)
                 velocity.Normalize();
 
+            UpdateMovement();
             UpdateAnimation(gameTime);
         }
 
@@ -179,7 +195,7 @@ namespace alpha_0_2.Game
 
         private void UpdateMovement()
         {
-            if (isJumping || !isOnGround)
+            if (!isOnGround)
             {
                 velocity.Y += gravity;
             }
@@ -189,7 +205,6 @@ namespace alpha_0_2.Game
             if (position.Y >= 875)
             {
                 position.Y = 875;
-                isJumping = false;
                 isOnGround = true;
                 velocity.Y = 0;
             }

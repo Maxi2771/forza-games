@@ -12,7 +12,7 @@ namespace alpha_0_2.Game.States
     public class GameState : State
     {
         private Player _player;
-        //private Enemy _enemy;
+        private Enemy _enemy;
         private List<Enemy> enemies = new List<Enemy>();
         private List<Sprite> _sprites;
         private int _lives = 3;
@@ -20,6 +20,7 @@ namespace alpha_0_2.Game.States
         private List<Bullet> Cargador = new List<Bullet>();
         private int points = 0;
         private SpriteFont _scoreFont;
+        private SpriteFont _healthFont;
         private Random random;
 
         // Variables para el fondo
@@ -28,8 +29,15 @@ namespace alpha_0_2.Game.States
         private float _fondoPosX2;
         private float _velocidad = 2.4f;
         private const float _limiteIzquierdo = 0;
-        private const float _limiteDerecho = 800;
-
+        private const float _limiteDerecho = 1920;
+        private Vector2 position;
+        float timer = 0f;
+        Texture2D enemyRight;
+        Texture2D enemyLeft;
+        Texture2D[] enemyTextures;
+        Texture2D bulletTexture;
+        Texture2D textureRight;
+        Texture2D textureLeft;
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             Texture2D[] playerTextures = new Texture2D[]
@@ -38,29 +46,27 @@ namespace alpha_0_2.Game.States
                 content.Load<Texture2D>("Left"),
             };
 
-            Texture2D[] enemyTextures = new Texture2D[]
+            enemyTextures = new Texture2D[]
             {
-                content.Load<Texture2D>("enemyRight"),
-                content.Load<Texture2D>("enemyLeft"),
+                enemyRight = content.Load<Texture2D>("enemyRight"),
+                enemyLeft = content.Load<Texture2D>("enemyLeft"),
             };
 
-            var textureRight = content.Load<Texture2D>("weaponRight");
-            var textureLeft = content.Load<Texture2D>("weaponLeft");
-            var bulletTexture = content.Load<Texture2D>("Bullet");
+            textureRight = content.Load<Texture2D>("weaponRight");
+            textureLeft = content.Load<Texture2D>("weaponLeft");
+            bulletTexture = content.Load<Texture2D>("Bullet");
 
-            _player = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture, Cargador);
-            //_enemy = new Enemy(enemyTextures, new Vector2(900, 875), textureRight, textureLeft, bulletTexture);
+            position = new Vector2(400, 875);
+
+            _player = new Player(playerTextures, position, textureRight, textureLeft, bulletTexture, Cargador);
+            /*_enemy = new Enemy(enemyTextures, new Vector2(900, 875), textureRight, textureLeft, bulletTexture);
+            enemies.Add(_enemy);*/
             random = new Random();
-
-            for (int i = 0; i < 3; i++)
-            {
-                int X = random.Next(650, 1201);
-                enemies.Add(new Enemy(enemyTextures, new Vector2(X, 875), textureRight, textureLeft, bulletTexture));
-            }
 
             _sprites = new List<Sprite>();
 
             _scoreFont = content.Load<SpriteFont>("Fonts/Font");
+            _healthFont = content.Load<SpriteFont>("Fonts/Font");
 
             // Cargar la textura del fondo
             _fondoTexture = content.Load<Texture2D>("fondo");
@@ -84,8 +90,29 @@ namespace alpha_0_2.Game.States
 
             UpdateBackground();
 
+            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            int X = random.Next(600, 1920);
+
+            if (timer > 3.0f)
+            {
+                SpawnEnemies(X);
+            }
+
+            foreach (Enemy e in enemies)
+            {
+                e.Update(gameTime, position);
+            }
+
             CheckCollisionPlayer();
             CheckCollisionEnemy();
+        }
+
+        private void SpawnEnemies(int X)
+        {
+            if (enemies.Count < 2)
+            {
+                enemies.Add(new Enemy(enemyTextures, new Vector2(X, 875), textureRight, textureLeft, bulletTexture));
+            }
         }
 
         public void CheckCollisionPlayer()
@@ -223,6 +250,7 @@ namespace alpha_0_2.Game.States
             }
 
             spriteBatch.DrawString(_scoreFont, $"Score: {points}", new Vector2(10, 10), Color.Black);
+            spriteBatch.DrawString(_healthFont, $"Health Points: {_player.Health}", new Vector2(100, 10), Color.Black);
 
             spriteBatch.End();
         }
