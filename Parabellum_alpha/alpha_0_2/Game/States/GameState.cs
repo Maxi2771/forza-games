@@ -11,6 +11,7 @@ namespace alpha_0_2.Game.States
 {
     public class GameState : State
     {
+        private List<Component> _components = new List<Component>();
         private Player _player;
         private Enemy _enemy;
         private List<Enemy> enemies = new List<Enemy>();
@@ -22,6 +23,7 @@ namespace alpha_0_2.Game.States
         private SpriteFont _scoreFont;
         private SpriteFont _healthFont;
         private Random random;
+        private bool gameOver = false;
 
         // Variables para el fondo
         private Texture2D _fondoTexture;
@@ -72,39 +74,82 @@ namespace alpha_0_2.Game.States
             _fondoTexture = content.Load<Texture2D>("fondo");
             _fondoPosX1 = 0;
             _fondoPosX2 = _fondoTexture.Width;
+
+            var buttonTexture = _content.Load<Texture2D>("Controls/Button");
+            var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
+
+            var restartButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2((_game._graphics.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_game._graphics.PreferredBackBufferHeight / 2) - 200),
+                Text = "Restart",
+            };
+
+            restartButton.Click += RestartButton_Click;
+
+            var menuButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2((_game._graphics.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_game._graphics.PreferredBackBufferHeight / 2) - 100),
+                Text = "Return to Main Menu",
+            };
+
+            menuButton.Click += ReturnMenuButton_Click;
+
+            _components = new List<Component>()
+            {
+                restartButton,
+                menuButton,
+            };
+        }
+
+        private void ReturnMenuButton_Click(object sender, EventArgs e)
+        {
+            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content, this._game._graphics));
+        }
+
+        private void RestartButton_Click(object sender, EventArgs e)
+        {
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
         public override void Update(GameTime gameTime)
         {
-            _player.Update(gameTime, _sprites);
-
-            foreach (Enemy enemy in enemies)
+            if(!gameOver)
             {
-                enemy.Update(gameTime, _player.Position);
+                _player.Update(gameTime, _sprites);
+
+                foreach (Enemy enemy in enemies)
+                {
+                    enemy.Update(gameTime, _player.Position);
+                }
+
+                LimitPlayerPosition();
+
+                foreach (var sprite in _sprites.ToArray())
+                    sprite.Update(gameTime, _sprites);
+
+                UpdateBackground();
+
+                timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                int X = random.Next(600, 1920);
+
+                if (timer > 3.0f)
+                {
+                    SpawnEnemies(X);
+                }
+
+                foreach (Enemy e in enemies)
+                {
+                    e.Update(gameTime, position);
+                }
+
+                CheckCollisionPlayer();
+                CheckCollisionEnemy();
             }
-
-            LimitPlayerPosition();
-
-            foreach (var sprite in _sprites.ToArray())
-                sprite.Update(gameTime, _sprites);
-
-            UpdateBackground();
-
-            timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            int X = random.Next(600, 1920);
-
-            if (timer > 3.0f)
+            else
             {
-                SpawnEnemies(X);
+                foreach (var component in _components)
+                    component.Update(gameTime);
             }
-
-            foreach (Enemy e in enemies)
-            {
-                e.Update(gameTime, position);
-            }
-
-            CheckCollisionPlayer();
-            CheckCollisionEnemy();
         }
 
         private void SpawnEnemies(int X)
@@ -169,7 +214,7 @@ namespace alpha_0_2.Game.States
             _player.Health--;
             if (_player.Health <= 0)
             {
-                _game.ChangeState(new MenuState(_game, _game.GraphicsDevice, _game.Content));
+                gameOver = true;
             }
         }
 
@@ -251,6 +296,12 @@ namespace alpha_0_2.Game.States
 
             spriteBatch.DrawString(_scoreFont, $"Score: {points}", new Vector2(10, 10), Color.Black);
             spriteBatch.DrawString(_healthFont, $"Health Points: {_player.Health}", new Vector2(100, 10), Color.Black);
+
+            if (gameOver)
+            {
+                foreach (var component in _components)
+                    component.Draw(gameTime, spriteBatch);
+            }
 
             spriteBatch.End();
         }

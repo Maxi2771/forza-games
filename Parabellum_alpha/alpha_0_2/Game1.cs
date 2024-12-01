@@ -10,7 +10,7 @@ namespace alpha_0_2
 {
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        private GraphicsDeviceManager _graphics;
+        public GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private State _currentState;
         private State _nextState;
@@ -33,7 +33,7 @@ namespace alpha_0_2
             // Pantalla completa 1920x1080
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
-            _graphics.IsFullScreen = false;
+            _graphics.IsFullScreen = true;
         }
 
         protected override void Initialize()
@@ -49,7 +49,7 @@ namespace alpha_0_2
 
 
             // Iniciar en el estado del menú
-            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content, _graphics);
         }
 
         protected override void Update(GameTime gameTime)

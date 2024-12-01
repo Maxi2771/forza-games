@@ -19,7 +19,7 @@ namespace alpha_0_2.Game
         private Direction facingDirection;
         private KeyboardState _currentKey;
         private KeyboardState _previousKey;
-        private int _health = 6000;
+        private int _health = 1;
         private float timer;
 
         public int Health

@@ -14,15 +14,16 @@ namespace alpha_0_2.Game.States
     public class MenuState : State
     {
         private List<Component> _components;
-
-        public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
+        private GraphicsDeviceManager _graphicsManager;
+        public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, GraphicsDeviceManager graphicsManager) : base(game, graphicsDevice, content)
         {
+            _graphicsManager = graphicsManager;
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
 
             var newGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 200),
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 300),
                 Text = "New Game",
             };
 
@@ -30,7 +31,7 @@ namespace alpha_0_2.Game.States
 
             var loadGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 300),
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 200),
                 Text = "Load Game",
             };
 
@@ -38,7 +39,7 @@ namespace alpha_0_2.Game.States
 
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 400),
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 100),
                 Text = "Quit",
             };
 
