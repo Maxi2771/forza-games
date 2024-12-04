@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 
 namespace alpha_0_2.Game
 {
-    public class Player
+    public class Player2
     {
         private Texture2D[] textures; // Array de texturas para cada dirección
         private Vector2 position; // Posición en X e Y
@@ -52,7 +52,7 @@ namespace alpha_0_2.Game
         private float frameInterval = 0.1f;
 
         // Salto
-        private bool hasJumped;
+        private bool isOnGround;
         private float gravity;
         private float initialJumpVelocity;
 
@@ -78,7 +78,7 @@ namespace alpha_0_2.Game
             }
         }
 
-        public Player(Texture2D[] textures, Vector2 position, Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador)
+        public Player2(Texture2D[] textures, Vector2 position, Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador)
         {
             this.textures = textures;
             this.position = position;
@@ -100,7 +100,7 @@ namespace alpha_0_2.Game
             currentFrame = 0;
             frameTimer = 0;
 
-            //isOnGround = true;
+            isOnGround = true;
             gravity = 0.6f;
             initialJumpVelocity = 12f;
 
@@ -118,7 +118,7 @@ namespace alpha_0_2.Game
             weapon.EntityPosition = position;
             camera.Follow(animationFrames[facingDirection][currentFrame]);
 
-            if (_currentKey.IsKeyDown(Keys.Space) && _previousKey.IsKeyUp(Keys.Space))
+            if (_currentKey.IsKeyDown(Keys.F) && _previousKey.IsKeyUp(Keys.F))
             {
                 weapon.ShootBullet(gameTime);
             }
@@ -126,57 +126,75 @@ namespace alpha_0_2.Game
 
         private void HandleInput(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            velocity.X = 0;
+
+            // Izquierda
+            if (_currentKey.IsKeyDown(Keys.A))
             {
-                velocity.X = 3f;
+                facingDirection = Direction.Left;
+                velocity.X -= 1;
+                weapon.Texture = weapon.TextureLeft;
+                weapon.Direction = new Vector2(-1, 0);
+                weapon.Position = new Vector2(-60, 14);
+            }
+
+            // Derecha
+            if (_currentKey.IsKeyDown(Keys.D))
+            {
                 facingDirection = Direction.Right;
+                velocity.X += 1;
                 weapon.Texture = weapon.TextureRight;
                 weapon.Direction = new Vector2(1, 0);
                 weapon.Position = new Vector2(-22, 14);
             }
 
-            else if(Keyboard.GetState().IsKeyDown(Keys.Left))
+            // Saltar
+            if (_currentKey.IsKeyDown(Keys.W) && isOnGround)
             {
-                velocity.X = -3f;
-                facingDirection = Direction.Left;
-                weapon.Texture = weapon.TextureLeft;
-                weapon.Direction = new Vector2(-1, 0);
-                weapon.Position = new Vector2(-64, 14);
-            }
-            else
-            {
-                velocity.X = 0f;
+                velocity.Y = -initialJumpVelocity;
+                isOnGround = false;
             }
 
-            if(Keyboard.GetState().IsKeyDown(Keys.Up) && !hasJumped)
+            if (_currentKey.IsKeyDown(Keys.W) && _currentKey.IsKeyDown(Keys.Right) && isOnGround)
             {
-                position.Y -= 10f;
-                velocity.Y = -8f;
-                hasJumped = true;
-            }
-
-            if (hasJumped)
-            {
-                float i = 1;
-                velocity.Y += 0.3f * i;
-            }
-
-            if(position.Y + animationFrames[facingDirection][currentFrame].Height >= 960)
-            {
-                hasJumped = false;
-            }
-
-            if (!hasJumped)
-            {
-                velocity.Y = 0f;
+                velocity.Y = -initialJumpVelocity;
+                isOnGround = false;
+                facingDirection = Direction.Right;
+                velocity.X += velocity.Y;
+                weapon.Texture = weapon.TextureRight;
+                weapon.Direction = new Vector2(1, 0);
+                weapon.Position = new Vector2(-22, 14);
             }
 
             if (velocity.X != 0)
                 velocity.Normalize();
 
-            position += velocity;
+            Jumping();
+
+            position += velocity * speed;
             UpdateAnimation(gameTime);
         }
+
+        private void Jumping()
+        {
+            // Aplicar gravedad si no está en el suelo
+            if (!isOnGround)
+            {
+                velocity.Y += gravity;
+            }
+
+            // Actualizar posición vertical
+            position.Y += velocity.Y;
+
+            // Verificar si está tocando el suelo
+            if (position.Y >= 875)
+            {
+                position.Y = 875; // Asegurarse de que la posición sea exactamente en el suelo
+                velocity.Y = 0;   // Detener el movimiento vertical
+                isOnGround = true; // Indicar que está en el suelo
+            }
+        }
+
 
         public void UpdateAnimation(GameTime gameTime)
         {

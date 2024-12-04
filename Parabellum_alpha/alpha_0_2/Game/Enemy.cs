@@ -103,6 +103,7 @@ namespace alpha_0_2.Sprites
                 _direction.Normalize();
 
             position += _direction * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            position.Y = 875;
 
             if(_direction.X < 0)
             {

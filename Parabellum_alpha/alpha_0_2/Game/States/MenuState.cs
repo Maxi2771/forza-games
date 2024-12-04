@@ -29,13 +29,13 @@ namespace alpha_0_2.Game.States
 
             newGameButton.Click += NewGameButton_Click;
 
-            var loadGameButton = new Button(buttonTexture, buttonFont)
+            var optionsGameButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 200),
-                Text = "Load Game",
+                Text = "Options",
             };
 
-            loadGameButton.Click += LoadGameButton_Click;
+            optionsGameButton.Click += optionsGameButton_Click;
 
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
@@ -48,7 +48,7 @@ namespace alpha_0_2.Game.States
             _components = new List<Component>()
             {
                 newGameButton,
-                loadGameButton,
+                optionsGameButton,
                 quitGameButton,
             };
         }
@@ -58,9 +58,9 @@ namespace alpha_0_2.Game.States
             _game.Exit();
         }
 
-        private void LoadGameButton_Click(object sender, EventArgs e)
+        private void optionsGameButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Load Game");
+            Console.WriteLine("Options");
         }
 
         private void NewGameButton_Click(object sender, EventArgs e)
@@ -80,7 +80,6 @@ namespace alpha_0_2.Game.States
 
         public override void PostUpdate(GameTime gameTime)
         {
-            // remove sprites if they're not needed
         }
 
         public override void Update(GameTime gameTime)

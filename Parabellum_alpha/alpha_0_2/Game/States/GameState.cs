@@ -13,6 +13,7 @@ namespace alpha_0_2.Game.States
     {
         private List<Component> _components = new List<Component>();
         private Player _player;
+        //private Player2 _player2;
         private Enemy _enemy;
         private List<Enemy> enemies = new List<Enemy>();
         private List<Sprite> _sprites;
@@ -33,6 +34,7 @@ namespace alpha_0_2.Game.States
         private const float _limiteIzquierdo = 0;
         private const float _limiteDerecho = 1920;
         private Vector2 position;
+        //private Vector2 position2;
         float timer = 0f;
         Texture2D enemyRight;
         Texture2D enemyLeft;
@@ -59,8 +61,10 @@ namespace alpha_0_2.Game.States
             bulletTexture = content.Load<Texture2D>("Bullet");
 
             position = new Vector2(400, 875);
+            //position2 = new Vector2(200, 875);
 
             _player = new Player(playerTextures, position, textureRight, textureLeft, bulletTexture, Cargador);
+            //_player2 = new Player2(playerTextures, position2, textureRight, textureLeft, bulletTexture, Cargador);
             /*_enemy = new Enemy(enemyTextures, new Vector2(900, 875), textureRight, textureLeft, bulletTexture);
             enemies.Add(_enemy);*/
             random = new Random();
@@ -116,10 +120,12 @@ namespace alpha_0_2.Game.States
             if(!gameOver)
             {
                 _player.Update(gameTime, _sprites);
+                //_player2.Update(gameTime, _sprites);
 
                 foreach (Enemy enemy in enemies)
                 {
                     enemy.Update(gameTime, _player.Position);
+                    //enemy.Update(gameTime, _player2.Position);
                 }
 
                 LimitPlayerPosition();
@@ -130,12 +136,9 @@ namespace alpha_0_2.Game.States
                 UpdateBackground();
 
                 timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                int X = random.Next(600, 1920);
+                //int X = random.Next(600, 1920);
 
-                if (timer > 3.0f)
-                {
-                    SpawnEnemies(X);
-                }
+                SpawnEnemies();
 
                 foreach (Enemy e in enemies)
                 {
@@ -152,11 +155,12 @@ namespace alpha_0_2.Game.States
             }
         }
 
-        private void SpawnEnemies(int X)
+        private void SpawnEnemies()
         {
-            if (enemies.Count < 2)
+            if (enemies.Count < 2 && timer > 1.0f)
             {
-                enemies.Add(new Enemy(enemyTextures, new Vector2(X, 875), textureRight, textureLeft, bulletTexture));
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + 400, 875), textureRight, textureLeft, bulletTexture));
+                timer = 0;
             }
         }
 
@@ -283,6 +287,7 @@ namespace alpha_0_2.Game.States
             spriteBatch.Begin();
 
             _player.Draw(spriteBatch);
+            //_player2.Draw(spriteBatch);
 
             foreach (Enemy enemy in enemies)
             {
