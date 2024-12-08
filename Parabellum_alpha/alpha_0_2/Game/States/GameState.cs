@@ -28,7 +28,7 @@ namespace alpha_0_2.Game.States
         private bool gameOver = false;
 
         // Variables para el fondo
-        private Texture2D _fondoTexture;
+        //private Texture2D _fondoTexture;
         /*private float _fondoPosX1;
         private float _fondoPosX2;*/
         private float _velocidad = 2.4f;
@@ -48,6 +48,8 @@ namespace alpha_0_2.Game.States
         Turret _turret;
         bool drawExplosion = false;
         Vector2 pos;
+        Background _background;
+
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             Texture2D[] playerTextures = new Texture2D[]
@@ -89,7 +91,9 @@ namespace alpha_0_2.Game.States
             _healthFont = content.Load<SpriteFont>("Fonts/Font");
 
             // Cargar la textura del fondo
-            _fondoTexture = content.Load<Texture2D>("fondo");
+            var _fondoTexture = content.Load<Texture2D>("fondo");
+            _background = new Background(_fondoTexture, graphicsDevice);
+
             /*_fondoPosX1 = 0;
             _fondoPosX2 = _fondoTexture.Width;*/
 
@@ -134,25 +138,15 @@ namespace alpha_0_2.Game.States
             if(!gameOver)
             {
                 _player.Update(gameTime, _sprites);
-                //_player2.Update(gameTime, _sprites);
 
                 _turret.Update(gameTime, _player.Position);
-
-                foreach (Enemy enemy in enemies)
-                {
-                    enemy.Update(gameTime, _player.Position);
-                    //enemy.Update(gameTime, _player2.Position);
-                }
 
                 LimitPlayerPosition();
 
                 foreach (var sprite in _sprites.ToArray())
                     sprite.Update(gameTime, _sprites);
 
-                //UpdateBackground();
-
                 timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                //int X = random.Next(600, 1920);
 
                 SpawnEnemies();
 
@@ -161,6 +155,7 @@ namespace alpha_0_2.Game.States
                     e.Update(gameTime, position);
                 }
 
+                _background.Update(gameTime);
                 CheckCollisionPlayer();
                 CheckCollisionEnemy();
                 MissileCollisionPlayer();
@@ -339,18 +334,13 @@ namespace alpha_0_2.Game.States
         {
             _graphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Draw(
-                _fondoTexture,
-                new Rectangle(0, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height),
-                Color.White
-            );
-
             //spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX1, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
             //spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX2, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
             spriteBatch.End();
 
             spriteBatch.Begin();
 
+            _background.Draw(spriteBatch);
             _player.Draw(spriteBatch);
             _turret.Draw(spriteBatch);
             //_player2.Draw(spriteBatch);
