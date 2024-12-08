@@ -126,18 +126,20 @@ namespace alpha_0_2.Game
 
         private void HandleInput(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !hasJumped)
             {
                 velocity.X = 3f;
+                position.X += velocity.X;
                 facingDirection = Direction.Right;
                 weapon.Texture = weapon.TextureRight;
                 weapon.Direction = new Vector2(1, 0);
                 weapon.Position = new Vector2(-22, 14);
             }
 
-            else if(Keyboard.GetState().IsKeyDown(Keys.Left))
+            else if(Keyboard.GetState().IsKeyDown(Keys.Left) && !hasJumped)
             {
                 velocity.X = -3f;
+                position.X += velocity.X;
                 facingDirection = Direction.Left;
                 weapon.Texture = weapon.TextureLeft;
                 weapon.Direction = new Vector2(-1, 0);
@@ -150,15 +152,37 @@ namespace alpha_0_2.Game
 
             if(Keyboard.GetState().IsKeyDown(Keys.Up) && !hasJumped)
             {
-                position.Y -= 10f;
-                velocity.Y = -8f;
+                velocity.Y = -10f;
+                position.Y += velocity.Y;
                 hasJumped = true;
             }
+            /*
+            if (Keyboard.GetState().IsKeyDown(Keys.F) && !hasJumped)
+            {
+                facingDirection = Direction.Right;
+                weapon.Texture = weapon.TextureRight;
+                weapon.Direction = new Vector2(1, 0);
+                weapon.Position = new Vector2(-22, 14);
 
+                velocity = new Vector2(3f, -8f);
+                float a2 = (float)Math.Pow(velocity.X, 2);
+                float b2 = (float)Math.Pow(velocity.Y, 2);
+                float c2 = a2 + b2;
+
+                float c = (float)Math.Sqrt(c2);
+                Vector2 newVelocity = new Vector2(c, -c);
+                newVelocity.Normalize();
+
+                position.X += newVelocity.X;
+                position.Y += newVelocity.Y;
+                hasJumped = true;
+            }
+            */
             if (hasJumped)
             {
                 float i = 1;
                 velocity.Y += 0.3f * i;
+                position.Y += velocity.Y;
             }
 
             if(position.Y + animationFrames[facingDirection][currentFrame].Height >= 960)
@@ -174,7 +198,7 @@ namespace alpha_0_2.Game
             if (velocity.X != 0)
                 velocity.Normalize();
 
-            position += velocity;
+            //position += velocity;
             UpdateAnimation(gameTime);
         }
 

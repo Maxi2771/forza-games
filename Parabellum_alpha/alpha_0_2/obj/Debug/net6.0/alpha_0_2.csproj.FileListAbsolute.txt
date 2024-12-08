@@ -337,3 +337,7 @@ C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0
 C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\enemyRight.xnb
 C:\Users\A-16\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\enemyLeft.xnb
 C:\Users\A-16\source\repos\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\enemyRight.xnb
+C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\turretLeft.xnb
+C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\turretRight.xnb
+C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\misil.xnb
+C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\explosion.xnb

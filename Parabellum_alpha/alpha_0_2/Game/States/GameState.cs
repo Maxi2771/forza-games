@@ -16,6 +16,7 @@ namespace alpha_0_2.Game.States
         //private Player2 _player2;
         private Enemy _enemy;
         private List<Enemy> enemies = new List<Enemy>();
+        private List<Turret> turrets = new List<Turret>();
         private List<Sprite> _sprites;
         private int _lives = 3;
         private bool _keyPreviouslyPressed = false;
@@ -28,8 +29,8 @@ namespace alpha_0_2.Game.States
 
         // Variables para el fondo
         private Texture2D _fondoTexture;
-        private float _fondoPosX1;
-        private float _fondoPosX2;
+        /*private float _fondoPosX1;
+        private float _fondoPosX2;*/
         private float _velocidad = 2.4f;
         private const float _limiteIzquierdo = 0;
         private const float _limiteDerecho = 1920;
@@ -40,8 +41,13 @@ namespace alpha_0_2.Game.States
         Texture2D enemyLeft;
         Texture2D[] enemyTextures;
         Texture2D bulletTexture;
+        Texture2D missileTexture;
+        Texture2D explosionTexture;
         Texture2D textureRight;
         Texture2D textureLeft;
+        Turret _turret;
+        bool drawExplosion = false;
+        Vector2 pos;
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             Texture2D[] playerTextures = new Texture2D[]
@@ -56,14 +62,22 @@ namespace alpha_0_2.Game.States
                 enemyLeft = content.Load<Texture2D>("enemyLeft"),
             };
 
+            var turretLeft = content.Load<Texture2D>("turretLeft");
+            var turretRight = content.Load<Texture2D>("turretRight");
+
             textureRight = content.Load<Texture2D>("weaponRight");
             textureLeft = content.Load<Texture2D>("weaponLeft");
             bulletTexture = content.Load<Texture2D>("Bullet");
+            missileTexture = content.Load<Texture2D>("misil");
+            explosionTexture = content.Load<Texture2D>("explosion");
+
+            _turret = new Turret(turretRight, turretLeft, new Vector2(1000, 700), missileTexture);
 
             position = new Vector2(400, 875);
             //position2 = new Vector2(200, 875);
 
             _player = new Player(playerTextures, position, textureRight, textureLeft, bulletTexture, Cargador);
+
             //_player2 = new Player2(playerTextures, position2, textureRight, textureLeft, bulletTexture, Cargador);
             /*_enemy = new Enemy(enemyTextures, new Vector2(900, 875), textureRight, textureLeft, bulletTexture);
             enemies.Add(_enemy);*/
@@ -76,8 +90,8 @@ namespace alpha_0_2.Game.States
 
             // Cargar la textura del fondo
             _fondoTexture = content.Load<Texture2D>("fondo");
-            _fondoPosX1 = 0;
-            _fondoPosX2 = _fondoTexture.Width;
+            /*_fondoPosX1 = 0;
+            _fondoPosX2 = _fondoTexture.Width;*/
 
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
@@ -122,6 +136,8 @@ namespace alpha_0_2.Game.States
                 _player.Update(gameTime, _sprites);
                 //_player2.Update(gameTime, _sprites);
 
+                _turret.Update(gameTime, _player.Position);
+
                 foreach (Enemy enemy in enemies)
                 {
                     enemy.Update(gameTime, _player.Position);
@@ -133,7 +149,7 @@ namespace alpha_0_2.Game.States
                 foreach (var sprite in _sprites.ToArray())
                     sprite.Update(gameTime, _sprites);
 
-                UpdateBackground();
+                //UpdateBackground();
 
                 timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 //int X = random.Next(600, 1920);
@@ -147,6 +163,7 @@ namespace alpha_0_2.Game.States
 
                 CheckCollisionPlayer();
                 CheckCollisionEnemy();
+                MissileCollisionPlayer();
             }
             else
             {
@@ -176,6 +193,33 @@ namespace alpha_0_2.Game.States
                         enemy.Weapon.Disparadas.RemoveAt(i);
                         ReduceHealth();
                     }
+                }
+            }
+        }
+
+        public void MissileCollisionPlayer()
+        {
+            /*for (int e = enemies.Count - 1; e >= 0; e--)
+            {
+                var enemy = enemies[e];
+                for (int i = enemy.Weapon.Disparadas.Count - 1; i >= 0; i--)
+                {
+                    if (enemy.Weapon.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
+                    {
+                        enemy.Weapon.Disparadas.RemoveAt(i);
+                        ReduceHealth();
+                    }
+                }
+            }*/
+            for (int i = _turret.Disparadas.Count - 1; i >= 0; i--)
+            {
+                if (_turret.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
+                {
+                    drawExplosion = true;
+                    Vector2 offset = new Vector2(100, 80);
+                    pos = _turret.Disparadas[i].PositionAir - offset;
+                    _turret.Disparadas.RemoveAt(i);
+                    ReduceHealthMissile();
                 }
             }
         }
@@ -222,6 +266,15 @@ namespace alpha_0_2.Game.States
             }
         }
 
+        public void ReduceHealthMissile()
+        {
+            _player.Health -= 4;
+            if (_player.Health <= 0)
+            {
+                gameOver = true;
+            }
+        }
+
         private void LimitPlayerPosition()
         {
             var playerPosition = _player.Position;
@@ -239,7 +292,7 @@ namespace alpha_0_2.Game.States
             _player.Position = playerPosition;
         }
 
-        private void UpdateBackground()
+        /*private void UpdateBackground()
         {
             var state = Keyboard.GetState();
 
@@ -262,9 +315,15 @@ namespace alpha_0_2.Game.States
 
             if (_fondoPosX2 <= -_fondoTexture.Width)
                 _fondoPosX2 = _fondoPosX1 + _fondoTexture.Width;
-        }
+        }*/
+
 
         public override void PostUpdate(GameTime gameTime)
+        {
+
+        }
+
+        /*public override void PostUpdate(GameTime gameTime)
         {
             for (int i = 0; i < _sprites.Count; i++)
             {
@@ -274,19 +333,26 @@ namespace alpha_0_2.Game.States
                     i--;
                 }
             }
-        }
+        }*/
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             _graphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX1, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
-            spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX2, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
+            spriteBatch.Draw(
+                _fondoTexture,
+                new Rectangle(0, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height),
+                Color.White
+            );
+
+            //spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX1, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
+            //spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX2, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
             spriteBatch.End();
 
             spriteBatch.Begin();
 
             _player.Draw(spriteBatch);
+            _turret.Draw(spriteBatch);
             //_player2.Draw(spriteBatch);
 
             foreach (Enemy enemy in enemies)
@@ -297,6 +363,12 @@ namespace alpha_0_2.Game.States
             foreach (var sprite in _sprites)
             {
                 sprite.Draw(spriteBatch);
+            }
+
+            if (drawExplosion)
+            {
+                spriteBatch.Draw(explosionTexture, pos, Color.White);
+                //drawExplosion = false;
             }
 
             spriteBatch.DrawString(_scoreFont, $"Score: {points}", new Vector2(10, 10), Color.Black);

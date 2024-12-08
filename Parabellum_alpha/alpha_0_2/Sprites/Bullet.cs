@@ -12,6 +12,8 @@ namespace alpha_0_2.Sprites
         private Texture2D _bulletTexture;
         private Vector2 weaponPosition;
         private Vector2 entityPosition;
+        private bool isTurret = false;
+        private Vector2 positionAir;
 
         public Rectangle CollisionRectangle
         {
@@ -26,6 +28,11 @@ namespace alpha_0_2.Sprites
             }
         }
 
+        public Vector2 PositionAir
+        {
+            get { return positionAir; }
+            set { positionAir = value; }
+        }
 
         public Bullet(Texture2D texture, Vector2 weaponPosition, Vector2 entityPosition)
             : base(texture)
@@ -33,6 +40,14 @@ namespace alpha_0_2.Sprites
             _bulletTexture = texture;
             this.weaponPosition = weaponPosition;
             this.entityPosition = entityPosition;
+        }
+
+        public Bullet(Texture2D texture, Vector2 entityPosition, bool isTurret)
+        : base(texture)
+        {
+            _bulletTexture = texture;
+            this.entityPosition = entityPosition;
+            this.isTurret = isTurret;
         }
 
         public override void Update(GameTime gameTime)
@@ -47,7 +62,16 @@ namespace alpha_0_2.Sprites
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_bulletTexture, entityPosition + weaponPosition + Position, Color.White);
+            if (!IsRemoved)
+            {
+                positionAir = entityPosition + weaponPosition + Position;
+                spriteBatch.Draw(_bulletTexture, positionAir, Color.White);
+                if (isTurret)
+                {
+                    positionAir = entityPosition + Position;
+                    spriteBatch.Draw(_bulletTexture, positionAir, Color.White);
+                }
+            }
         }
     }
 }

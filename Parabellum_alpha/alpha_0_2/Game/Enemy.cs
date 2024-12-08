@@ -59,8 +59,8 @@ namespace alpha_0_2.Sprites
             this.position = position;
             this.bulletTexture = bulletTexture;
             _direction = new Vector2(-1, 0);
-            int frameWidth = 176 / 4; // Ancho del frame del spritesheet
-            int frameHeight = 87; // Alto del frame del spritesheet
+            int frameWidth = 176 / 4;
+            int frameHeight = 87;
 
             animationFrames = new Dictionary<Direction, List<Rectangle>>();
             animationFrames[Direction.Left] = new List<Rectangle>();
@@ -98,9 +98,7 @@ namespace alpha_0_2.Sprites
         private void FollowPlayer(Vector2 playerPosition, GameTime gameTime)
         {
             _direction = playerPosition - position;
-
-            if (_direction != Vector2.Zero)
-                _direction.Normalize();
+            _direction.Normalize();
 
             position += _direction * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             position.Y = 875;

@@ -57,6 +57,8 @@ namespace alpha_0_2.Sprites
             Origin = new Vector2(128, 64 / 2);
         }
 
+        //public Sprite() { }
+
         public Sprite(Texture2D[] texture)
         {
             _textureArr = texture;
