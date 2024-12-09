@@ -12,6 +12,7 @@ namespace alpha_0_2.Game.States
     public class GameState : State
     {
         private List<Component> _components = new List<Component>();
+        private List<Component> _componentsWin = new List<Component>();
         private Player _player;
         //private Player2 _player2;
         private Enemy _enemy;
@@ -26,6 +27,7 @@ namespace alpha_0_2.Game.States
         private SpriteFont _healthFont;
         private Random random;
         private bool gameOver = false;
+        private bool gameWon = false;
 
         // Variables para el fondo
         //private Texture2D _fondoTexture;
@@ -37,6 +39,7 @@ namespace alpha_0_2.Game.States
         private Vector2 position;
         //private Vector2 position2;
         float timer = 0f;
+        float timerExplosion = 0f;
         Texture2D enemyRight;
         Texture2D enemyLeft;
         Texture2D[] enemyTextures;
@@ -121,6 +124,20 @@ namespace alpha_0_2.Game.States
                 restartButton,
                 menuButton,
             };
+
+            var nextLevel = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2((_game._graphics.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_game._graphics.PreferredBackBufferHeight / 2) - 200),
+                Text = "Next Level",
+            };
+
+            nextLevel.Click += NextLevelButton_Click;
+
+            _componentsWin = new List<Component>()
+            {
+                nextLevel,
+                menuButton,
+            };
         }
 
         private void ReturnMenuButton_Click(object sender, EventArgs e)
@@ -133,36 +150,62 @@ namespace alpha_0_2.Game.States
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
+        private void NextLevelButton_Click(object sender, EventArgs e)
+        {
+            //_game.ChangeLevel();
+        }
+
         public override void Update(GameTime gameTime)
         {
-            if(!gameOver)
+            if (!gameWon)
             {
-                _player.Update(gameTime, _sprites);
-
-                _turret.Update(gameTime, _player.Position);
-
-                LimitPlayerPosition();
-
-                foreach (var sprite in _sprites.ToArray())
-                    sprite.Update(gameTime, _sprites);
-
-                timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                SpawnEnemies();
-
-                foreach (Enemy e in enemies)
+                if (!gameOver)
                 {
-                    e.Update(gameTime, position);
-                }
+                    _player.Update(gameTime, _sprites);
 
-                _background.Update(gameTime);
-                CheckCollisionPlayer();
-                CheckCollisionEnemy();
-                MissileCollisionPlayer();
+                    _turret.Update(gameTime, _player.Position);
+
+                    LimitPlayerPosition();
+
+                    foreach (var sprite in _sprites.ToArray())
+                        sprite.Update(gameTime, _sprites);
+
+                    timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    if (drawExplosion)
+                    {
+                        // Incrementar el timer basado en el tiempo transcurrido
+                        timerExplosion += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                        // Cambiar el estado del booleano después de 3 segundos
+                        if (timerExplosion >= 1f)
+                        {
+                            drawExplosion = false;
+                            timerExplosion = 0f;
+                        }
+                    }
+
+                    SpawnEnemies();
+
+                    foreach (Enemy e in enemies)
+                    {
+                        e.Update(gameTime, position);
+                    }
+
+                    _background.Update(gameTime);
+                    CheckCollisionPlayer();
+                    CheckCollisionEnemy();
+                    MissileCollisionPlayer();
+                }
+                else
+                {
+                    foreach (var component in _components)
+                        component.Update(gameTime);
+                }
             }
             else
             {
-                foreach (var component in _components)
+                foreach (var component in _componentsWin)
                     component.Update(gameTime);
             }
         }
@@ -218,7 +261,7 @@ namespace alpha_0_2.Game.States
                 }
             }
         }
-
+        
         public void CheckCollisionEnemy()
         {
             for (int i = _player.Weapon.Disparadas.Count - 1; i >= 0; i--)
@@ -233,6 +276,8 @@ namespace alpha_0_2.Game.States
                         _player.Weapon.Disparadas.RemoveAt(i);
                         enemy.IsAlive = false;
                         RemoveEnemies();
+                        if (points == 500)
+                            gameWon = true;
                         break;
                     }
                 }
@@ -358,7 +403,6 @@ namespace alpha_0_2.Game.States
             if (drawExplosion)
             {
                 spriteBatch.Draw(explosionTexture, pos, Color.White);
-                //drawExplosion = false;
             }
 
             spriteBatch.DrawString(_scoreFont, $"Score: {points}", new Vector2(10, 10), Color.Black);
@@ -367,6 +411,11 @@ namespace alpha_0_2.Game.States
             if (gameOver)
             {
                 foreach (var component in _components)
+                    component.Draw(gameTime, spriteBatch);
+            }
+            else if (gameWon)
+            {
+                foreach(var component in _componentsWin)
                     component.Draw(gameTime, spriteBatch);
             }
 
