@@ -39,6 +39,12 @@ namespace alpha_0_2.Sprites
             set { weapon = value; }
         }
 
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+
         public Rectangle CollisionRectangle
         {
             get
@@ -83,7 +89,7 @@ namespace alpha_0_2.Sprites
             _nextShootInterval = (float)_random.NextDouble() * 2;
         }
 
-        private void Shoot(Vector2 playerPosition, GameTime gameTime)
+        private void Shoot(GameTime gameTime)
         {
             if (_shootTimer >= _nextShootInterval)
             {
@@ -97,27 +103,24 @@ namespace alpha_0_2.Sprites
 
         private void FollowPlayer(Vector2 playerPosition, GameTime gameTime)
         {
-            _direction = playerPosition - position;
-            _direction.Normalize();
-
-            position += _direction * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            position.Y = 875;
-
-            if(_direction.X < 0)
+            if (position.X < playerPosition.X)
             {
-                facingDirection = Direction.Left;
-                weapon.Texture = weapon.TextureLeft;
-                weapon.Direction = new Vector2(-1, 0);
-                weapon.Position = new Vector2(-65, 14);
-            }
-            else
-            {
+                _direction = new Vector2(1, 0);
                 facingDirection = Direction.Right;
                 weapon.Texture = weapon.TextureRight;
                 weapon.Direction = new Vector2(1, 0);
                 weapon.Position = new Vector2(-15, 14);
             }
-
+            else if (position.X > playerPosition.X)
+            {
+                _direction = new Vector2(-1, 0);
+                facingDirection = Direction.Left;
+                weapon.Texture = weapon.TextureLeft;
+                weapon.Direction = new Vector2(-1, 0);
+                weapon.Position = new Vector2(-65, 14);
+            }
+            position += _direction * _speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            position.Y = 875;
             UpdateAnimation(gameTime);
         }
 
@@ -152,7 +155,7 @@ namespace alpha_0_2.Sprites
             if ((_direction.X < 0 && facingDirection == Direction.Left) ||
             (_direction.X > 0 && facingDirection == Direction.Right))
             {
-                Shoot(playerPosition, gameTime);
+                Shoot(gameTime);
             }
         }
 
