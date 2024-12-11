@@ -16,7 +16,8 @@ namespace alpha_0_2.Sprites
         private Texture2D textureLeft;
         private Texture2D bulletTexture;
         private Vector2 entityPosition;
-        private int ammo = 15;
+        private int ammo = 30;
+        private int totalAmmo = 240;
         private float timer;
         private bool isReloading = false;
 
@@ -55,6 +56,18 @@ namespace alpha_0_2.Sprites
             set { Cargador = value; }
         }
 
+        public int Ammo
+        {
+            get { return ammo; }
+            set { ammo = value; }
+        }
+
+        public int TotalAmmo
+        {
+            get { return totalAmmo; }
+            set { totalAmmo = value; }
+        }
+
         public Weapon(Texture2D textureRight, Texture2D textureLeft, Texture2D bulletTexture, List<Bullet> Cargador, Vector2 entityPosition)
             : base(textureRight)
         {
@@ -72,9 +85,14 @@ namespace alpha_0_2.Sprites
 
         public void FillBullets()
         {
-            for (int i = 0; i < ammo; i++)
+            Cargador.Clear();
+            if(totalAmmo > 0)
             {
-                Cargador.Add(new Bullet(bulletTexture, Position, entityPosition));
+                for (int i = 0; i < ammo; i++)
+                {
+                    Cargador.Add(new Bullet(bulletTexture, Position, entityPosition));
+                }
+                totalAmmo = totalAmmo - ammo;
             }
         }
 
@@ -121,7 +139,7 @@ namespace alpha_0_2.Sprites
 
                 Cargador.RemoveAt(Cargador.Count - 1);
             }
-            else if (Cargador.Count == 0)
+            /*else if (Cargador.Count == 0)
             {
                 if (timer < 5)
                 {
@@ -133,7 +151,7 @@ namespace alpha_0_2.Sprites
                     timer = 0f;
                     FillBullets();
                 }
-            }
+            }*/
         }
 
         public override void Draw(SpriteBatch spriteBatch)

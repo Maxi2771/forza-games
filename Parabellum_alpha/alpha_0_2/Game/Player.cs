@@ -122,6 +122,11 @@ namespace alpha_0_2.Game
             {
                 weapon.ShootBullet(gameTime);
             }
+
+            if (_currentKey.IsKeyDown(Keys.R) && _previousKey.IsKeyUp(Keys.R))
+            {
+                weapon.FillBullets();
+            }
         }
 
         private void HandleInput(GameTime gameTime)

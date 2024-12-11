@@ -341,3 +341,14 @@ C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0
 C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\turretRight.xnb
 C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\explosion.xnb
 C:\Users\Fabrizio\source\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\rocket.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\back.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\enemyLeft.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\enemyRight.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\explosion.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\fondo.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\front.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Left.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\Right.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\rocket.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\turretLeft.xnb
+C:\Users\maxim\Documents\forza-games\Parabellum_alpha\alpha_0_2\bin\Debug\net6.0\Content\turretRight.xnb
