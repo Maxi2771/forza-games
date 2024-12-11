@@ -54,8 +54,6 @@ namespace alpha_0_2.Game.States
         Background _background;
         int _currentRound;
         bool isRound = false;
-        int currentAmmo;
-        int totalAmmo;
 
         public GameState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -139,7 +137,6 @@ namespace alpha_0_2.Game.States
             _componentsWin = new List<Component>()
             {
                 nextLevel,
-                menuButton,
             };
 
             Round1();
@@ -187,10 +184,6 @@ namespace alpha_0_2.Game.States
                 }
 
                 enemiesLeft = enemies.Count;
-                currentAmmo = _player.Weapon.Ammo;
-                totalAmmo = _player.Weapon.TotalAmmo;
-
-                
 
                 if (gameWon)
                 {
@@ -302,7 +295,7 @@ namespace alpha_0_2.Game.States
                 }
             }*/
         }
-        
+
         public void CheckCollisionEnemy()
         {
             for (int i = _player.Weapon.Disparadas.Count - 1; i >= 0; i--)
@@ -448,10 +441,9 @@ namespace alpha_0_2.Game.States
             spriteBatch.DrawString(font, $"Enemies Left: {enemiesLeft}", new Vector2(10, 10), Color.Black);
             spriteBatch.DrawString(font, $"Enemies Killed: {enemiesKilled}", new Vector2(150, 10), Color.Black);
             spriteBatch.DrawString(font, $"Health Points: {_player.Health}", new Vector2(300, 10), Color.Black);
-            spriteBatch.DrawString(font, $"Ammo: {_player.Weapon._Cargador.Count}", new Vector2(450, 10), Color.Black);
-            spriteBatch.DrawString(font, $"Ammo Rest: {_player.Weapon.TotalAmmo}", new Vector2(550, 10),Color.Black);
+            spriteBatch.DrawString(font, $"Current Round: {_currentRound}", new Vector2(450, 10), Color.Black);
             //spriteBatch.DrawString(font, $"Player Position: {_player.Position}", new Vector2(300, 10), Color.Black);
-            
+
             /*foreach (Enemy enemy in enemies)
             {
                 spriteBatch.DrawString(font, $"Enemy Position: {enemy.Position}", new Vector2(600, 10), Color.Black);
@@ -462,11 +454,11 @@ namespace alpha_0_2.Game.States
                 foreach (var component in _components)
                     component.Draw(gameTime, spriteBatch);
             }
-            /*else if (gameWon)
+            if (_currentRound == 3 && enemiesLeft == 0)
             {
-                foreach(var component in _componentsWin)
+                foreach (var component in _componentsWin)
                     component.Draw(gameTime, spriteBatch);
-            }*/
+            }
 
             spriteBatch.End();
         }

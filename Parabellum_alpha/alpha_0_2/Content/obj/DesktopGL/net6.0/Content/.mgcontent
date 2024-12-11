@@ -4,25 +4,25 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/back.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/ball.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Bullet.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Controls/Button.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/enemyLeft.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/enemyRight.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/explosion.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/fondo.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Fonts/Font.spritefont</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/front.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Left.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/man_left.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/man_right.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/Right.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/rocket.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/turretLeft.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/turretRight.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/weaponLeft.png</File>
-    <File>C:/Users/maxim/Documents/forza-games/Parabellum_alpha/alpha_0_2/Content/weaponRight.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/back.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/ball.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Bullet.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Controls/Button.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/enemyLeft.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/enemyRight.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/explosion.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/fondo.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Fonts/Font.spritefont</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/front.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Left.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/man_left.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/man_right.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/Right.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/rocket.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/turretLeft.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/turretRight.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/weaponLeft.png</File>
+    <File>C:/Users/Fabrizio/source/forza-games/Parabellum_alpha/alpha_0_2/Content/weaponRight.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
