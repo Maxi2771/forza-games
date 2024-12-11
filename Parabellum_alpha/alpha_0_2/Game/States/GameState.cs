@@ -154,7 +154,7 @@ namespace alpha_0_2.Game.States
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            //_game.ChangeLevel();
+            _game.ChangeState(new GameState2(_game, _graphicsDevice, _content));
         }
 
         public override void Update(GameTime gameTime)
@@ -197,6 +197,10 @@ namespace alpha_0_2.Game.States
                         case 2:
                             Round3();
                             break;
+                    }
+                    foreach(Component component in _componentsWin)
+                    {
+                        component.Update(gameTime);
                     }
                 }
 

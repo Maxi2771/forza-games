@@ -22,9 +22,9 @@ namespace alpha_0_2.Game.States
         private int _lives = 3;
         private bool _keyPreviouslyPressed = false;
         private List<Bullet> Cargador = new List<Bullet>();
-        private int points = 0;
-        private SpriteFont _scoreFont;
-        private SpriteFont _healthFont;
+        private int enemiesLeft;
+        private int enemiesKilled;
+        private SpriteFont font;
         private Random random;
         private bool gameOver = false;
         private bool gameWon = false;
@@ -52,6 +52,8 @@ namespace alpha_0_2.Game.States
         bool drawExplosion = false;
         Vector2 pos;
         Background _background;
+        int _currentRound;
+        bool isRound = false;
 
         public GameState2(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -76,7 +78,7 @@ namespace alpha_0_2.Game.States
             rocketTexture = content.Load<Texture2D>("rocket");
             explosionTexture = content.Load<Texture2D>("explosion");
 
-            _turret = new Turret(turretRight, turretLeft, new Vector2(1000, 700), rocketTexture);
+            //_turret = new Turret(turretRight, turretLeft, new Vector2(1000, 700), rocketTexture);
 
             position = new Vector2(400, 875);
             //position2 = new Vector2(200, 875);
@@ -90,8 +92,7 @@ namespace alpha_0_2.Game.States
 
             _sprites = new List<Sprite>();
 
-            _scoreFont = content.Load<SpriteFont>("Fonts/Font");
-            _healthFont = content.Load<SpriteFont>("Fonts/Font");
+            font = content.Load<SpriteFont>("Fonts/Font");
 
             // Cargar la textura del fondo
             var _fondoTexture = content.Load<Texture2D>("fondo");
@@ -136,8 +137,9 @@ namespace alpha_0_2.Game.States
             _componentsWin = new List<Component>()
             {
                 nextLevel,
-                menuButton,
             };
+
+            Round1();
         }
 
         private void ReturnMenuButton_Click(object sender, EventArgs e)
@@ -157,64 +159,96 @@ namespace alpha_0_2.Game.States
 
         public override void Update(GameTime gameTime)
         {
-            if (!gameWon)
+            if (!gameOver)
             {
-                if (!gameOver)
+                _player.Update(gameTime, _sprites);
+
+                //_turret.Update(gameTime, _player.Position);
+
+                LimitPlayerPosition();
+
+                foreach (var sprite in _sprites.ToArray())
+                    sprite.Update(gameTime, _sprites);
+
+                if (drawExplosion)
                 {
-                    _player.Update(gameTime, _sprites);
+                    // Incrementar el timer basado en el tiempo transcurrido
+                    timerExplosion += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                    _turret.Update(gameTime, _player.Position);
+                    // Cambiar el estado del booleano después de 3 segundos
+                    if (timerExplosion >= 1f)
+                    {
+                        drawExplosion = false;
+                        timerExplosion = 0f;
+                    }
+                }
 
-                    LimitPlayerPosition();
+                enemiesLeft = enemies.Count;
 
-                    foreach (var sprite in _sprites.ToArray())
-                        sprite.Update(gameTime, _sprites);
-
+                if (gameWon)
+                {
                     timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                    if (drawExplosion)
+                    switch (_currentRound)
                     {
-                        // Incrementar el timer basado en el tiempo transcurrido
-                        timerExplosion += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                        // Cambiar el estado del booleano después de 3 segundos
-                        if (timerExplosion >= 1f)
-                        {
-                            drawExplosion = false;
-                            timerExplosion = 0f;
-                        }
+                        case 1:
+                            Round2();
+                            break;
+                        case 2:
+                            Round3();
+                            break;
                     }
-
-                    SpawnEnemies();
-
-                    foreach (Enemy e in enemies)
-                    {
-                        e.Update(gameTime, position);
-                    }
-
-                    _background.Update(gameTime);
-                    CheckCollisionPlayer();
-                    CheckCollisionEnemy();
-                    MissileCollisionPlayer();
                 }
-                else
+
+                foreach (Enemy e in enemies)
                 {
-                    foreach (var component in _components)
-                        component.Update(gameTime);
+                    e.Update(gameTime, _player.Position);
                 }
+
+                _background.Update(gameTime);
+                CheckCollisionPlayer();
+                CheckCollisionEnemy();
+                MissileCollisionPlayer();
             }
             else
             {
-                foreach (var component in _componentsWin)
+                foreach (var component in _components)
                     component.Update(gameTime);
             }
         }
 
-        private void SpawnEnemies()
+        private void Round1()
         {
-            if (enemies.Count < 2 && timer > 1.0f)
+            gameWon = false;
+            _currentRound = 1;
+            enemiesLeft = 2;
+            for (int i = 0; i < enemiesLeft; i++)
             {
-                enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + 400, 875), textureRight, textureLeft, bulletTexture));
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
+                timer = 0;
+            }
+        }
+
+        private void Round2()
+        {
+            gameWon = false;
+            _currentRound = 2;
+            enemiesLeft = 4;
+            for (int i = 0; i < enemiesLeft; i++)
+            {
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
+                timer = 0;
+            }
+        }
+
+        private void Round3()
+        {
+            gameWon = false;
+            _currentRound = 3;
+            enemiesLeft = 6;
+            for (int i = 0; i < enemiesLeft; i++)
+            {
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
                 timer = 0;
             }
         }
@@ -249,7 +283,7 @@ namespace alpha_0_2.Game.States
                     }
                 }
             }*/
-            for (int i = _turret.Disparadas.Count - 1; i >= 0; i--)
+            /*for (int i = _turret.Disparadas.Count - 1; i >= 0; i--)
             {
                 if (_turret.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
                 {
@@ -259,9 +293,9 @@ namespace alpha_0_2.Game.States
                     _turret.Disparadas.RemoveAt(i);
                     ReduceHealthMissile();
                 }
-            }
+            }*/
         }
-        
+
         public void CheckCollisionEnemy()
         {
             for (int i = _player.Weapon.Disparadas.Count - 1; i >= 0; i--)
@@ -272,12 +306,10 @@ namespace alpha_0_2.Game.States
                     var enemy = enemies[e];
                     if (bullet.CollisionRectangle.Intersects(enemy.CollisionRectangle) && enemy.IsAlive)
                     {
-                        points += 100;
                         _player.Weapon.Disparadas.RemoveAt(i);
                         enemy.IsAlive = false;
                         RemoveEnemies();
-                        if (points == 500)
-                            gameWon = true;
+                        gameWon = (enemies.Count == 0);
                         break;
                     }
                 }
@@ -291,6 +323,7 @@ namespace alpha_0_2.Game.States
             {
                 if (!enemies[i].IsAlive)
                 {
+                    enemiesKilled++;
                     enemies.RemoveAt(i);
                     i--;
                 }
@@ -387,7 +420,7 @@ namespace alpha_0_2.Game.States
 
             _background.Draw(spriteBatch);
             _player.Draw(spriteBatch);
-            _turret.Draw(spriteBatch);
+            //_turret.Draw(spriteBatch);
             //_player2.Draw(spriteBatch);
 
             foreach (Enemy enemy in enemies)
@@ -405,17 +438,26 @@ namespace alpha_0_2.Game.States
                 spriteBatch.Draw(explosionTexture, pos, Color.White);
             }
 
-            spriteBatch.DrawString(_scoreFont, $"Score: {points}", new Vector2(10, 10), Color.Black);
-            spriteBatch.DrawString(_healthFont, $"Health Points: {_player.Health}", new Vector2(100, 10), Color.Black);
+            spriteBatch.DrawString(font, $"Enemies Left: {enemiesLeft}", new Vector2(10, 10), Color.Black);
+            spriteBatch.DrawString(font, $"Enemies Killed: {enemiesKilled}", new Vector2(150, 10), Color.Black);
+            spriteBatch.DrawString(font, $"Health Points: {_player.Health}", new Vector2(300, 10), Color.Black);
+            spriteBatch.DrawString(font, $"Current Round: {_currentRound}", new Vector2(450, 10), Color.Black);
+            spriteBatch.DrawString(font, $"Ammo: {_player.Weapon._Cargador.Count}", new Vector2(590, 10), Color.Black);
+            //spriteBatch.DrawString(font, $"Player Position: {_player.Position}", new Vector2(300, 10), Color.Black);
+
+            /*foreach (Enemy enemy in enemies)
+            {
+                spriteBatch.DrawString(font, $"Enemy Position: {enemy.Position}", new Vector2(600, 10), Color.Black);
+            }*/
 
             if (gameOver)
             {
                 foreach (var component in _components)
                     component.Draw(gameTime, spriteBatch);
             }
-            else if (gameWon)
+            if (_currentRound == 3 && enemiesLeft == 0)
             {
-                foreach(var component in _componentsWin)
+                foreach (var component in _componentsWin)
                     component.Draw(gameTime, spriteBatch);
             }
 

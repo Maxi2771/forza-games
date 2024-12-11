@@ -11,72 +11,72 @@ using System.Threading.Tasks;
 
 namespace alpha_0_2.Game.States
 {
-    public class MenuState : State
+    public class MenuState2 : State
     {
         private List<Component> _components;
         private GraphicsDeviceManager _graphicsManager;
-        public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, GraphicsDeviceManager graphicsManager) : base(game, graphicsDevice, content)
+        public MenuState2(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, GraphicsDeviceManager graphicsManager) : base(game, graphicsDevice, content)
         {
             _graphicsManager = graphicsManager;
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
 
-            var startButton = new Button(buttonTexture, buttonFont)
+            var levelOneButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 300),
-                Text = "Start",
+                Text = "Level 1",
             };
 
-            startButton.Click += StartButton_Click;
+            levelOneButton.Click += LevelOneButton_Click;
 
-            var pickLevelButton = new Button(buttonTexture, buttonFont)
+            var levelTwoButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 200),
-                Text = "Pick a level",
+                Text = "Level 2",
             };
 
-            pickLevelButton.Click += PickLevelButton_Click;
+            levelTwoButton.Click += LevelTwoButton_Click;
 
-            var optionsGameButton = new Button(buttonTexture, buttonFont)
+            var levelThreeButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 100),
-                Text = "Options",
+                Text = "Level 3",
             };
 
-            optionsGameButton.Click += optionsGameButton_Click;
+            levelThreeButton.Click += LevelThreeButton_Click;
 
-            var quitGameButton = new Button(buttonTexture, buttonFont)
+            /*var backButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 0),
-                Text = "Quit",
-            };
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 100),
+                Text = "Back",
+            };*/
 
-            quitGameButton.Click += QuitGameButton_Click;
+            //backButton.Click += BackButton_Click;
 
             _components = new List<Component>()
             {
-                startButton,
-                pickLevelButton,
-                optionsGameButton,
-                quitGameButton,
+                levelOneButton,
+                levelTwoButton,
+                levelThreeButton,
+                //backButton,
             };
         }
 
-        private void QuitGameButton_Click(object sender, EventArgs e)
+        /*private void BackButton_Click(object sender, EventArgs e)
         {
             _game.Exit();
-        }
+        }*/
 
-        private void optionsGameButton_Click(object sender, EventArgs e)
+        private void LevelThreeButton_Click(object sender, EventArgs e)
         {
         }
 
-        private void PickLevelButton_Click(object sender, EventArgs e)
+        private void LevelTwoButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MenuState2(_game, _graphicsDevice, _content, _graphicsManager));
+            _game.ChangeState(new GameState2(_game, _graphicsDevice, _content));
         }
 
-        private void StartButton_Click(object sender, EventArgs e)
+        private void LevelOneButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
