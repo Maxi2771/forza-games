@@ -123,7 +123,7 @@ namespace alpha_0_2.Game
                 weapon.ShootBullet(gameTime);
             }
 
-            if (_currentKey.IsKeyDown(Keys.R) && _previousKey.IsKeyUp(Keys.R))
+            if (_currentKey.IsKeyDown(Keys.R) && _previousKey.IsKeyUp(Keys.R) && weapon._Cargador.Count != weapon.Ammo)
             {
                 weapon.FillBullets();
             }
