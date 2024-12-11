@@ -442,6 +442,7 @@ namespace alpha_0_2.Game.States
             spriteBatch.DrawString(font, $"Enemies Killed: {enemiesKilled}", new Vector2(150, 10), Color.Black);
             spriteBatch.DrawString(font, $"Health Points: {_player.Health}", new Vector2(300, 10), Color.Black);
             spriteBatch.DrawString(font, $"Current Round: {_currentRound}", new Vector2(450, 10), Color.Black);
+            spriteBatch.DrawString(font, $"Ammo: {_player.Weapon._Cargador.Count}", new Vector2(590, 10), Color.Black);
             //spriteBatch.DrawString(font, $"Player Position: {_player.Position}", new Vector2(300, 10), Color.Black);
 
             /*foreach (Enemy enemy in enemies)
