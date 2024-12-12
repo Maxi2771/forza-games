@@ -17,7 +17,7 @@ namespace alpha_0_2.Sprites
         private Texture2D bulletTexture;
         private Vector2 entityPosition;
         private int ammo = 30;
-        private int totalAmmo = 240;
+        private int totalAmmo = 180;
         private float timer;
         private bool isReloading = false;
 

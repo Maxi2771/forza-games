@@ -21,6 +21,9 @@ namespace alpha_0_2.Game
         private KeyboardState _previousKey;
         private int _health = 1000;
         private float timer;
+        private bool isDodging = false; // Acción para esquivar
+        private float dodgeDuration = 0.5f; // Duración del esquive en S
+        private float dodgeTimer = 0f; // Temporizador para esquivar
 
         public int Health
         {
@@ -38,6 +41,12 @@ namespace alpha_0_2.Game
         {
             get { return facingDirection; }
             set { facingDirection = value; }
+        }
+
+        public bool IsDodging
+        {
+            get { return isDodging; }
+            set { isDodging = value; }
         }
 
         public int Width => textures[(int)facingDirection].Width;
@@ -126,6 +135,21 @@ namespace alpha_0_2.Game
             if (_currentKey.IsKeyDown(Keys.R) && _previousKey.IsKeyUp(Keys.R) && weapon._Cargador.Count != weapon.Ammo && weapon.TotalAmmo > 0)
             {
                 weapon.FillBullets();
+            }
+
+            if(_currentKey.IsKeyDown(Keys.Z) && _previousKey.IsKeyUp(Keys.Z))
+            {
+                isDodging = true; // Acción esquivar activa
+                dodgeTimer = 0f; // Reinicio el temporizador para esquivar
+            }
+
+            if (isDodging)
+            {
+                dodgeTimer += (float)gameTime.ElapsedGameTime.TotalSeconds; // Incrementar el temporizador
+                if (dodgeTimer >= dodgeDuration) // Si el tiempo de esquive ha pasado
+                {
+                    isDodging = false; // Acción esquivar desactivada
+                }
             }
         }
 

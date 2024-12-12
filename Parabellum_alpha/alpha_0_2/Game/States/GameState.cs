@@ -266,8 +266,15 @@ namespace alpha_0_2.Game.States
                 {
                     if (enemy.Weapon.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
                     {
-                        enemy.Weapon.Disparadas.RemoveAt(i);
-                        ReduceHealth();
+                        if (!_player.IsDodging) // Si no lo esquivo pierdo vida
+                        {
+                            enemy.Weapon.Disparadas.RemoveAt(i);
+                            ReduceHealth();
+                        }
+                        else
+                        {
+                            enemy.Weapon.Disparadas.RemoveAt(i);
+                        }
                     }
                 }
             }
