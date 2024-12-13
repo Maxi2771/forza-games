@@ -9,7 +9,7 @@ using System;
 
 namespace alpha_0_2.Game.States
 {
-    public class GameState2 : State
+    public class GameState3 : State
     {
         private List<Component> _components = new List<Component>();
         private List<Component> _componentsWin = new List<Component>();
@@ -49,13 +49,15 @@ namespace alpha_0_2.Game.States
         Texture2D textureRight;
         Texture2D textureLeft;
         Turret _turret;
+        Texture2D turretRight;
+        Texture2D turretLeft;
         bool drawExplosion = false;
         Vector2 pos;
         Background _background;
         int _currentRound;
         bool isRound = false;
 
-        public GameState2(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
+        public GameState3(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             Texture2D[] playerTextures = new Texture2D[]
             {
@@ -69,8 +71,8 @@ namespace alpha_0_2.Game.States
                 enemyLeft = content.Load<Texture2D>("enemyLeft"),
             };
 
-            var turretLeft = content.Load<Texture2D>("turretLeft");
-            var turretRight = content.Load<Texture2D>("turretRight");
+            turretLeft = content.Load<Texture2D>("turretLeft");
+            turretRight = content.Load<Texture2D>("turretRight");
 
             textureRight = content.Load<Texture2D>("weaponRight");
             textureLeft = content.Load<Texture2D>("weaponLeft");
@@ -154,7 +156,7 @@ namespace alpha_0_2.Game.States
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState3(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState2(_game, _graphicsDevice, _content));
         }
 
         public override void Update(GameTime gameTime)
@@ -162,8 +164,6 @@ namespace alpha_0_2.Game.States
             if (!gameOver)
             {
                 _player.Update(gameTime, _sprites);
-
-                //_turret.Update(gameTime, _player.Position);
 
                 LimitPlayerPosition();
 
@@ -198,7 +198,7 @@ namespace alpha_0_2.Game.States
                             Round3();
                             break;
                     }
-                    foreach (Component component in _componentsWin)
+                    foreach(Component component in _componentsWin)
                     {
                         component.Update(gameTime);
                     }
@@ -209,6 +209,7 @@ namespace alpha_0_2.Game.States
                     e.Update(gameTime, _player.Position);
                 }
 
+                _turret.Update(gameTime, _player.Position);
                 _background.Update(gameTime);
                 CheckCollisionPlayer();
                 CheckCollisionEnemy();
@@ -225,19 +226,20 @@ namespace alpha_0_2.Game.States
         {
             gameWon = false;
             _currentRound = 1;
-            enemiesLeft = 2;
+            enemiesLeft = 5;
             for (int i = 0; i < enemiesLeft; i++)
             {
                 enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
                 timer = 0;
             }
+            _turret = new Turret(turretRight, turretLeft, new Vector2(1000, 700), rocketTexture);
         }
 
         private void Round2()
         {
             gameWon = false;
             _currentRound = 2;
-            enemiesLeft = 4;
+            enemiesLeft = 6;
             for (int i = 0; i < enemiesLeft; i++)
             {
                 enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
@@ -249,7 +251,7 @@ namespace alpha_0_2.Game.States
         {
             gameWon = false;
             _currentRound = 3;
-            enemiesLeft = 6;
+            enemiesLeft = 8;
             for (int i = 0; i < enemiesLeft; i++)
             {
                 enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
@@ -266,8 +268,15 @@ namespace alpha_0_2.Game.States
                 {
                     if (enemy.Weapon.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
                     {
-                        enemy.Weapon.Disparadas.RemoveAt(i);
-                        ReduceHealth();
+                        if (!_player.IsDodging) // Si no lo esquivo pierdo vida
+                        {
+                            enemy.Weapon.Disparadas.RemoveAt(i);
+                            ReduceHealth();
+                        }
+                        else
+                        {
+                            enemy.Weapon.Disparadas.RemoveAt(i);
+                        }
                     }
                 }
             }
@@ -275,19 +284,7 @@ namespace alpha_0_2.Game.States
 
         public void MissileCollisionPlayer()
         {
-            /*for (int e = enemies.Count - 1; e >= 0; e--)
-            {
-                var enemy = enemies[e];
-                for (int i = enemy.Weapon.Disparadas.Count - 1; i >= 0; i--)
-                {
-                    if (enemy.Weapon.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
-                    {
-                        enemy.Weapon.Disparadas.RemoveAt(i);
-                        ReduceHealth();
-                    }
-                }
-            }*/
-            /*for (int i = _turret.Disparadas.Count - 1; i >= 0; i--)
+            for (int i = _turret.Disparadas.Count - 1; i >= 0; i--)
             {
                 if (_turret.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
                 {
@@ -297,7 +294,7 @@ namespace alpha_0_2.Game.States
                     _turret.Disparadas.RemoveAt(i);
                     ReduceHealthMissile();
                 }
-            }*/
+            }
         }
 
         public void CheckCollisionEnemy()
@@ -368,49 +365,10 @@ namespace alpha_0_2.Game.States
 
             _player.Position = playerPosition;
         }
-
-        /*private void UpdateBackground()
-        {
-            var state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.Left))
-            {
-                if (_fondoPosX1 < _limiteIzquierdo)
-                {
-                    _fondoPosX1 += _velocidad;
-                    _fondoPosX2 += _velocidad;
-                }
-            }
-            else if (state.IsKeyDown(Keys.Right))
-            {
-                _fondoPosX1 -= _velocidad;
-                _fondoPosX2 -= _velocidad;
-            }
-
-            if (_fondoPosX1 <= -_fondoTexture.Width)
-                _fondoPosX1 = _fondoPosX2 + _fondoTexture.Width;
-
-            if (_fondoPosX2 <= -_fondoTexture.Width)
-                _fondoPosX2 = _fondoPosX1 + _fondoTexture.Width;
-        }*/
-
-
         public override void PostUpdate(GameTime gameTime)
         {
 
         }
-
-        /*public override void PostUpdate(GameTime gameTime)
-        {
-            for (int i = 0; i < _sprites.Count; i++)
-            {
-                if (_sprites[i].IsRemoved)
-                {
-                    _sprites.RemoveAt(i);
-                    i--;
-                }
-            }
-        }*/
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -424,7 +382,7 @@ namespace alpha_0_2.Game.States
 
             _background.Draw(spriteBatch);
             _player.Draw(spriteBatch);
-            //_turret.Draw(spriteBatch);
+            _turret.Draw(spriteBatch);
             //_player2.Draw(spriteBatch);
 
             foreach (Enemy enemy in enemies)

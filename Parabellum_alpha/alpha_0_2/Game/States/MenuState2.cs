@@ -69,6 +69,7 @@ namespace alpha_0_2.Game.States
 
         private void LevelThreeButton_Click(object sender, EventArgs e)
         {
+            _game.ChangeState(new GameState3(_game, _graphicsDevice, _content));
         }
 
         private void LevelTwoButton_Click(object sender, EventArgs e)

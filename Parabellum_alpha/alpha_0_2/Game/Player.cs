@@ -19,7 +19,7 @@ namespace alpha_0_2.Game
         private Direction facingDirection;
         private KeyboardState _currentKey;
         private KeyboardState _previousKey;
-        private int _health = 1000;
+        private int _health = 10;
         private float timer;
         private bool isDodging = false; // Acción para esquivar
         private float dodgeDuration = 0.5f; // Duración del esquive en S
@@ -155,20 +155,19 @@ namespace alpha_0_2.Game
 
         private void HandleInput(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Right) && !hasJumped)
+            position += velocity;
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 velocity.X = 3f;
-                position.X += velocity.X;
                 facingDirection = Direction.Right;
                 weapon.Texture = weapon.TextureRight;
                 weapon.Direction = new Vector2(1, 0);
                 weapon.Position = new Vector2(-22, 14);
             }
 
-            else if(Keyboard.GetState().IsKeyDown(Keys.Left) && !hasJumped)
+            else if(Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 velocity.X = -3f;
-                position.X += velocity.X;
                 facingDirection = Direction.Left;
                 weapon.Texture = weapon.TextureLeft;
                 weapon.Direction = new Vector2(-1, 0);
@@ -181,40 +180,18 @@ namespace alpha_0_2.Game
 
             if(Keyboard.GetState().IsKeyDown(Keys.Up) && !hasJumped)
             {
-                velocity.Y = -10f;
-                position.Y += velocity.Y;
+                velocity.Y -= 10f;
+                velocity.Y = -5f;
                 hasJumped = true;
             }
-            /*
-            if (Keyboard.GetState().IsKeyDown(Keys.F) && !hasJumped)
-            {
-                facingDirection = Direction.Right;
-                weapon.Texture = weapon.TextureRight;
-                weapon.Direction = new Vector2(1, 0);
-                weapon.Position = new Vector2(-22, 14);
 
-                velocity = new Vector2(3f, -8f);
-                float a2 = (float)Math.Pow(velocity.X, 2);
-                float b2 = (float)Math.Pow(velocity.Y, 2);
-                float c2 = a2 + b2;
-
-                float c = (float)Math.Sqrt(c2);
-                Vector2 newVelocity = new Vector2(c, -c);
-                newVelocity.Normalize();
-
-                position.X += newVelocity.X;
-                position.Y += newVelocity.Y;
-                hasJumped = true;
-            }
-            */
             if (hasJumped)
             {
                 float i = 1;
-                velocity.Y += 0.3f * i;
-                position.Y += velocity.Y;
+                velocity.Y += 0.15f * i;
             }
 
-            if(position.Y + animationFrames[facingDirection][currentFrame].Height >= 960)
+            if(position.Y + animationFrames[facingDirection][currentFrame].Height >= 962.1f)
             {
                 hasJumped = false;
             }
@@ -222,12 +199,9 @@ namespace alpha_0_2.Game
             if (!hasJumped)
             {
                 velocity.Y = 0f;
+                position.Y = 875;
             }
 
-            if (velocity.X != 0)
-                velocity.Normalize();
-
-            //position += velocity;
             UpdateAnimation(gameTime);
         }
 

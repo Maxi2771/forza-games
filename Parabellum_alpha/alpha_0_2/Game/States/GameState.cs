@@ -225,7 +225,7 @@ namespace alpha_0_2.Game.States
         {
             gameWon = false;
             _currentRound = 1;
-            enemiesLeft = 1;
+            enemiesLeft = 2;
             for (int i = 0; i < enemiesLeft; i++)
             {
                 enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
@@ -237,7 +237,7 @@ namespace alpha_0_2.Game.States
         {
             gameWon = false;
             _currentRound = 2;
-            enemiesLeft = 2;
+            enemiesLeft = 4;
             for (int i = 0; i < enemiesLeft; i++)
             {
                 enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
@@ -249,7 +249,7 @@ namespace alpha_0_2.Game.States
         {
             gameWon = false;
             _currentRound = 3;
-            enemiesLeft = 3;
+            enemiesLeft = 6;
             for (int i = 0; i < enemiesLeft; i++)
             {
                 enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
