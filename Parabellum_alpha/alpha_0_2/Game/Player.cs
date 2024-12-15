@@ -19,7 +19,7 @@ namespace alpha_0_2.Game
         private Direction facingDirection;
         private KeyboardState _currentKey;
         private KeyboardState _previousKey;
-        private int _health = 10;
+        private int _health = 1000;
         private float timer;
         private bool isDodging = false; // Acción para esquivar
         private float dodgeDuration = 0.5f; // Duración del esquive en S
@@ -73,6 +73,19 @@ namespace alpha_0_2.Game
             get { return weapon; }
             set { weapon = value; }
         }
+
+        public Vector2 Velocity
+        {
+            get { return velocity; }
+            set { velocity = value; }
+        }
+
+        public bool HasJumped
+        {
+            get { return hasJumped; }
+            set { hasJumped = value; }
+        }
+
         public Rectangle CollisionRectangle
         {
             get

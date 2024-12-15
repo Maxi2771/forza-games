@@ -15,13 +15,14 @@ namespace alpha_0_2.Game.States
     {
         private List<Component> _components;
         private GraphicsDeviceManager _graphicsManager;
+        private SpriteFont font;
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content, GraphicsDeviceManager graphicsManager) : base(game, graphicsDevice, content)
         {
             _graphicsManager = graphicsManager;
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
-            var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
+            font = _content.Load<SpriteFont>("Fonts/Font");
 
-            var startButton = new Button(buttonTexture, buttonFont)
+            var startButton = new Button(buttonTexture, font)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 300),
                 Text = "Start",
@@ -29,7 +30,7 @@ namespace alpha_0_2.Game.States
 
             startButton.Click += StartButton_Click;
 
-            var pickLevelButton = new Button(buttonTexture, buttonFont)
+            var pickLevelButton = new Button(buttonTexture, font)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 200),
                 Text = "Pick a level",
@@ -37,7 +38,7 @@ namespace alpha_0_2.Game.States
 
             pickLevelButton.Click += PickLevelButton_Click;
 
-            var optionsGameButton = new Button(buttonTexture, buttonFont)
+            var optionsGameButton = new Button(buttonTexture, font)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 100),
                 Text = "Options",
@@ -45,7 +46,7 @@ namespace alpha_0_2.Game.States
 
             optionsGameButton.Click += optionsGameButton_Click;
 
-            var quitGameButton = new Button(buttonTexture, buttonFont)
+            var quitGameButton = new Button(buttonTexture, font)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 0),
                 Text = "Quit",
@@ -87,7 +88,8 @@ namespace alpha_0_2.Game.States
             foreach(var component in _components)
                 component.Draw(gameTime, spriteBatch);
 
-            
+            spriteBatch.DrawString(font, "Parabellum", new Vector2(10, 10), Color.Black);
+
             spriteBatch.End();
         }
 

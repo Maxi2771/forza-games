@@ -17,11 +17,36 @@ namespace alpha_0_2.Game
         Vector2 _direction;
         Direction facingDirection = Game.Direction.Left;
         Texture2D currentTexture;
-        bool isDestroyed = false;
         List<Bullet> disparadas = new List<Bullet>();
         Texture2D bulletTexture;
         float shootTimer = 0f;
-        float shootInterval = 1f;
+        float shootInterval = 3f;
+        int health = 3;
+        bool _isAlive = true;
+        public Rectangle CollisionRectangle
+        {
+            get
+            {
+                return new Rectangle(
+                    (int)position.X,
+                    (int)position.Y,
+                    currentTexture.Width,
+                    currentTexture.Height
+                );
+            }
+        }
+
+        public bool IsAlive
+        {
+            get { return _isAlive; }
+            set { _isAlive = value; }
+        }
+
+        public int Health
+        {
+            get { return health; }
+            set { health = value; }
+        }
 
         public List<Bullet> Disparadas
         {
@@ -85,23 +110,26 @@ namespace alpha_0_2.Game
 
         public void Update(GameTime gameTime, Vector2 playerPosition)
         {
-            // Actualizar la posición de las balas
+            if (!IsAlive) return;
+
             UpdateBullets(gameTime);
 
-            // Controlar la dirección hacia el jugador
             AimPlayer(playerPosition, gameTime);
 
             Position += Direction * LinearVelocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
             LifeSpan -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            // Reducir el temporizador
             shootTimer -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            // Disparar si el temporizador ha llegado a 0
+            if(health <= 0)
+            {
+                _isAlive = false;
+            }
+
             if (shootTimer <= 0f)
             {
                 Fire(playerPosition);
-                shootTimer = shootInterval; // Reiniciar el temporizador
+                shootTimer = shootInterval;
             }
         }
 
@@ -109,18 +137,16 @@ namespace alpha_0_2.Game
         {
             Vector2 turretTipPosition = position;
 
-            // Ajustar la posición de la punta según la dirección de disparo
-            turretTipPosition.Y += 40; // Ajuste vertical
+            turretTipPosition.Y += 40;
             if (facingDirection == Game.Direction.Left)
             {
-                turretTipPosition.X -= 30; // Ajuste hacia la izquierda
+                turretTipPosition.X -= 30;
             }
             else
             {
-                turretTipPosition.X += 300; // Ajuste hacia la derecha
+                turretTipPosition.X += 300;
             }
 
-            // Crear una bala
             var bullet = new Bullet(bulletTexture, turretTipPosition, true)
             {
                 Direction = _direction,
@@ -129,14 +155,13 @@ namespace alpha_0_2.Game
                 Parent = this
             };
 
-            // Añadir a la lista de balas disparadas
             disparadas.Add(bullet);
         }
 
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (!isDestroyed)
+            if (_isAlive)
             {
                 spriteBatch.Draw(currentTexture, position, Color.White);
                 foreach(Bullet bullet in disparadas)

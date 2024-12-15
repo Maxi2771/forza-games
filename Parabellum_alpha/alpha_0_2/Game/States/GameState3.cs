@@ -56,6 +56,8 @@ namespace alpha_0_2.Game.States
         Background _background;
         int _currentRound;
         bool isRound = false;
+        Texture2D platformTexture;
+        Rectangle platformRectangle;
 
         public GameState3(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
@@ -79,6 +81,8 @@ namespace alpha_0_2.Game.States
             bulletTexture = content.Load<Texture2D>("Bullet");
             rocketTexture = content.Load<Texture2D>("rocket");
             explosionTexture = content.Load<Texture2D>("explosion");
+
+            platformTexture = content.Load<Texture2D>("Controls/Button");
 
             //_turret = new Turret(turretRight, turretLeft, new Vector2(1000, 700), rocketTexture);
 
@@ -214,6 +218,8 @@ namespace alpha_0_2.Game.States
                 CheckCollisionPlayer();
                 CheckCollisionEnemy();
                 MissileCollisionPlayer();
+                CheckCollisionPlatform();
+                TurretCollisionPlayer();
             }
             else
             {
@@ -278,6 +284,35 @@ namespace alpha_0_2.Game.States
                             enemy.Weapon.Disparadas.RemoveAt(i);
                         }
                     }
+                }
+            }
+        }
+        
+        public void CheckCollisionPlatform()
+        {
+            if (platformRectangle.Intersects(_player.CollisionRectangle))
+            {
+                _player.HasJumped = false;
+                _player.Position = new Vector2(_player.Position.X, platformRectangle.Top - 82);
+                if (_player.FacingDirection == Direction.Right)
+                {
+                    _player.Weapon.Position = new Vector2(-22, -40);
+                }
+                else if(_player.FacingDirection == Direction.Left)
+                {
+                    _player.Weapon.Position = new Vector2(-64, -40);
+                }
+            }
+        }
+
+        public void TurretCollisionPlayer()
+        {
+            for(int i = _player.Weapon.Disparadas.Count - 1; i >= 0; i--)
+            {
+                if (_turret.CollisionRectangle.Intersects(_player.Weapon.Disparadas[i].CollisionRectangle))
+                {
+                    _turret.Health--;
+                    _player.Weapon.Disparadas.RemoveAt(i);
                 }
             }
         }
@@ -385,6 +420,15 @@ namespace alpha_0_2.Game.States
             _turret.Draw(spriteBatch);
             //_player2.Draw(spriteBatch);
 
+            spriteBatch.Draw(platformTexture, new Vector2(500, 850), Color.White);
+
+            platformRectangle = new Rectangle(500, 850, platformTexture.Width, platformTexture.Height);
+
+            Texture2D rectTexture = new Texture2D(_graphicsDevice, 1, 1);
+            rectTexture.SetData(new[] { Color.Red });
+            spriteBatch.Draw(rectTexture, platformRectangle, Color.Red * 0.5f);
+
+
             foreach (Enemy enemy in enemies)
             {
                 enemy.Draw(spriteBatch);
@@ -417,7 +461,7 @@ namespace alpha_0_2.Game.States
                 foreach (var component in _components)
                     component.Draw(gameTime, spriteBatch);
             }
-            if (_currentRound == 3 && enemiesLeft == 0)
+            if (_currentRound == 3 && enemiesLeft == 0 && !_turret.IsAlive)
             {
                 foreach (var component in _componentsWin)
                     component.Draw(gameTime, spriteBatch);
