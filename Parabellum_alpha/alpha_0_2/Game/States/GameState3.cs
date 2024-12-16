@@ -132,18 +132,18 @@ namespace alpha_0_2.Game.States
                 menuButton,
             };
 
-            var nextLevel = new Button(buttonTexture, buttonFont)
+            /*var nextLevel = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2((_game._graphics.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_game._graphics.PreferredBackBufferHeight / 2) - 200),
                 Text = "Next Level",
-            };
+            };*/
 
-            nextLevel.Click += NextLevelButton_Click;
+            //nextLevel.Click += NextLevelButton_Click;
 
-            _componentsWin = new List<Component>()
+            /*_componentsWin = new List<Component>()
             {
                 nextLevel,
-            };
+            };*/
 
             Round1();
         }
@@ -158,10 +158,10 @@ namespace alpha_0_2.Game.States
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
 
-        private void NextLevelButton_Click(object sender, EventArgs e)
+        /*private void NextLevelButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new GameState2(_game, _graphicsDevice, _content));
-        }
+        }*/
 
         public override void Update(GameTime gameTime)
         {
@@ -239,6 +239,7 @@ namespace alpha_0_2.Game.States
                 timer = 0;
             }
             _turret = new Turret(turretRight, turretLeft, new Vector2(1000, 700), rocketTexture);
+            turrets.Add(_turret);
         }
 
         private void Round2()
@@ -304,30 +305,47 @@ namespace alpha_0_2.Game.States
                 }
             }
         }
-
+        
         public void TurretCollisionPlayer()
         {
-            for(int i = _player.Weapon.Disparadas.Count - 1; i >= 0; i--)
+            for (int t = turrets.Count - 1; t >= 0; t--)
             {
-                if (_turret.CollisionRectangle.Intersects(_player.Weapon.Disparadas[i].CollisionRectangle))
+                for (int i = _player.Weapon.Disparadas.Count - 1; i >= 0; i--)
                 {
-                    _turret.Health--;
-                    _player.Weapon.Disparadas.RemoveAt(i);
+                    if (turrets[t].CollisionRectangle.Intersects(_player.Weapon.Disparadas[i].CollisionRectangle))
+                    {
+                        turrets[t].Health--;
+                        _player.Weapon.Disparadas.RemoveAt(i);
+                        if (turrets[t].Health <= 0)
+                        {
+                            turrets.RemoveAt(t);
+                        }
+                    }
                 }
             }
         }
 
         public void MissileCollisionPlayer()
         {
-            for (int i = _turret.Disparadas.Count - 1; i >= 0; i--)
+            for (int t = turrets.Count - 1; t >= 0; t--)
             {
-                if (_turret.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
+                for (int i = turrets[t].Disparadas.Count - 1; i >= 0; i--)
                 {
-                    drawExplosion = true;
-                    Vector2 offset = new Vector2(100, 80);
-                    pos = _turret.Disparadas[i].PositionAir - offset;
-                    _turret.Disparadas.RemoveAt(i);
-                    ReduceHealthMissile();
+                    if (turrets[t].Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
+                    {
+                        if (!_player.IsDodging) // Si no lo esquivo pierdo vida
+                        {
+                            drawExplosion = true;
+                            Vector2 offset = new Vector2(100, 80);
+                            pos = turrets[t].Disparadas[i].PositionAir - offset;
+                            turrets[t].Disparadas.RemoveAt(i);
+                            ReduceHealthMissile();
+                        }
+                        else
+                        {
+                            turrets[t].Disparadas.RemoveAt(i);
+                        }
+                    }
                 }
             }
         }
@@ -449,6 +467,7 @@ namespace alpha_0_2.Game.States
             spriteBatch.DrawString(font, $"Health Points: {_player.Health}", new Vector2(300, 10), Color.Black);
             spriteBatch.DrawString(font, $"Current Round: {_currentRound}", new Vector2(450, 10), Color.Black);
             spriteBatch.DrawString(font, $"Ammo: {_player.Weapon._Cargador.Count}", new Vector2(590, 10), Color.Black);
+
             //spriteBatch.DrawString(font, $"Player Position: {_player.Position}", new Vector2(300, 10), Color.Black);
 
             /*foreach (Enemy enemy in enemies)
@@ -463,8 +482,7 @@ namespace alpha_0_2.Game.States
             }
             if (_currentRound == 3 && enemiesLeft == 0 && !_turret.IsAlive)
             {
-                foreach (var component in _componentsWin)
-                    component.Draw(gameTime, spriteBatch);
+                spriteBatch.DrawString(font, "You Won!", new Vector2(700, 500), Color.Black);
             }
 
             spriteBatch.End();
