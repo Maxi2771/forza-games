@@ -297,11 +297,11 @@ namespace alpha_0_2.Game.States
                 _player.Position = new Vector2(_player.Position.X, platformRectangle.Top - 82);
                 if (_player.FacingDirection == Direction.Right)
                 {
-                    _player.Weapon.Position = new Vector2(-22, -40);
+                    _player.Weapon.Position = new Vector2(-22, -90);
                 }
                 else if(_player.FacingDirection == Direction.Left)
                 {
-                    _player.Weapon.Position = new Vector2(-64, -40);
+                    _player.Weapon.Position = new Vector2(-64, -90);
                 }
             }
         }

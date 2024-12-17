@@ -193,9 +193,17 @@ namespace alpha_0_2.Game
 
             if(Keyboard.GetState().IsKeyDown(Keys.Up) && !hasJumped)
             {
-                velocity.Y -= 10f;
-                velocity.Y = -5f;
+                velocity.Y -= 6f;
                 hasJumped = true;
+
+                if(facingDirection == Direction.Right)
+                {
+                    weapon.Position = new Vector2(-22, 14);
+                }
+                if(facingDirection  == Direction.Left)
+                {
+                    weapon.Position = new Vector2(-64, 14);
+                }
             }
 
             if (hasJumped)
