@@ -9,11 +9,10 @@ using System;
 
 namespace alpha_0_2.Game.States
 {
-    public class GameState2 : State
+    public class GameStateP : State
     {
         private List<Component> _components = new List<Component>();
         private List<Component> _componentsWin = new List<Component>();
-        private Player _player;
         private Enemy _enemy;
         private List<Enemy> enemies = new List<Enemy>();
         private List<Turret> turrets = new List<Turret>();
@@ -27,10 +26,10 @@ namespace alpha_0_2.Game.States
         private Random random;
         private bool gameOver = false;
         private bool gameWon = false;
+
         private float _velocidad = 2.4f;
         private const float _limiteIzquierdo = 0;
         private const float _limiteDerecho = 1920;
-        private Vector2 position;
         float timer = 0f;
         float timerExplosion = 0f;
         Texture2D enemyRight;
@@ -47,8 +46,14 @@ namespace alpha_0_2.Game.States
         Background _background;
         int _currentRound;
         bool isRound = false;
+        Vector2 playerPosition1;
+        int playerWidth1;
+        Vector2 playerPosition2;
+        int playerWidth2;
+        Player _player1;
+        Player2 _player2;
 
-        public GameState2(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
+        public GameStateP(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
             Texture2D[] playerTextures = new Texture2D[]
             {
@@ -71,9 +76,8 @@ namespace alpha_0_2.Game.States
             rocketTexture = content.Load<Texture2D>("rocket");
             explosionTexture = content.Load<Texture2D>("explosion");
 
-            position = new Vector2(400, 875);
-
-            _player = new Player(playerTextures, position, textureRight, textureLeft, bulletTexture, Cargador);
+            _player1 = new Player(playerTextures, new Vector2(400, 875), textureRight, textureLeft, bulletTexture, Cargador);
+            _player2 = new Player2(playerTextures, new Vector2(200, 875), textureRight, textureLeft, bulletTexture, Cargador);
 
             random = new Random();
 
@@ -133,31 +137,27 @@ namespace alpha_0_2.Game.States
 
         private void RestartButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameStateP(_game, _graphicsDevice, _content));
         }
 
         private void NextLevelButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState3(_game, _graphicsDevice, _content));
+            _game.ChangeState(new GameState2(_game, _graphicsDevice, _content));
         }
 
         public override void Update(GameTime gameTime)
         {
             if (!gameOver)
             {
-                _player.Update(gameTime, _sprites);
+                _player1.Update(gameTime, _sprites);
+                _player2.Update(gameTime, _sprites);
 
                 LimitPlayerPosition();
 
-                foreach (var sprite in _sprites.ToArray())
-                    sprite.Update(gameTime, _sprites);
-
                 if (drawExplosion)
                 {
-                    // Incrementar el timer basado en el tiempo transcurrido
                     timerExplosion += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                    // Cambiar el estado del booleano después de 3 segundos
                     if (timerExplosion >= 1f)
                     {
                         drawExplosion = false;
@@ -180,7 +180,7 @@ namespace alpha_0_2.Game.States
                             Round3();
                             break;
                     }
-                    foreach (Component component in _componentsWin)
+                    foreach(Component component in _componentsWin)
                     {
                         component.Update(gameTime);
                     }
@@ -188,7 +188,8 @@ namespace alpha_0_2.Game.States
 
                 foreach (Enemy e in enemies)
                 {
-                    e.Update(gameTime, _player.Position);
+                    e.Update(gameTime, _player1.Position);
+                    e.Update(gameTime, _player2.Position);
                 }
 
                 _background.Update(gameTime);
@@ -209,7 +210,8 @@ namespace alpha_0_2.Game.States
             enemiesLeft = 2;
             for (int i = 0; i < enemiesLeft; i++)
             {
-                enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player1.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player2.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
                 timer = 0;
             }
         }
@@ -221,7 +223,8 @@ namespace alpha_0_2.Game.States
             enemiesLeft = 4;
             for (int i = 0; i < enemiesLeft; i++)
             {
-                enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player1.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player2.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
                 timer = 0;
             }
         }
@@ -233,7 +236,8 @@ namespace alpha_0_2.Game.States
             enemiesLeft = 6;
             for (int i = 0; i < enemiesLeft; i++)
             {
-                enemies.Add(new Enemy(enemyTextures, new Vector2(_player.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player1.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
+                enemies.Add(new Enemy(enemyTextures, new Vector2(_player2.Position.X + random.Next(300, 900), 875), textureRight, textureLeft, bulletTexture));
                 timer = 0;
             }
         }
@@ -245,25 +249,55 @@ namespace alpha_0_2.Game.States
                 var enemy = enemies[e];
                 for (int i = enemy.Weapon.Disparadas.Count - 1; i >= 0; i--)
                 {
-                    if (enemy.Weapon.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
+                    try
                     {
-                        enemy.Weapon.Disparadas.RemoveAt(i);
-                        ReduceHealth();
+                        if (!_player1.IsDodging) // Si no lo esquivo pierdo vida
+                        {
+                            enemy.Weapon.Disparadas.RemoveAt(i);
+                            ReduceHealthPlayer1();
+                        }
+                        if (!_player2.IsDodging) // Si no lo esquivo pierdo vida
+                        {
+                            enemy.Weapon.Disparadas.RemoveAt(i);
+                            ReduceHealthPlayer2();
+                        }
+                        else
+                        {
+                            enemy.Weapon.Disparadas.RemoveAt(i);
+                        }
                     }
+                    catch { }
                 }
             }
         }
+
         public void CheckCollisionEnemy()
         {
-            for (int i = _player.Weapon.Disparadas.Count - 1; i >= 0; i--)
+            for (int i = _player1.Weapon.Disparadas.Count - 1; i >= 0; i--)
             {
-                var bullet = _player.Weapon.Disparadas[i];
+                var bullet = _player1.Weapon.Disparadas[i];
                 for (int e = enemies.Count - 1; e >= 0; e--)
                 {
                     var enemy = enemies[e];
                     if (bullet.CollisionRectangle.Intersects(enemy.CollisionRectangle) && enemy.IsAlive)
                     {
-                        _player.Weapon.Disparadas.RemoveAt(i);
+                        _player1.Weapon.Disparadas.RemoveAt(i);
+                        enemy.IsAlive = false;
+                        RemoveEnemies();
+                        gameWon = (enemies.Count == 0);
+                        break;
+                    }
+                }
+            }
+            for (int i = _player2.Weapon.Disparadas.Count - 1; i >= 0; i--)
+            {
+                var bullet = _player2.Weapon.Disparadas[i];
+                for (int e = enemies.Count - 1; e >= 0; e--)
+                {
+                    var enemy = enemies[e];
+                    if (bullet.CollisionRectangle.Intersects(enemy.CollisionRectangle) && enemy.IsAlive)
+                    {
+                        _player2.Weapon.Disparadas.RemoveAt(i);
                         enemy.IsAlive = false;
                         RemoveEnemies();
                         gameWon = (enemies.Count == 0);
@@ -287,19 +321,19 @@ namespace alpha_0_2.Game.States
             }
         }
 
-        public void ReduceHealth()
+        public void ReduceHealthPlayer1()
         {
-            _player.Health--;
-            if (_player.Health <= 0)
+            _player1.Health--;
+            if (_player1.Health <= 0)
             {
                 gameOver = true;
             }
         }
 
-        public void ReduceHealthMissile()
+        public void ReduceHealthPlayer2()
         {
-            _player.Health -= 4;
-            if (_player.Health <= 0)
+            _player2.Health--;
+            if (_player2.Health <= 0)
             {
                 gameOver = true;
             }
@@ -307,26 +341,37 @@ namespace alpha_0_2.Game.States
 
         private void LimitPlayerPosition()
         {
-            var playerPosition = _player.Position;
-            var playerWidth = _player.Width;
+            playerPosition1 = _player1.Position;
+            playerWidth1 = _player1.Width;
 
-            if (playerPosition.X < 0)
+            playerPosition2 = _player2.Position;
+            playerWidth2 = _player2.Width;
+
+            if (playerPosition1.X < 0)
             {
-                playerPosition.X = 0;
+                playerPosition1.X = 0;
             }
-            else if (playerPosition.X > _limiteDerecho - playerWidth)
+            else if (playerPosition1.X > _limiteDerecho - playerWidth1)
             {
-                playerPosition.X = _limiteDerecho - playerWidth;
+                playerPosition1.X = _limiteDerecho - playerWidth1;
             }
 
-            _player.Position = playerPosition;
+            if (playerPosition2.X < 0)
+            {
+                playerPosition2.X = 0;
+            }
+            else if (playerPosition2.X > _limiteDerecho - playerWidth2)
+            {
+                playerPosition2.X = _limiteDerecho - playerWidth2;
+            }
+
+            _player1.Position = playerPosition1;
+            _player2.Position = playerPosition2;
         }
-
         public override void PostUpdate(GameTime gameTime)
         {
 
         }
-
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -337,7 +382,9 @@ namespace alpha_0_2.Game.States
             spriteBatch.Begin();
 
             _background.Draw(spriteBatch);
-            _player.Draw(spriteBatch);
+
+            _player1.Draw(spriteBatch);
+            _player2.Draw(spriteBatch);
 
             foreach (Enemy enemy in enemies)
             {
@@ -356,9 +403,13 @@ namespace alpha_0_2.Game.States
 
             spriteBatch.DrawString(font, $"Enemies Left: {enemiesLeft}", new Vector2(10, 10), Color.Black);
             spriteBatch.DrawString(font, $"Enemies Killed: {enemiesKilled}", new Vector2(150, 10), Color.Black);
-            spriteBatch.DrawString(font, $"Health Points: {_player.Health}", new Vector2(300, 10), Color.Black);
             spriteBatch.DrawString(font, $"Current Round: {_currentRound}", new Vector2(450, 10), Color.Black);
-            spriteBatch.DrawString(font, $"Ammo: {_player.Weapon._Cargador.Count}", new Vector2(590, 10), Color.Black);
+
+            spriteBatch.DrawString(font, $"Player 1 Ammo: {_player1.Weapon._Cargador.Count}", new Vector2(590, 10), Color.Black);
+            spriteBatch.DrawString(font, $"Player 2 Ammo: {_player2.Weapon._Cargador.Count}", new Vector2(700, 10), Color.Black);
+
+            spriteBatch.DrawString(font, $"Player 1 Health Points: {_player1.Health}", new Vector2(900, 10), Color.Black);
+            spriteBatch.DrawString(font, $"Player 2 Health Points: {_player2.Health}", new Vector2(1100, 10), Color.Black);
 
             if (gameOver)
             {

@@ -14,7 +14,6 @@ namespace alpha_0_2.Game.States
         private List<Component> _components = new List<Component>();
         private List<Component> _componentsWin = new List<Component>();
         private Player _player;
-        //private Player2 _player2;
         private Enemy _enemy;
         private List<Enemy> enemies = new List<Enemy>();
         private List<Turret> turrets = new List<Turret>();
@@ -366,11 +365,6 @@ namespace alpha_0_2.Game.States
             foreach (Enemy enemy in enemies)
             {
                 enemy.Draw(spriteBatch);
-            }
-
-            foreach (var sprite in _sprites)
-            {
-                sprite.Draw(spriteBatch);
             }
 
             if (drawExplosion)

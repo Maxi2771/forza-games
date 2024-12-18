@@ -38,13 +38,13 @@ namespace alpha_0_2.Game.States
 
             pickLevelButton.Click += PickLevelButton_Click;
 
-            var optionsGameButton = new Button(buttonTexture, font)
+            var TwoPlayerGameButton = new Button(buttonTexture, font)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 100),
-                Text = "Options",
+                Text = "2 Players (Experimental)",
             };
 
-            optionsGameButton.Click += optionsGameButton_Click;
+            TwoPlayerGameButton.Click += TwoPlayerGameButton_Click;
 
             var quitGameButton = new Button(buttonTexture, font)
             {
@@ -58,7 +58,7 @@ namespace alpha_0_2.Game.States
             {
                 startButton,
                 pickLevelButton,
-                optionsGameButton,
+                TwoPlayerGameButton,
                 quitGameButton,
             };
         }
@@ -68,8 +68,9 @@ namespace alpha_0_2.Game.States
             _game.Exit();
         }
 
-        private void optionsGameButton_Click(object sender, EventArgs e)
+        private void TwoPlayerGameButton_Click(object sender, EventArgs e)
         {
+            _game.ChangeState(new GameStateP(_game, _graphicsDevice, _content));
         }
 
         private void PickLevelButton_Click(object sender, EventArgs e)

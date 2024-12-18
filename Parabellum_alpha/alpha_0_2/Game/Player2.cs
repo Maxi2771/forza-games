@@ -19,8 +19,11 @@ namespace alpha_0_2.Game
         private Direction facingDirection;
         private KeyboardState _currentKey;
         private KeyboardState _previousKey;
-        private int _health = 1000;
+        private int _health = 10;
         private float timer;
+        private bool isDodging = false; // Acción para esquivar
+        private float dodgeDuration = 0.5f; // Duración del esquive en S
+        private float dodgeTimer = 0f; // Temporizador para esquivar
 
         public int Health
         {
@@ -40,6 +43,12 @@ namespace alpha_0_2.Game
             set { facingDirection = value; }
         }
 
+        public bool IsDodging
+        {
+            get { return isDodging; }
+            set { isDodging = value; }
+        }
+
         public int Width => textures[(int)facingDirection].Width;
 
         Dictionary<Direction, List<Rectangle>> animationFrames = new Dictionary<Direction, List<Rectangle>>
@@ -52,7 +61,7 @@ namespace alpha_0_2.Game
         private float frameInterval = 0.1f;
 
         // Salto
-        private bool isOnGround;
+        private bool hasJumped;
         private float gravity;
         private float initialJumpVelocity;
 
@@ -64,6 +73,19 @@ namespace alpha_0_2.Game
             get { return weapon; }
             set { weapon = value; }
         }
+
+        public Vector2 Velocity
+        {
+            get { return velocity; }
+            set { velocity = value; }
+        }
+
+        public bool HasJumped
+        {
+            get { return hasJumped; }
+            set { hasJumped = value; }
+        }
+
         public Rectangle CollisionRectangle
         {
             get
@@ -100,7 +122,7 @@ namespace alpha_0_2.Game
             currentFrame = 0;
             frameTimer = 0;
 
-            isOnGround = true;
+            //isOnGround = true;
             gravity = 0.6f;
             initialJumpVelocity = 12f;
 
@@ -122,79 +144,87 @@ namespace alpha_0_2.Game
             {
                 weapon.ShootBullet(gameTime);
             }
+
+            if (_currentKey.IsKeyDown(Keys.E) && _previousKey.IsKeyUp(Keys.E) && weapon._Cargador.Count != weapon.Ammo && weapon.TotalAmmo > 0)
+            {
+                weapon.FillBullets();
+            }
+
+            if (_currentKey.IsKeyDown(Keys.X) && _previousKey.IsKeyUp(Keys.X))
+            {
+                isDodging = true; // Acción esquivar activa
+                dodgeTimer = 0f; // Reinicio el temporizador para esquivar
+            }
+
+            if (isDodging)
+            {
+                dodgeTimer += (float)gameTime.ElapsedGameTime.TotalSeconds; // Incrementar el temporizador
+                if (dodgeTimer >= dodgeDuration) // Si el tiempo de esquive ha pasado
+                {
+                    isDodging = false; // Acción esquivar desactivada
+                }
+            }
         }
 
         private void HandleInput(GameTime gameTime)
         {
-            velocity.X = 0;
-
-            // Izquierda
-            if (_currentKey.IsKeyDown(Keys.A))
+            position += velocity;
+            if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
+                velocity.X = 3f;
+                facingDirection = Direction.Right;
+                weapon.Texture = weapon.TextureRight;
+                weapon.Direction = new Vector2(1, 0);
+                weapon.Position = new Vector2(-22, 14);
+            }
+
+            else if (Keyboard.GetState().IsKeyDown(Keys.A))
+            {
+                velocity.X = -3f;
                 facingDirection = Direction.Left;
-                velocity.X -= 1;
                 weapon.Texture = weapon.TextureLeft;
                 weapon.Direction = new Vector2(-1, 0);
-                weapon.Position = new Vector2(-60, 14);
+                weapon.Position = new Vector2(-64, 14);
             }
-
-            // Derecha
-            if (_currentKey.IsKeyDown(Keys.D))
+            else
             {
-                facingDirection = Direction.Right;
-                velocity.X += 1;
-                weapon.Texture = weapon.TextureRight;
-                weapon.Direction = new Vector2(1, 0);
-                weapon.Position = new Vector2(-22, 14);
+                velocity.X = 0f;
             }
 
-            // Saltar
-            if (_currentKey.IsKeyDown(Keys.W) && isOnGround)
+            if (Keyboard.GetState().IsKeyDown(Keys.W) && !hasJumped)
             {
-                velocity.Y = -initialJumpVelocity;
-                isOnGround = false;
+                velocity.Y -= 6f;
+                hasJumped = true;
+
+                if (facingDirection == Direction.Right)
+                {
+                    weapon.Position = new Vector2(-22, 14);
+                }
+                if (facingDirection == Direction.Left)
+                {
+                    weapon.Position = new Vector2(-64, 14);
+                }
             }
 
-            if (_currentKey.IsKeyDown(Keys.W) && _currentKey.IsKeyDown(Keys.Right) && isOnGround)
+            if (hasJumped)
             {
-                velocity.Y = -initialJumpVelocity;
-                isOnGround = false;
-                facingDirection = Direction.Right;
-                velocity.X += velocity.Y;
-                weapon.Texture = weapon.TextureRight;
-                weapon.Direction = new Vector2(1, 0);
-                weapon.Position = new Vector2(-22, 14);
+                float i = 1;
+                velocity.Y += 0.15f * i;
             }
 
-            if (velocity.X != 0)
-                velocity.Normalize();
+            if (position.Y + animationFrames[facingDirection][currentFrame].Height >= 962.1f)
+            {
+                hasJumped = false;
+            }
 
-            Jumping();
+            if (!hasJumped)
+            {
+                velocity.Y = 0f;
+                position.Y = 875;
+            }
 
-            position += velocity * speed;
             UpdateAnimation(gameTime);
         }
-
-        private void Jumping()
-        {
-            // Aplicar gravedad si no está en el suelo
-            if (!isOnGround)
-            {
-                velocity.Y += gravity;
-            }
-
-            // Actualizar posición vertical
-            position.Y += velocity.Y;
-
-            // Verificar si está tocando el suelo
-            if (position.Y >= 875)
-            {
-                position.Y = 875; // Asegurarse de que la posición sea exactamente en el suelo
-                velocity.Y = 0;   // Detener el movimiento vertical
-                isOnGround = true; // Indicar que está en el suelo
-            }
-        }
-
 
         public void UpdateAnimation(GameTime gameTime)
         {
