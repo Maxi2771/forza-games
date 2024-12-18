@@ -212,7 +212,6 @@ namespace alpha_0_2.Game.States
                 _background.Update(gameTime);
                 CheckCollisionPlayer();
                 CheckCollisionEnemy();
-                MissileCollisionPlayer();
             }
             else
             {
@@ -278,33 +277,6 @@ namespace alpha_0_2.Game.States
                     }
                 }
             }
-        }
-
-        public void MissileCollisionPlayer()
-        {
-            /*for (int e = enemies.Count - 1; e >= 0; e--)
-            {
-                var enemy = enemies[e];
-                for (int i = enemy.Weapon.Disparadas.Count - 1; i >= 0; i--)
-                {
-                    if (enemy.Weapon.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
-                    {
-                        enemy.Weapon.Disparadas.RemoveAt(i);
-                        ReduceHealth();
-                    }
-                }
-            }*/
-            /*for (int i = _turret.Disparadas.Count - 1; i >= 0; i--)
-            {
-                if (_turret.Disparadas[i].CollisionRectangle.Intersects(_player.CollisionRectangle))
-                {
-                    drawExplosion = true;
-                    Vector2 offset = new Vector2(100, 80);
-                    pos = _turret.Disparadas[i].PositionAir - offset;
-                    _turret.Disparadas.RemoveAt(i);
-                    ReduceHealthMissile();
-                }
-            }*/
         }
 
         public void CheckCollisionEnemy()
@@ -375,64 +347,21 @@ namespace alpha_0_2.Game.States
 
             _player.Position = playerPosition;
         }
-
-        /*private void UpdateBackground()
-        {
-            var state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.Left))
-            {
-                if (_fondoPosX1 < _limiteIzquierdo)
-                {
-                    _fondoPosX1 += _velocidad;
-                    _fondoPosX2 += _velocidad;
-                }
-            }
-            else if (state.IsKeyDown(Keys.Right))
-            {
-                _fondoPosX1 -= _velocidad;
-                _fondoPosX2 -= _velocidad;
-            }
-
-            if (_fondoPosX1 <= -_fondoTexture.Width)
-                _fondoPosX1 = _fondoPosX2 + _fondoTexture.Width;
-
-            if (_fondoPosX2 <= -_fondoTexture.Width)
-                _fondoPosX2 = _fondoPosX1 + _fondoTexture.Width;
-        }*/
-
-
         public override void PostUpdate(GameTime gameTime)
         {
 
         }
 
-        /*public override void PostUpdate(GameTime gameTime)
-        {
-            for (int i = 0; i < _sprites.Count; i++)
-            {
-                if (_sprites[i].IsRemoved)
-                {
-                    _sprites.RemoveAt(i);
-                    i--;
-                }
-            }
-        }*/
-
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             _graphicsDevice.Clear(Color.CornflowerBlue);
 
-            //spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX1, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
-            //spriteBatch.Draw(_fondoTexture, new Rectangle((int)_fondoPosX2, 0, _graphicsDevice.Viewport.Width, _graphicsDevice.Viewport.Height), Color.White);
             spriteBatch.End();
 
             spriteBatch.Begin();
 
             _background.Draw(spriteBatch);
             _player.Draw(spriteBatch);
-            //_turret.Draw(spriteBatch);
-            //_player2.Draw(spriteBatch);
 
             foreach (Enemy enemy in enemies)
             {
@@ -454,12 +383,6 @@ namespace alpha_0_2.Game.States
             spriteBatch.DrawString(font, $"Health Points: {_player.Health}", new Vector2(300, 10), Color.Black);
             spriteBatch.DrawString(font, $"Current Round: {_currentRound}", new Vector2(450, 10), Color.Black);
             spriteBatch.DrawString(font, $"Ammo: {_player.Weapon._Cargador.Count}", new Vector2(590, 10), Color.Black);
-            //spriteBatch.DrawString(font, $"Player Position: {_player.Position}", new Vector2(300, 10), Color.Black);
-
-            /*foreach (Enemy enemy in enemies)
-            {
-                spriteBatch.DrawString(font, $"Enemy Position: {enemy.Position}", new Vector2(600, 10), Color.Black);
-            }*/
 
             if (gameOver)
             {

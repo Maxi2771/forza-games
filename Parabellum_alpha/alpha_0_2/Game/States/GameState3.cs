@@ -218,7 +218,7 @@ namespace alpha_0_2.Game.States
                 CheckCollisionPlayer();
                 CheckCollisionEnemy();
                 MissileCollisionPlayer();
-                CheckCollisionPlatform();
+                //CheckCollisionPlatform();
                 TurretCollisionPlayer();
             }
             else
@@ -289,7 +289,7 @@ namespace alpha_0_2.Game.States
             }
         }
         
-        public void CheckCollisionPlatform()
+        /*public void CheckCollisionPlatform()
         {
             if (platformRectangle.Intersects(_player.CollisionRectangle))
             {
@@ -304,7 +304,7 @@ namespace alpha_0_2.Game.States
                     _player.Weapon.Position = new Vector2(-64, -90);
                 }
             }
-        }
+        }*/
         
         public void TurretCollisionPlayer()
         {
@@ -438,13 +438,13 @@ namespace alpha_0_2.Game.States
             _turret.Draw(spriteBatch);
             //_player2.Draw(spriteBatch);
 
-            spriteBatch.Draw(platformTexture, new Vector2(500, 850), Color.White);
+            //spriteBatch.Draw(platformTexture, new Vector2(500, 850), Color.White);
 
-            platformRectangle = new Rectangle(500, 850, platformTexture.Width, platformTexture.Height);
+            //platformRectangle = new Rectangle(500, 850, platformTexture.Width, platformTexture.Height);
 
-            Texture2D rectTexture = new Texture2D(_graphicsDevice, 1, 1);
-            rectTexture.SetData(new[] { Color.Red });
-            spriteBatch.Draw(rectTexture, platformRectangle, Color.Red * 0.5f);
+            //Texture2D rectTexture = new Texture2D(_graphicsDevice, 1, 1);
+            //rectTexture.SetData(new[] { Color.Red });
+            //spriteBatch.Draw(rectTexture, platformRectangle, Color.Red * 0.5f);
 
 
             foreach (Enemy enemy in enemies)

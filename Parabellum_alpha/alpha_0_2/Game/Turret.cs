@@ -158,7 +158,6 @@ namespace alpha_0_2.Game
             disparadas.Add(bullet);
         }
 
-
         public override void Draw(SpriteBatch spriteBatch)
         {
             if (_isAlive)

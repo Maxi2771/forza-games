@@ -64,9 +64,12 @@ namespace alpha_0_2.Sprites
         {
             if (!IsRemoved)
             {
-                positionAir = entityPosition + weaponPosition + Position;
-                spriteBatch.Draw(_bulletTexture, positionAir, Color.White);
-                if (isTurret)
+                if (!isTurret)
+                {
+                    positionAir = entityPosition + weaponPosition + Position;
+                    spriteBatch.Draw(_bulletTexture, positionAir, Color.Red * 0.6f);
+                }
+                else
                 {
                     positionAir = entityPosition + Position;
                     spriteBatch.Draw(_bulletTexture, positionAir, Color.White);
