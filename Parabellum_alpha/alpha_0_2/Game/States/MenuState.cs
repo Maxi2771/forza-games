@@ -24,7 +24,7 @@ namespace alpha_0_2.Game.States
 
             var startButton = new Button(buttonTexture, font)
             {
-                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 400),
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 300),
                 Text = "Start",
             };
 
@@ -32,19 +32,19 @@ namespace alpha_0_2.Game.States
 
             var pickLevelButton = new Button(buttonTexture, font)
             {
-                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 300),
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 200),
                 Text = "Pick a level",
             };
 
             pickLevelButton.Click += PickLevelButton_Click;
 
-            var TwoPlayerGameButton = new Button(buttonTexture, font)
+            /*var TwoPlayerGameButton = new Button(buttonTexture, font)
             {
                 Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 200),
                 Text = "2 Players (Experimental)",
             };
 
-            TwoPlayerGameButton.Click += TwoPlayerGameButton_Click;
+            TwoPlayerGameButton.Click += TwoPlayerGameButton_Click;*/
 
             var PvPGameButton = new Button(buttonTexture, font)
             {
@@ -66,7 +66,7 @@ namespace alpha_0_2.Game.States
             {
                 startButton,
                 pickLevelButton,
-                TwoPlayerGameButton,
+                //TwoPlayerGameButton,
                 PvPGameButton,
                 quitGameButton,
             };
@@ -77,10 +77,10 @@ namespace alpha_0_2.Game.States
             _game.Exit();
         }
 
-        private void TwoPlayerGameButton_Click(object sender, EventArgs e)
+        /*private void TwoPlayerGameButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new GameStateP(_game, _graphicsDevice, _content));
-        }
+        }*/
 
         private void PvPGameButton_Click(object sender, EventArgs e)
         {

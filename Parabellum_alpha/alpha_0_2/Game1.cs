@@ -33,7 +33,7 @@ namespace alpha_0_2
             // Pantalla completa 1920x1080
             _graphics.PreferredBackBufferWidth = 1920;
             _graphics.PreferredBackBufferHeight = 1080;
-            _graphics.IsFullScreen = false;
+            _graphics.IsFullScreen = true;
         }
 
         protected override void Initialize()
