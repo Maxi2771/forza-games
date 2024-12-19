@@ -24,7 +24,7 @@ namespace alpha_0_2.Game.States
 
             var startButton = new Button(buttonTexture, font)
             {
-                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 300),
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 400),
                 Text = "Start",
             };
 
@@ -32,7 +32,7 @@ namespace alpha_0_2.Game.States
 
             var pickLevelButton = new Button(buttonTexture, font)
             {
-                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 200),
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 300),
                 Text = "Pick a level",
             };
 
@@ -40,11 +40,19 @@ namespace alpha_0_2.Game.States
 
             var TwoPlayerGameButton = new Button(buttonTexture, font)
             {
-                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 100),
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 200),
                 Text = "2 Players (Experimental)",
             };
 
             TwoPlayerGameButton.Click += TwoPlayerGameButton_Click;
+
+            var PvPGameButton = new Button(buttonTexture, font)
+            {
+                Position = new Vector2((_graphicsManager.PreferredBackBufferWidth / 2) - buttonTexture.Width / 2, (_graphicsManager.PreferredBackBufferHeight / 2) - 100),
+                Text = "1 vs 1",
+            };
+
+            PvPGameButton.Click += PvPGameButton_Click;
 
             var quitGameButton = new Button(buttonTexture, font)
             {
@@ -59,6 +67,7 @@ namespace alpha_0_2.Game.States
                 startButton,
                 pickLevelButton,
                 TwoPlayerGameButton,
+                PvPGameButton,
                 quitGameButton,
             };
         }
@@ -71,6 +80,11 @@ namespace alpha_0_2.Game.States
         private void TwoPlayerGameButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new GameStateP(_game, _graphicsDevice, _content));
+        }
+
+        private void PvPGameButton_Click(object sender, EventArgs e)
+        {
+            _game.ChangeState(new GameState1v1(_game, _graphicsDevice, _content));
         }
 
         private void PickLevelButton_Click(object sender, EventArgs e)
